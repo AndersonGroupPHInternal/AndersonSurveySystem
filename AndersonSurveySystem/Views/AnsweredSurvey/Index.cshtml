@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Customer Service Survey</h2>
+<b>Dear (Customer Name), </b>
+
+<p>
+    Thank you for giving us the opportunity to provide assistance. Please help us by taking a
+    few minutes let us know the service experience that you have received so far. Your feedback
+    is highly appreciated and will definitely help the ITSL Service Desk meet your expectations.
+</p>
+
+<br>
+<b>Ticket Number/ Description: </b>
+<br><br><br>
+<p><b>Please rate your expectations below 1 is the lowest and 10 is the highest</b></p>
+
+
+<div ng-controller="SurveyController as model" ng-init="model.List()">
+    @*<a href="/Survey/Survey" type="button" class="btn btn-success"><i class="glyphicon glyphicon-plus-sign"></i> Add</a><br /><br />*@
+
+
+    <div class="row">
+       
+    </div><br />
+    <table class="table table-hover table-sm table-bordered ">
+        <thead>
+            <tr class="active">
+                <th>SurveyName</th>
+                <th>Rate 1-10</th>
+         
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="Survey in model.Surveys">
+                <td><span ng-bind="Survey.SurveyName"></span></td>
+                <td> <select data-placeholder="-Select your rate-" class="select" data-target="#SurveyModal"id="SurveyModal" ng-model="Survey.Rate">
+                            <option></option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+
+               
+            </tr>
+
+        </tbody>
+
+    </table>
+
+    <button type="button" id="Rate" ng-model="model.Survey.Rate" class="btn btn-primary" style="float: left; margin-right: 50px"><i class="glyphicon glyphicon-ok-sign"> Submit </i></button>
+
+  

@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1> Admin</h1>
+
+
+<div ng-controller="SurveyController as model" ng-init="model.List()">
+    @*<a href="/Survey/Survey" type="button" class="btn btn-success"><i class="glyphicon glyphicon-plus-sign"></i> Add</a><br /><br />*@
+
+    
+    <div class="row">
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#SurveyModal" ng-click="model.CreateModal(Survey)" style="float: right; margin-right: 35px"><i class="glyphicon glyphicon-plus-sign"></i> Add</button>
+    </div><br />
+    <table class="table table-hover table-sm table-bordered ">
+        <thead>
+            <tr class="active">
+                <th><div align="center">Question No.</div></th>
+                <th><div align="center">Question</div></th>
+                <th><div align="center">Rate</div></th>
+                
+                <th style="width: 175px"><div align="center">Action</div></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="Survey in model.Surveys">
+                <td><div align="center"><span ng-bind="Survey.SurveyId"></span></div></td>
+                <td><span ng-bind="Survey.SurveyName"></span></td>
+                <td><span ng-bind="Survey.Rate"></span></td>
+                <td>
+                    <button type="button" class="btn btn-info " data-toggle="modal" ng-click="model.UpdateModal(Survey)" data-target="#SurveyModal"><i class="glyphicon glyphicon-edit"></i> Edit</button>
+                    @*<a ng-href="{{'/Survey/Update/' + Survey.SurveyId}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>*@
+                    <a href="" ng-click="model.Delete(Survey)" type="button" class="btn btn-danger"> <i class="glyphicon glyphicon-trash"></i> Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+   
+    <!-- Modal -->
+    <div class="modal fade" id="SurveyModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Survey</h4>
+
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="SurveyName">SurveyName:</label><br />
+                        <input type="text" id="SurveyName" ng-model="model.Survey.SurveyName" class="form-control" />
+                      
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" ng-click="model.Update()" ng-show="model.Survey.SurveyId > 0">Save changes</button>
+                    <button type="button" class="btn btn-primary" ng-click="model.Create()" ng-show="model.Survey.SurveyId == 0">Add</button>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div align="right">
+    <button type="button" id="myButton" class="btn btn-primary btn-lg"> Submit </i></button>
+        </div>
+
+
+
+    <script type="text/javascript">
+    document.getElementById("myButton").onclick = function () {
+        location.href = "/AnsweredSurvey/Index";
+    };
+    </script>
