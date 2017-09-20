@@ -54,6 +54,7 @@
             vm.Survey = {
                 SurveyId: '',
                 SurveyName: '',
+                Comments: '',
                 Rate: '',
 
             };
@@ -93,6 +94,18 @@
 
             });
         }
+        angular.module('survey', []).controller('SurveyController', function ($scope, $http) {
+            $scope.Survey = null;
+            $scope.Survey = [];
+
+            $http({
+                method: 'GET',
+                url: '/Survey/List',
+                data: { SurveyId: 3 }
+            }).success(function (result) {
+                $scope.Survey = result;
+            });
+        });
 
         function UpdateModal(survey) {
             vm.Survey = angular.copy(survey);

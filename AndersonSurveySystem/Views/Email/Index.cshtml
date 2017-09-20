@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div ng-controller="EmailController as model" ng-init="model.List()">
+    @*<a href="/Survey/Survey" type="button" class="btn btn-success"><i class="glyphicon glyphicon-plus-sign"></i> Add</a><br /><br />*@
+    <br><br>
+    <a href="/Admin/Index" class="btn btn-primary btn-lg"> List of Admin Accounts </a>
+    <a href="/Survey/Index" class="btn btn-primary btn-lg"> Questionaire </a>
+    <a href="/Admin/Report" class="btn btn-primary btn-lg">Survey Results</a>
+
+    <h3> List of Emails </h3>
+    <br><br>
+
+    <div class="row">
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#EmailModal" ng-click="model.CreateModal(Email)" style="float: right; margin-right: 35px"><i class="glyphicon glyphicon-plus-sign"></i> Add Email</button>
+    </div><br />
+    <table class="table table-hover table-sm table-bordered ">
+        <thead>
+            <tr class="active">
+                <th><div align="center">User ID</div></th>
+                <th><div align="center">Username</div></th>
+                <th><div align="center">Email Address.</div></th>
+                <th><div align="center">Reference Number</div></th>
+                <th style="width: 175px"><div align="center">Action</div></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="Email in model.Emails">
+                <td><div align="center"><span ng-bind="Email.UserId"></span></div></td>
+                <td><span ng-bind="Email.UserName"></span></td>
+                <td><span ng-bind="Email.EmailAd"></span></td>
+                <td><span ng-bind="Email.ReferenceNumber"></span></td>
+                <td>
+                    <button type="button" class="btn btn-info " data-toggle="modal" ng-click="model.UpdateModal(Email)" data-target="#EmailModal"><i class="glyphicon glyphicon-edit"></i> Edit</button>
+                    @*<a ng-href="{{'/Survey/Update/' + Survey.SurveyId}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>*@
+                    <a href="" ng-click="model.Delete(Email)" type="button" class="btn btn-danger"> <i class="glyphicon glyphicon-trash"></i> Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="EmailModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Email</h4>
+
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="UserName">UserName:</label>
+                        <input type="text" id="UserName" ng-model="model.Email.UserName" class="form-control" required/><br />
+
+                        <label for="EmailAd">Email Address:</label>
+                        <input type="text" id="EmailAd" ng-model="model.Email.EmailAd" class="form-control" required/><br />
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" ng-click="model.Update()" ng-show="model.Email.UserId > 0">Save changes</button>
+                    <button type="button" class="btn btn-primary" ng-click="model.Create()" ng-show="model.Email.UserId == 0">Add</button>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+</div>

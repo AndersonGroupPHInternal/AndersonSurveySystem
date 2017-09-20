@@ -52,6 +52,7 @@
             vm.Question = {
                 QuestionId: '',
                 Description: '',
+                Rate: '',
 
             };
         }

@@ -12,7 +12,7 @@
 
         vm.AnsweredQuestion;
 
-        vm.AnsweredQuestions = [];
+        vm.AnsweredQuestion = [];
 
         vm.List = List;
         vm.Create = Create;
@@ -25,7 +25,7 @@
             AnsweredQuestionService.Create(vm.AnsweredQuestion)
             .then(function (response) {
                 List();
-                angular.element('#AnsweredQuestionModal').modal('hide');
+                angular.element('#SurveyModal').modal('hide');
 
                 new PNotify({
                     title: 'Success',
@@ -50,15 +50,14 @@
 
         function CreateModal(answeredquestion) {
             vm.AnsweredQuestion = {
-                AnsweredQuestionid: '',
-                Answer: '',
-                
+                QuestionId: '',
+               
 
             };
         }
 
         function List() {
-            AnsweredQuestionService.List()
+            AAnsweredQuestionService.List()
              .then(function (response) {
                  vm.AnsweredQuestions = response.data;
              })
@@ -104,6 +103,7 @@
                 .catch(function (response) {
                 });
         }
+
 
     }
 })();

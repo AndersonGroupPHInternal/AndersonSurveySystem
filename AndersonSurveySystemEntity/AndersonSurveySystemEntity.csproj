@@ -58,7 +58,11 @@
     <Compile Include="EAdmin.cs" />
     <Compile Include="EAnsweredQuestion.cs" />
     <Compile Include="EAnsweredSurvey.cs" />
+    <Compile Include="EComment.cs" />
+    <Compile Include="EEmail.cs" />
     <Compile Include="EQuestion.cs" />
+    <Compile Include="ERate.cs" />
+    <Compile Include="EReport.cs" />
     <Compile Include="ESurvey.cs" />
     <Compile Include="ETypeOfQuestion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

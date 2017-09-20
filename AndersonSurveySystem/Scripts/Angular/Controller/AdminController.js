@@ -51,11 +51,10 @@
         function CreateModal(admin) {
             vm.Admin = {
                 AdminId: '',
-                AdminName: '',
-                UserName: '',
                 FirstName: '',
                 LastName: '',
-
+                UserName: '',
+                Password: '',
             };
         }
 

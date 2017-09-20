@@ -18,8 +18,6 @@
             <tr class="active">
                 <th><div align="center">Question No.</div></th>
                 <th><div align="center">Question</div></th>
-                <th><div align="center">Rate</div></th>
-                
                 <th style="width: 175px"><div align="center">Action</div></th>
             </tr>
         </thead>
@@ -27,7 +25,7 @@
             <tr ng-repeat="Survey in model.Surveys">
                 <td><div align="center"><span ng-bind="Survey.SurveyId"></span></div></td>
                 <td><span ng-bind="Survey.SurveyName"></span></td>
-                <td><span ng-bind="Survey.Rate"></span></td>
+                @*<td><span ng-bind="AnsweredQuestion.Answer"></span></td>*@
                 <td>
                     <button type="button" class="btn btn-info " data-toggle="modal" ng-click="model.UpdateModal(Survey)" data-target="#SurveyModal"><i class="glyphicon glyphicon-edit"></i> Edit</button>
                     @*<a ng-href="{{'/Survey/Update/' + Survey.SurveyId}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>*@
@@ -52,8 +50,10 @@
                     <div class="form-group">
                         <label for="SurveyName">SurveyName:</label><br />
                         <input type="text" id="SurveyName" ng-model="model.Survey.SurveyName" class="form-control" />
+
                       
-                    </div>
+
+                        </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

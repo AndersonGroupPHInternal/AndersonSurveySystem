@@ -21,9 +21,18 @@ namespace AndersonSurveySystem.Controllers
 
         [Route("")]
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Index(string Name)
         {
-            return View();
+            var answeredsurveyss = new AnsweredSurvey
+            {
+                
+                Name = "" + Name
+            };
+
+            return View(answeredsurveyss);
+
+
+            
         }
 
         [HttpGet]
