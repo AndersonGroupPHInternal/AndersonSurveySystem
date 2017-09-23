@@ -7,7 +7,7 @@
 
     AnsweredSurveyController.$inject = ['AnsweredSurveyService'];
 
-    function AnsweredSurveyController(AnsweredSurveyService) {
+    function AnsweredSurveyController($scope) {
         var vm = this;
 
         vm.Survey;
@@ -19,13 +19,14 @@
         vm.CreateModal = CreateModal;
         vm.Update = Update;
         vm.UpdateModal = UpdateModal;
+       
         vm.Delete = Delete;
 
         function Create() {
             SurveyService.Create(vm.Survey)
             .then(function (response) {
                 List();
-                angular.element('#SurveyModal').modal('hide');
+                angular.element('#SurveyRate').modal('hide');
 
                 new PNotify({
                     title: 'Success',
@@ -52,15 +53,16 @@
             vm.Survey = {
                 SurveyId: '',
                 SurveyName: '',
+                Comments:'',
                 Rate: '',
-
+              
             };
         }
 
         function List() {
             SurveyService.List()
              .then(function (response) {
-                 vm.Surveys = response.data;
+                 vm.Surveys.response.data;
              })
              .catch(function (data, status) {
                  new PNotify({
@@ -75,10 +77,11 @@
         }
 
         function Update() {
+      
             SurveyService.Update(vm.Survey)
             .then(function (response) {
                 List();
-                angular.element('#SurveyModal').modal('hide');
+                angular.element('#SurveyRate').modal('hide');
             })
             .catch(function (data, status) {
                 new PNotify({
@@ -108,3 +111,5 @@
 
     }
 })();
+
+;

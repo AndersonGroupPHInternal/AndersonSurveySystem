@@ -15,6 +15,8 @@ namespace AndersonSurveySystemEntity
         [StringLength(50)]
         public string Description { get; set; }
 
+        public int Rate { get; set; }
+
         //[ForeignKey("TypeOfQuestion")]
         //public int TypeOfQuestionId { get; set; }
 

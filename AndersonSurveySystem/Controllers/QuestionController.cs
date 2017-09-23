@@ -35,7 +35,7 @@ namespace AndersonSurveySystem.Controllers
             try
             {
                 question = _iFQuestion.Create(question);
-                return Json("");
+                return Json("answeredsurvey");
             }
             catch (Exception ex)
             {

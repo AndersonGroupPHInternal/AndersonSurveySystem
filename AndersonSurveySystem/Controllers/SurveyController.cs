@@ -13,7 +13,12 @@ namespace AndersonSurveySystem.Controllers
     {
         private IFSurvey _iFSurvey;
 
-        public SurveyController()
+        List<Survey> Rates = new List<Survey>();
+
+      
+
+
+public SurveyController()
         {
             _iFSurvey = new FSurvey();
         }
@@ -67,6 +72,7 @@ namespace AndersonSurveySystem.Controllers
             try
             {
                 Survey survey = _iFSurvey.Read(id);
+               
                 return View(survey);
             }
             catch (Exception ex)

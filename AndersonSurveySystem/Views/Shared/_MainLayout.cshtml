@@ -10,6 +10,7 @@
         .navbar {
             border-bottom-color: #0026ff;
             border-width: 0 1px 4px 1px;
+            background-color:white;
         }
 
         }
@@ -54,16 +55,16 @@
             </div>
             <align class="navbar-collapse collapse navbar-fixed-top">
 
-                <align class="right-sidebar-top">
+                @*<align class="right-sidebar-top">
                     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img src="~/Content/Images/Survey.jpg" height="60" />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img src="~/Content/Images/a.png" height="60" />
 
-                </align>
+                </align>*@
 
                 <table align="left">
                     <tr>
                         <th>
-                            <img src="~/Content/Images/logo.png" height="60" />
+                            <img src="~/Content/Images/ITSLanderson.png" height="80" />
                         </th>
 
                     </tr>
@@ -72,45 +73,36 @@
                 <table align="right">
                     <tr>
                         <th>
-                            <img src="~/Content/Images/ITSL.png" height="60" /></a>
+                            <img src="~/Content/Images/ITSL logo-v2.jpg" height= "95" />
 
                         </th>
 
                     </tr>
                 </table>
 
+                <div align="center">
+                    <br />
+                    <img src="~/Content/Images/a.png" height="60" />
+                    </div>
 
 
     </div>
-    </div>
-
+   
 
 
     <br /> <br />
-    @*<nav class="navbar fixed-top navbar-toggleable-md">
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <a class="navbar-brand" href="/Home"><img src="~/Content/Images/Anderson.Assembly.png" width="450" height="50" /></a>
-
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <div class="navbar-nav">
-                            <a class="nav-item nav-link" href="~/Visitor">Visitor</a>
-
-                        </div>
-                    </div>
-        </nav>*@
+   
     <div id="MainContainer" class="body-content" ng-app="App">
         @Html.Partial("_PartialScript")
         @RenderBody()
     </div>
     <div class="container body-content">
         <hr />
-        <footer>
+        @*<footer>
             <div align="left">
                 <p>&copy; @DateTime.Now.Year - My ASP.NET Application | Developers | Stephanie Vilanueva | Sophia Lorraine Tesalona</p>
             </div>
-        </footer>
+        </footer>*@
   
      
     </div>

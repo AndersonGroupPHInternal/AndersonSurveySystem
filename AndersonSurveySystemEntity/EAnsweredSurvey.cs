@@ -11,16 +11,29 @@ namespace AndersonSurveySystemEntity
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 
-        public int AnsweredSurveyid { get; set; }
-        public string ReferenceNumber { get; set; }
+        public int AnsweredSurveyId { get; set; }
+        //public string ReferenceNumber { get; set; }
 
 
         //[ForeignKey("Survey")]
         //public int Surveyid { get; set; }
 
-        public ICollection<EAnsweredQuestion> AnsweredQuestion { get; set; }
+        public ICollection<EAnsweredQuestion> AnsweredQuestions { get; set; }
 
+        public ICollection<EQuestion> Questions { get; set; }
+
+        //additional field
+        //public int Rate { get; set; }
         public int Userid { get; set; }
+
+        [StringLength(250)]
+        public string Name { get; set; }
+
+        [StringLength(50)]
+        public string ticketnumber { get; set; }
+
+        [StringLength(250)]
+        public string description { get; set; }
 
     }
 }

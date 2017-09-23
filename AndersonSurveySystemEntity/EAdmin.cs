@@ -13,14 +13,17 @@ namespace AndersonSurveySystemEntity
         public int AdminId { get; set; }
 
         [StringLength(250)]
-        public string AdminName { get; set; }
-        //public string Email { get; set; }
+        public string FirstName { get; set; }
+
+        [StringLength(250)]
+        public string LastName { get; set; }
+
         [StringLength(250)]
         public string UserName { get; set; }
+
+        [StringLength(10)]
         public string Password { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        
+
 
 
         public ICollection<EAnsweredSurvey> AnsweredQuestion { get; set; }

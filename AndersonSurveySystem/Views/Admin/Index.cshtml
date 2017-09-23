@@ -3,7 +3,6 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Log In</h2>
 <style>
     input[type=text], input[type=password] {
     width: 50%;
@@ -43,96 +42,48 @@ button {
     display: table;
 }
 
-    }
-}
 
 </style>
 
-
-
-
-
 <div ng-controller="AdminController as model" ng-init="model.List()">
-    @*<a href="/Admin/Admin" type="button" class="btn btn-success"><i class="glyphicon glyphicon-plus-sign"></i> Add</a><br /><br />*@
+    @*<a href="/Survey/Survey" type="button" class="btn btn-success"><i class="glyphicon glyphicon-plus-sign"></i> Add</a><br /><br />*@
 
+    <br><br>
+   <a href="/Survey/Index" class="btn btn-primary btn-lg"> Questionaire </a>
+    <a href="/Email/Index" class="btn btn-primary btn-lg"> List of Emails </a>
+    <a href="/Admin/Report" class="btn btn-primary btn-lg">Survey Results</a>
+    
+    <h3> List of Accounts </h3>
+    <br><br>
 
     <div class="row">
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#AdminModal" ng-click="model.CreateModal(Admin)" style="float: right; margin-right: 35px"><i class="glyphicon glyphicon-plus-sign"></i> Add Admin Account</button>
+        <button type="button" class="btn btn-success" style="float: right; margin-right: 35px"><i class="glyphicon glyphicon-plus-sign"></i> Add Admin Account</button>
     </div><br />
 
-<table class="table table-hover table-sm table-bordered ">
-    <thead>
-        <tr class="active">
-            <th><div align="center">UserName.</div></th>
-            <th><div align="center">Password</div></th>
-        </tr>
-    </thead>
-    <tbody>
-       <td><b>UserName</b>
-                         <input type="text" placeholder="Enter UserName" name="username" required> <br /></td>
-    <td><b>Password</b>
-                        <input type="password" placeholder="Enter Password" name="psw" required></td> <br />
-    </tbody>
-</table>
-
-
-
-    <!-- Modal -->
-    <div class="modal fade" id="AdminModal" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Admin Account</h4>
-
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="AdminName">AdminName:</label><br />
-                        <input type="text" id="AdminName" ng-model="model.Admin.AdminName" class="form-control" />
-
-                    </div>
-                    <div class="form-group">
-                        <label for="UserName">UserName:</label><br />
-                        <input type="text" id="UserName" ng-model="model.Admin.UserName" class="form-control" />
-
-                    </div>
-                    <div class="form-group">
-                        <label for="Password">Password:</label><br />
-                        <input type="password" id="Password" ng-model="model.Admin.Password" class="form-control" />
-
-                    </div>
-                    <div class="form-group">
-                        <label for="FirstName">FirstName:</label><br />
-                        <input type="text" id="FirstName" ng-model="model.Admin.FirstName" class="form-control" />
-
-                    </div>
-                    <div class="form-group">
-                        <label for="LastName">LastName:</label><br />
-                        <input type="text" id="LastName" ng-model="model.Admin.LastName" class="form-control" />
-
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" ng-click="model.Update()" ng-show="model.Admin.AdminId > 0">Save changes</button>
-                    <button type="button" class="btn btn-primary" ng-click="model.Create()" ng-show="model.Admin.AdminId == 0">Add</button>
-
-                </div>
-            </div>
-
-        </div>
-    </div>
-    <div align="right">
-        <button type="button" id="myButton" class="btn btn-primary btn-lg"> Submit </i></button>
-
-
-        <script type="text/javascript">
-    document.getElementById("myButton").onclick = function () {
-        location.href = "/Survey/Index";
-    };
-        </script>
-
-    </div>
+    <table class="table table-hover table-sm table-bordered ">
+        <thead>
+            <tr class="active">
+                <th><div align="center">Admin Id</div></th>
+                <th><div align="center">First Name</div></th>
+                <th><div align="center">Last Name</div></th>
+                <th><div align="center">Username</div></th>
+                <th><div align="center">Password</div></th>
+                <th style="width: 175px"><div align="center">Action</div></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="Admin in model.Admins">
+                <td><div align="center"><span ng-bind="Admin.AdminId"></span></div></td>
+                <td><span ng-bind="Admin.FirstName"></span></td>
+                <td><span ng-bind="Admin.LastName"></span></td>
+                <td><span ng-bind="Admin.UserName"></span></td>
+                <td><span ng-bind="Admin.Password"></span></td>
+                <td>
+                
+                    <a href="" ng-click="model.Delete(Admin)" type="button" class="btn btn-danger"> <i class="glyphicon glyphicon-trash"></i> Delete</a>
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

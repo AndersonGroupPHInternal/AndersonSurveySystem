@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Report";
+}
+
+<div ng-controller="SurveyController as model" ng-init="model.List()">
+    @*<a href="/Survey/Survey" type="button" class="btn btn-success"><i class="glyphicon glyphicon-plus-sign"></i> Add</a><br /><br />*@
+
+    <br><br>
+    <a href="/Admin/Index" class="btn btn-primary btn-lg"> List of Admin Accounts </a>
+    <a href="/Survey/Index" class="btn btn-primary btn-lg"> List of Questions </a>
+    <a href="/Email/Index" class="btn btn-primary btn-lg"> List of Emails </a>
+    @*<a href=" " class="btn btn-primary btn-lg">Survey Results</a>*@
+
+    <h3> Survey Results </h3>
+    <br><br>
+
+    <table class="table table-hover table-sm table-bordered ">
+        <thead>
+            <tr class="active">
+                <th><div align="center">Question No.</div></th>
+                <th><div align="center">Question</div></th>
+                <th><div align="center">Rate</div></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="Survey in model.Surveys">
+                <td><div align="center"><span ng-bind="Survey.SurveyId"></span></div></td>
+                <td><span ng-bind="Survey.SurveyName"></span></td>
+                <td><span ng-bind="Survey.Rate"></span></td>
+</tr>
+</tbody>
+</table>
+</div>

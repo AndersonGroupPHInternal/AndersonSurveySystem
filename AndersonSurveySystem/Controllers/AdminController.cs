@@ -25,11 +25,32 @@ namespace AndersonSurveySystem.Controllers
             return View();
         }
 
+        [Route("")]
+        [HttpGet]
+        public ActionResult Index2()
+        {
+            return View();
+        }
+
+        [Route("")]
+        [HttpGet]
+        public ActionResult MainPage()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Report()
+        {
+            return View(new Admin());
+        }
+
         [HttpGet]
         public ActionResult Create()
         {
             return View(new Admin());
         }
+
 
         [HttpPost]
         public JsonResult Create(Admin admin)

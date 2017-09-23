@@ -2,29 +2,37 @@
 using AndersonSurveySystemModel;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+
 
 namespace AndersonSurveySystem.Controllers
 {
     [RoutePrefix("AnsweredSurvey")]
     public class AnsweredSurveyController : Controller
     {
-            
+      
         private IFAnsweredSurvey _iFAnsweredSurvey;
 
         public AnsweredSurveyController()
         {
+           
             _iFAnsweredSurvey = new FAnsweredSurvey();
         }
 
+
         [Route("")]
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Index(string ticketnumber, string description, string Name)
         {
-            return View();
+
+            var answeredsurveyss = new AnsweredSurvey { ticketnumber = "" + ticketnumber,
+                                                      description = " " + description, Name = "" + Name };
+        
+            return View(answeredsurveyss);
+
+           
         }
+
 
         [HttpGet]
         public ActionResult Create()
@@ -33,13 +41,16 @@ namespace AndersonSurveySystem.Controllers
         }
 
         [HttpPost]
-        public JsonResult Create(AnsweredSurvey answeredsurvey)
+        public ActionResult Create(AnsweredSurvey answeredSurvey)
         {
 
             try
             {
-                answeredsurvey = _iFAnsweredSurvey.Create(answeredsurvey);
-                return Json("");
+
+                
+                _iFAnsweredSurvey.Create(answeredSurvey);
+                return RedirectToAction("Index", "AnsweredQuestion", new { Name = answeredSurvey.Name });
+                
             }
             catch (Exception ex)
             {
@@ -49,25 +60,25 @@ namespace AndersonSurveySystem.Controllers
 
         [Route("List")]
         [HttpPost]
-        public ActionResult List()
+        public ActionResult Survey(Survey model)
         {
-            
-            try
-            {
-                AnsweredSurvey answeredsurvey = new AnsweredSurvey();
-                return Json(_iFAnsweredSurvey.List());
-            }
-            catch (Exception exception)
-            {
-                return Json(exception);
-            }
-        }
 
+            
+
+            return View(model);
+        }
+       
+    
+
+        
+        
         [HttpGet]
         public ActionResult Update(int id)
         {
             try
             {
+                List<Survey> Survey = new List<Survey>();
+
                 AnsweredSurvey answeredsurvey = _iFAnsweredSurvey.Read(id);
                 return View(answeredsurvey);
             }
@@ -104,5 +115,6 @@ namespace AndersonSurveySystem.Controllers
                 return Json(ex);
             }
         }
-    }
+        }
+    
 }
