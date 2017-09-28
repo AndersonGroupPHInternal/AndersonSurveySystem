@@ -5,12 +5,12 @@
     @*@RenderSection("head", required: false)*@
 
     @Html.Partial("_PartialCSS")
-
+    
     <style>
         .navbar {
             border-bottom-color: #0026ff;
             border-width: 0 1px 4px 1px;
-            background-color:white;
+            background-color: white;
         }
 
         }
@@ -43,7 +43,7 @@
     @*<script>
             var ApplicationName = '';
         </script>*@
-    <div class="navbar navbar-default navbar-fixed-top navDiv">
+    <nav class="navbar navbar-default navbar-fixed-top navDiv">
         <align class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -56,6 +56,7 @@
             <align class="navbar-collapse collapse navbar-fixed-top">
 
                 @*<align class="right-sidebar-top">
+                    <br />
                     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img src="~/Content/Images/a.png" height="60" />
 
@@ -73,30 +74,46 @@
                 <table align="right">
                     <tr>
                         <th>
-                            <img src="~/Content/Images/ITSL logo-v2.jpg" height= "95" />
+                            <img src="~/Content/Images/ITSL logo-v2.jpg" height="95" />
 
                         </th>
 
                     </tr>
                 </table>
 
-                <div align="center">
+
+                <div align="center"> 
                     <br />
                     <img src="~/Content/Images/a.png" height="60" />
                     </div>
 
+                
 
-    </div>
+
+    </nav>
    
 
 
     <br /> <br />
-   
+    @*<nav class="navbar fixed-top navbar-toggleable-md">
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="/Home"><img src="~/Content/Images/Anderson.Assembly.png" width="450" height="50" /></a>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <div class="navbar-nav">
+                            <a class="nav-item nav-link" href="~/Visitor">Visitor</a>
+
+                        </div>
+                    </div>
+        </nav>*@
     <div id="MainContainer" class="body-content" ng-app="App">
         @Html.Partial("_PartialScript")
         @RenderBody()
     </div>
-    <div class="container body-content">
+
+    @*<div class="container body-content">*@
         <hr />
         @*<footer>
             <div align="left">
@@ -105,6 +122,21 @@
         </footer>*@
   
      
-    </div>
+    @*</div>*@
+
 </body>
 </html>
+
+@*<div class="container body-content">
+    @RenderBody()
+    <hr />
+    <footer>
+        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+    </footer>
+</div>
+<script src="~/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="~/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="~/bower_components/angular/angular.min.js"></script>
+<script src="~/bower_components/chart.js/dist/Chart.min.js"></script>
+<script src="~/bower_components/angular-chart.js/dist/angular-chart.min.js"></script>
+@RenderSection("scripts", false)*@

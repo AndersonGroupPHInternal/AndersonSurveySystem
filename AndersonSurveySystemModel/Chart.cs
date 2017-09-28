@@ -10,5 +10,7 @@ namespace AndersonSurveySystemModel
     {
         public string Series { get; set; }
         public List<ChartData> ChartData { get; set; }
+
+        public List<AnsweredQuestion> AnsweredQuestion { get; set; }
     }
 }

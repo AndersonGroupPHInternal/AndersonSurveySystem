@@ -11,6 +11,9 @@ namespace AndersonSurveySystemModel
         public int RateId { get; set; }
         public int SurveyId { get; set; }
         public int Rates { get; set; }
-        public List<AnsweredQuestion> Total { get; set; }
+
+        
+
+
     }
 }

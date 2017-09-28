@@ -18,9 +18,9 @@
         function Create(answeredquestion) {
             return $http({
                 method: 'POST',
-                url: '../AnsweredSurvey/Create',
+                url: '../AnsweredQuestion/Create',
                 data: {
-                    answeredsurvey: answeredsurvey
+                    answeredquestion: answeredquestion
                 }
             });
         }

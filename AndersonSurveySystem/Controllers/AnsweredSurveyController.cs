@@ -2,7 +2,14 @@
 using AndersonSurveySystemModel;
 using System;
 using System.Collections.Generic;
+using AndersonSurveySystemContext;
+using System.Linq;
+using System.Web;
 using System.Web.Mvc;
+using System.Net;
+using System.Collections.Specialized;
+using System.Web.Script.Serialization;
+using System.Net.Mail;
 
 
 namespace AndersonSurveySystem.Controllers
@@ -12,11 +19,13 @@ namespace AndersonSurveySystem.Controllers
     {
       
         private IFAnsweredSurvey _iFAnsweredSurvey;
+        private IFAnsweredSurveyResult _iFAnsweredSurveyResult;
 
         public AnsweredSurveyController()
         {
            
             _iFAnsweredSurvey = new FAnsweredSurvey();
+            _iFAnsweredSurveyResult = new FAnsweredSurveyResult();
         }
 
 
@@ -25,12 +34,42 @@ namespace AndersonSurveySystem.Controllers
         public ActionResult Index(string ticketnumber, string description, string Name)
         {
 
-            var answeredsurveyss = new AnsweredSurvey { ticketnumber = "" + ticketnumber,
-                                                      description = " " + description, Name = "" + Name };
-        
+            var answeredsurveyss = new AnsweredSurvey { ticketnumber = " " + ticketnumber, description = " " + description, Name = " " + Name };
+
             return View(answeredsurveyss);
 
-           
+        }
+
+
+        [Route("")]
+        [HttpGet]
+        public JsonResult Result(/*int answer, int questionId*/)
+        {
+            //return View();
+
+            //List<AnsweredQuestion> answeredquestion = new List<AnsweredQuestion>();
+            //try
+            //{
+            //    using (var ctx = new Context())
+            //    {
+            //        answeredquestion = ctx.AnsweredQuestion.Where(a => a.Answer == answer && a.QuestionId == questionId).Select(a =>
+            //            new AnsweredQuestion
+            //            {
+            //                AnsweredQuestionId = a.AnsweredQuestionId,
+            //                Answer = a.Answer,
+            //                QuestionId = a.QuestionId
+            //            }
+            //        ).ToList();
+
+            //    }
+            //}
+            //catch (Exception)
+            //{
+            //    throw;
+            //}
+            //return View();
+
+            return Json(_iFAnsweredSurveyResult.List(0));
         }
 
 
@@ -47,10 +86,13 @@ namespace AndersonSurveySystem.Controllers
             try
             {
 
-                
+                //foreach (var answeredsurvey in answeredsurveys)
+                //{
                 _iFAnsweredSurvey.Create(answeredSurvey);
                 return RedirectToAction("Index", "AnsweredQuestion", new { Name = answeredSurvey.Name });
-                
+                //}
+
+                //return View(/*new AnsweredQuestion()*/);
             }
             catch (Exception ex)
             {
@@ -63,15 +105,16 @@ namespace AndersonSurveySystem.Controllers
         public ActionResult Survey(Survey model)
         {
 
-            
+            int SurveyId = model.SurveyId;
+            int Rate = model.Rate;
 
             return View(model);
         }
-       
-    
+        //List<Survey> Survey = new List<Survey>();
 
-        
-        
+
+
+
         [HttpGet]
         public ActionResult Update(int id)
         {
@@ -115,6 +158,34 @@ namespace AndersonSurveySystem.Controllers
                 return Json(ex);
             }
         }
+
+        //public JsonResult Static()
+        //{
+        //    return Json(_iFAnsweredSurveyResult.List(0));
+        //}
+
+        public ActionResult StaticStructured()
+        {
+            return View();
         }
-    
+
+        public ActionResult DynamicStructured()
+        {
+            return View();
+        }
+
+        public JsonResult DynamicStructuredData()
+        {
+
+            return Json(_iFAnsweredSurveyResult.List(0));
+        }
+        public JsonResult Static()
+        {
+
+            return Json(_iFAnsweredSurveyResult.List(0));
+        }
+
+
+    }
+
 }

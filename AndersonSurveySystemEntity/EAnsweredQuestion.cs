@@ -20,9 +20,10 @@ namespace AndersonSurveySystemEntity
 
         //[ForeignKey("Question")]
 
+    
+        public int Answer { get; set; }
 
-        [StringLength(50)]
-        public string Answer { get; set; }
+        [StringLength(250)]
         public string Comments { get; set; }
 
         public EAnsweredSurvey AnsweredSurvey { get; set; }

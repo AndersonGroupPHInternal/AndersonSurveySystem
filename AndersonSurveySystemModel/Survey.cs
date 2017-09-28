@@ -15,8 +15,6 @@ namespace AndersonSurveySystemModel
         public int Rate { get; set; }
 
         public IEnumerable<Question> Result { get; set; }
-        //public int Rate { get; set;  }
-        public virtual Rate Rates { get; set; }
-
+      
     }
 }

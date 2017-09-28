@@ -13,11 +13,11 @@ namespace AndersonSurveySystemModel
         public int QuestionId { get; set; }
         public int Rate { get; set; }
 
-        public string Answer { get; set; }
+        public int Answer { get; set; }
         public string Comments { get; set; }
 
         //public List<Rate> rate { get; set; }
         //public List<Survey> survey { get; set; }
-    }
 
+    }
 }

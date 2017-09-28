@@ -13,12 +13,11 @@
 
     <style>
         .navbar {
-            border-bottom-color: #c05f5f;
+            border-bottom-color: #0026ff;
             border-width: 0 1px 4px 1px;
+            background-color: white;
         }
 
-        .logo {
-            right: 1px;
         }
 
         li a:hover, .navbar-brand:hover {
@@ -27,7 +26,21 @@
         }
 
         .navDiv {
-            height: 90px;
+            height: 100px;
+            table, td, th;
+
+        {
+            border: 1px solid #ddd;
+            padding-right: 100px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            padding: 100px;
         }
     </style>
 </head>
@@ -51,9 +64,115 @@
         </div>*@
 
 
+    @*<div class="container body-content">
+      
+        <hr />
+        <footer>
+            <p> &nbsp; &nbsp; &nbsp; &nbsp; Private and Confidential. Anderson Group BPO Inc. &copy; 2017</p>
+        </footer>
+    </div>*@
+   
 
     
 </body>
 </html>
 
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    @*<div class="navbar navbar-inverse navbar-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="../Home/Static">Static</a>
+                    </li>
+                    <li>
+                        <a href="../Home/StaticStructured">StaticStructured</a>
+                    </li>
+                    <li>
+                        <a href="../Home/DynamicStructured">DynamicStructured</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>*@
 
+    <div class="navbar navbar-default navbar-fixed-top navDiv">
+        <align class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @*@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+            </div>
+            <align class="navbar-collapse collapse navbar-fixed-top">
+
+                @*<align class="right-sidebar-top">
+                        <br />
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img src="~/Content/Images/a.png" height="60" />
+
+                    </align>*@
+
+                <table align="left">
+                    <tr>
+                        <th>
+                            <img src="~/Content/Images/ITSLanderson.png" height="80" />
+                        </th>
+
+                    </tr>
+                </table>
+
+                <table align="right">
+                    <tr>
+                        <th>
+                            <img src="~/Content/Images/ITSL logo-v2.jpg" height="95" />
+
+                        </th>
+
+                    </tr>
+                </table>
+
+
+                <div align="center">
+                    <br />
+                    <img src="~/Content/Images/a.png" height="60" />
+                </div>
+
+
+
+
+    </div>
+
+
+    <div class= "container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+    <script src="~/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="~/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/bower_components/angular/angular.min.js"></script>
+    <script src="~/bower_components/chart.js/dist/Chart.min.js"></script>
+    <script src="~/bower_components/angular-chart.js/dist/angular-chart.min.js"></script>
+    @RenderSection("scripts", false)
+</body>
+</html>

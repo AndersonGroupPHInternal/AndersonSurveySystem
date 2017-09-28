@@ -5,14 +5,14 @@
     .module('App')
     .controller('AnsweredQuestionController', AnsweredQuestionController);
 
-    AnsweredQuestionController.$inject = ['AnsweredQuestionService'];
+   AnsweredQuestionController.$inject = ['AnsweredQuestionService'];
 
     function AnsweredQuestionController(AnsweredQuestionService) {
         var vm = this;
 
         vm.AnsweredQuestion;
 
-        vm.AnsweredQuestion = [];
+        vm.AnsweredQuestions = [];
 
         vm.List = List;
         vm.Create = Create;
@@ -21,11 +21,13 @@
         vm.UpdateModal = UpdateModal;
         vm.Delete = Delete;
 
+
+
         function Create() {
             AnsweredQuestionService.Create(vm.AnsweredQuestion)
             .then(function (response) {
                 List();
-                angular.element('#SurveyModal').modal('hide');
+                angular.element('#AnsweredQuestionModal').modal('hide');
 
                 new PNotify({
                     title: 'Success',
@@ -50,14 +52,15 @@
 
         function CreateModal(answeredquestion) {
             vm.AnsweredQuestion = {
-                QuestionId: '',
-               
+                AnsweredQuestionId: '',
+                Answer: '',
+                
 
             };
         }
 
         function List() {
-            AAnsweredQuestionService.List()
+            AnsweredQuestionService.List()
              .then(function (response) {
                  vm.AnsweredQuestions = response.data;
              })
@@ -90,7 +93,7 @@
 
             });
         }
-
+       
         function UpdateModal(answeredquestion) {
             vm.AnsweredQuestion = angular.copy(answeredquestion);
         }
@@ -103,7 +106,6 @@
                 .catch(function (response) {
                 });
         }
-
 
     }
 })();

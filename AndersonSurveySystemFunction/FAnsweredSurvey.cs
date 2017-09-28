@@ -28,7 +28,7 @@ namespace AndersonSurveySystemFunction
         #region READ
         public AnsweredSurvey Read(int answeredsurveyId)
         {
-            EAnsweredSurvey eAnsweredSurvey = _iDAnsweredSurvey.Read<EAnsweredSurvey>(a => a.AnsweredSurveyId == answeredsurveyId);
+            EAnsweredSurvey eAnsweredSurvey = _iDAnsweredSurvey.Read<EAnsweredSurvey>(a => a.AnsweredSurveyid == answeredsurveyId);
             return AnsweredSurvey(eAnsweredSurvey);
         }
 
@@ -59,11 +59,10 @@ namespace AndersonSurveySystemFunction
         {
             var returnAnsweredSurveys = eAnsweredSurveys.Select(a => new AnsweredSurvey
             {
-                AnsweredSurveyId = a.AnsweredSurveyId,
+                AnsweredSurveyId = a.AnsweredSurveyid,
                 Name = a.Name,
                 ticketnumber = a.ticketnumber,
-                description = a.description,
-                
+                description = a.description
             });
 
             return returnAnsweredSurveys.ToList();
@@ -73,31 +72,24 @@ namespace AndersonSurveySystemFunction
         {
             EAnsweredSurvey returnEAnsweredSurvey = new EAnsweredSurvey
             {
-                AnsweredSurveyId = answeredSurvey.AnsweredSurveyId,
+                AnsweredSurveyid = answeredSurvey.AnsweredSurveyId,
                 Name = answeredSurvey.Name,
                 ticketnumber = answeredSurvey.ticketnumber,
                 description = answeredSurvey.description,
-               
                 AnsweredQuestions = answeredSurvey.AnsweredQuestions.Select(a => new EAnsweredQuestion
                 {
                     Answer = a.Answer,
                     QuestionId = a.QuestionId
 
+
                 }).ToList(),
-                //Questions = answeredSurvey.Questions.Select(a => new EQuestion
-                //{
-                //    QuestionId = a.QuestionId,
-                //    Rate = a.Rate
+
+                Questions = answeredSurvey.Questions.Select(a => new EQuestion
+                {
+                    QuestionId = a.QuestionId
 
 
-                //}).ToList()
-
-
-
-                //comments = answeredSurvey.comments.Select(a => new EComment
-                //{
-                //    Comments = a.Comments
-                //}).ToList()
+                }).ToList()
             };
             return returnEAnsweredSurvey;
         }
@@ -106,11 +98,10 @@ namespace AndersonSurveySystemFunction
         {
             AnsweredSurvey returnAnsweredSurvey = new AnsweredSurvey
             {
-                AnsweredSurveyId = eAnsweredSurvey.AnsweredSurveyId,
+                AnsweredSurveyId = eAnsweredSurvey.AnsweredSurveyid,
                 Name = eAnsweredSurvey.Name,
                 ticketnumber = eAnsweredSurvey.ticketnumber,
-                description =eAnsweredSurvey.description,
-                
+                description = eAnsweredSurvey.description
             };
             return returnAnsweredSurvey;
         }

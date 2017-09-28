@@ -19,6 +19,6 @@ namespace AndersonSurveySystemEntity
 
       public int Rates { get; set; }
 
-        public ICollection<EAnsweredQuestion> Total { get; set; }
+        public ICollection<ESurvey> Survey { get; set; }
     }
 }

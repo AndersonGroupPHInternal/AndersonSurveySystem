@@ -61,6 +61,7 @@
     <Compile Include="Admin.cs" />
     <Compile Include="AnsweredQuestion.cs" />
     <Compile Include="AnsweredSurvey.cs" />
+    <Compile Include="AnsweredSurveyResult.cs" />
     <Compile Include="Chart.cs" />
     <Compile Include="ChartData.cs" />
     <Compile Include="Comment.cs" />

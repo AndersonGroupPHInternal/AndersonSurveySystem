@@ -11,10 +11,11 @@ namespace AndersonSurveySystemEntity
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 
-        public int AnsweredSurveyId { get; set; }
+        public int AnsweredSurveyid { get; set; }
         //public string ReferenceNumber { get; set; }
 
 
+        public int QuestionId { get; set; }
         //[ForeignKey("Survey")]
         //public int Surveyid { get; set; }
 
