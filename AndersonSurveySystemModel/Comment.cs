@@ -10,6 +10,8 @@ namespace AndersonSurveySystemModel
     {
         public int CommentId { get; set; }
         public int SurveyId { get; set; }
+
+
         public string Comments { get; set; }
 
     }

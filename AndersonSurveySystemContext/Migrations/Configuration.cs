@@ -9,7 +9,7 @@ namespace AndersonSurveySystemContext.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(AndersonSurveySystemContext.Context context)

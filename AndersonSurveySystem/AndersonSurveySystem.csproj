@@ -118,6 +118,7 @@
     <Content Include="bower_components\angular\angular.js" />
     <Content Include="bower_components\angular\angular.min.js" />
     <Content Include="bower_components\angular\index.js" />
+    <Content Include="bower_components\bootstrap\dist\css\bootstrap-grid.css" />
     <Content Include="bower_components\bootstrap\dist\css\bootstrap-grid.min.css" />
     <Content Include="bower_components\bootstrap\dist\css\bootstrap-reboot.css" />
     <Content Include="bower_components\bootstrap\dist\css\bootstrap-reboot.min.css" />
@@ -460,6 +461,61 @@
     <Content Include="bower_components\jquery\src\var\support.js" />
     <Content Include="bower_components\jquery\src\var\toString.js" />
     <Content Include="bower_components\jquery\src\wrap.js" />
+    <Content Include="bower_components\tether\dist\css\tether-theme-arrows-dark.css" />
+    <Content Include="bower_components\tether\dist\css\tether-theme-arrows-dark.min.css" />
+    <Content Include="bower_components\tether\dist\css\tether-theme-arrows.css" />
+    <Content Include="bower_components\tether\dist\css\tether-theme-arrows.min.css" />
+    <Content Include="bower_components\tether\dist\css\tether-theme-basic.css" />
+    <Content Include="bower_components\tether\dist\css\tether-theme-basic.min.css" />
+    <Content Include="bower_components\tether\dist\css\tether.css" />
+    <Content Include="bower_components\tether\dist\css\tether.min.css" />
+    <Content Include="bower_components\tether\dist\js\tether.js" />
+    <Content Include="bower_components\tether\dist\js\tether.min.js" />
+    <Content Include="bower_components\tether\docs\css\intro.css" />
+    <Content Include="bower_components\tether\docs\js\intro.js" />
+    <Content Include="bower_components\tether\docs\js\markAttachment.js" />
+    <Content Include="bower_components\tether\docs\welcome\browser-demo.html" />
+    <Content Include="bower_components\tether\docs\welcome\css\browser-demo.css" />
+    <Content Include="bower_components\tether\docs\welcome\css\prism.css" />
+    <Content Include="bower_components\tether\docs\welcome\css\welcome.css" />
+    <Content Include="bower_components\tether\docs\welcome\index.html" />
+    <Content Include="bower_components\tether\docs\welcome\js\drop.js" />
+    <Content Include="bower_components\tether\docs\welcome\js\jquery.js" />
+    <Content Include="bower_components\tether\docs\welcome\js\log.js" />
+    <Content Include="bower_components\tether\docs\welcome\js\tether-v0.1.3.js" />
+    <Content Include="bower_components\tether\docs\welcome\js\welcome.js" />
+    <Content Include="bower_components\tether\examples\chosen\chosen-sprite%402x.png" />
+    <Content Include="bower_components\tether\examples\chosen\chosen-sprite.png" />
+    <Content Include="bower_components\tether\examples\chosen\chosen.css" />
+    <Content Include="bower_components\tether\examples\chosen\chosen.js" />
+    <Content Include="bower_components\tether\examples\chosen\index.html" />
+    <Content Include="bower_components\tether\examples\common\css\style.css" />
+    <Content Include="bower_components\tether\examples\content-visible\index.html" />
+    <Content Include="bower_components\tether\examples\dolls\dolls.css" />
+    <Content Include="bower_components\tether\examples\dolls\dolls.js" />
+    <Content Include="bower_components\tether\examples\dolls\index.html" />
+    <Content Include="bower_components\tether\examples\element-scroll\index.html" />
+    <Content Include="bower_components\tether\examples\enable-disable\index.html" />
+    <Content Include="bower_components\tether\examples\facebook\facebook.css" />
+    <Content Include="bower_components\tether\examples\facebook\index.html" />
+    <Content Include="bower_components\tether\examples\out-of-bounds\index.html" />
+    <Content Include="bower_components\tether\examples\pin\index.html" />
+    <Content Include="bower_components\tether\examples\resources\css\base.css" />
+    <Content Include="bower_components\tether\examples\resources\js\jquery.js" />
+    <Content Include="bower_components\tether\examples\resources\js\log.js" />
+    <Content Include="bower_components\tether\examples\scroll\index.html" />
+    <Content Include="bower_components\tether\examples\simple\index.html" />
+    <Content Include="bower_components\tether\examples\testbed\index.html" />
+    <Content Include="bower_components\tether\examples\tooltip\index.html" />
+    <Content Include="bower_components\tether\examples\viewport\colors.css" />
+    <Content Include="bower_components\tether\examples\viewport\index.html" />
+    <Content Include="bower_components\tether\gulpfile.js" />
+    <Content Include="bower_components\tether\src\js\abutment.js" />
+    <Content Include="bower_components\tether\src\js\constraint.js" />
+    <Content Include="bower_components\tether\src\js\markAttachment.js" />
+    <Content Include="bower_components\tether\src\js\shift.js" />
+    <Content Include="bower_components\tether\src\js\tether.js" />
+    <Content Include="bower_components\tether\src\js\utils.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -575,25 +631,25 @@
     <Content Include="Scripts\Angular\Controller\AdminController.js" />
     <Content Include="Scripts\Angular\Controller\AnsweredQuestionController.js" />
     <Content Include="Scripts\Angular\Controller\AnsweredSurveyController.js" />
-    <Content Include="Scripts\Angular\Controller\BarCtrl.js" />
     <Content Include="Scripts\Angular\Controller\CommentController.js" />
-    <Content Include="Scripts\Angular\Controller\DynamicGraph.Controller.js" />
+    <Content Include="Scripts\Angular\Controller\DynamicGraphController.js" />
     <Content Include="Scripts\Angular\Controller\EmailController.js" />
     <Content Include="Scripts\Angular\Controller\LoginController.js" />
     <Content Include="Scripts\Angular\Controller\QuestionController.js" />
     <Content Include="Scripts\Angular\Controller\RateController.js" />
-    <Content Include="Scripts\Angular\Controller\StaticGraph.Controller.js" />
+    <Content Include="Scripts\Angular\Controller\StaticGraph.js" />
     <Content Include="Scripts\Angular\Controller\SurveyController.js" />
     <Content Include="Scripts\Angular\Controller\vm.js" />
     <Content Include="Scripts\Angular\Service\AdminService.js" />
     <Content Include="Scripts\Angular\Service\AnsweredQuestionService.js" />
     <Content Include="Scripts\Angular\Service\AnsweredSurveyService.js" />
     <Content Include="Scripts\Angular\Service\CommentService.js" />
-    <Content Include="Scripts\Angular\Service\DynamicGraph.Service.js" />
+    <Content Include="Scripts\Angular\Service\DynamicGraphService.js" />
     <Content Include="Scripts\Angular\Service\EmailService.js" />
     <Content Include="Scripts\Angular\Service\LoginService.js" />
     <Content Include="Scripts\Angular\Service\QuestionService.js" />
     <Content Include="Scripts\Angular\Service\RateService.js" />
+    <Content Include="Scripts\Angular\Service\StaticGraphService.js" />
     <Content Include="Scripts\Angular\Service\SurveyService.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -1587,17 +1643,37 @@
     <Content Include="bower_components\jquery\README.md" />
     <Content Include="bower_components\jquery\sizzle\dist\sizzle.min.map" />
     <Content Include="bower_components\jquery\src\.jshintrc" />
-    <Content Include="bower_components\angular-chart.js\.bower.json" />
-    <Content Include="bower_components\angular-chart.js\bower.json" />
-    <Content Include="bower_components\angular-chart.js\CONTRIBUTING.md" />
-    <Content Include="bower_components\angular-chart.js\dist\angular-chart.js.tar.gz" />
-    <Content Include="bower_components\angular-chart.js\dist\angular-chart.min.js.map" />
-    <Content Include="bower_components\angular-chart.js\Dockerfile" />
-    <Content Include="bower_components\angular-chart.js\ISSUE_TEMPLATE.md" />
-    <Content Include="bower_components\angular-chart.js\LICENSE" />
-    <Content Include="bower_components\angular-chart.js\package.json" />
-    <Content Include="bower_components\angular-chart.js\PULL_REQUEST_TEMPLATE.md" />
-    <Content Include="bower_components\angular-chart.js\README.md" />
+    <Content Include="bower_components\tether\.bower.json" />
+    <Content Include="bower_components\tether\bower.json" />
+    <Content Include="bower_components\tether\CHANGELOG.md" />
+    <Content Include="bower_components\tether\component.json" />
+    <Content Include="bower_components\tether\CONTRIBUTING.md" />
+    <Content Include="bower_components\tether\docs\1-Overview\1-why_you_should_use_tether.md" />
+    <Content Include="bower_components\tether\docs\1-Overview\2-repositioning.md" />
+    <Content Include="bower_components\tether\docs\1-Overview\3-why_we_dont_support_IE_8.md" />
+    <Content Include="bower_components\tether\docs\2-Examples\1-list_of_examples.md" />
+    <Content Include="bower_components\tether\docs\2-Examples\2-projects_using_tether.md" />
+    <Content Include="bower_components\tether\docs\3-Advanced\1-embedding_tether.md" />
+    <Content Include="bower_components\tether\docs\3-Advanced\2-extending_tether.md" />
+    <Content Include="bower_components\tether\docs\coffee\intro.coffee" />
+    <Content Include="bower_components\tether\docs\intro.md" />
+    <Content Include="bower_components\tether\docs\sass\intro.sass" />
+    <Content Include="bower_components\tether\docs\welcome\coffee\welcome.coffee" />
+    <Content Include="bower_components\tether\docs\welcome\sass\browser-demo.sass" />
+    <Content Include="bower_components\tether\docs\welcome\sass\welcome.sass" />
+    <Content Include="bower_components\tether\docs\welcome\sass\_inline-block.sass" />
+    <Content Include="bower_components\tether\LICENSE" />
+    <Content Include="bower_components\tether\package.json" />
+    <Content Include="bower_components\tether\README.md" />
+    <Content Include="bower_components\tether\src\css\helpers\_tether-theme-arrows.sass" />
+    <Content Include="bower_components\tether\src\css\helpers\_tether-theme-basic.sass" />
+    <Content Include="bower_components\tether\src\css\helpers\_tether.sass" />
+    <Content Include="bower_components\tether\src\css\mixins\_inline-block.sass" />
+    <Content Include="bower_components\tether\src\css\mixins\_pie-clearfix.sass" />
+    <Content Include="bower_components\tether\src\css\tether-theme-arrows-dark.sass" />
+    <Content Include="bower_components\tether\src\css\tether-theme-arrows.sass" />
+    <Content Include="bower_components\tether\src\css\tether-theme-basic.sass" />
+    <Content Include="bower_components\tether\src\css\tether.sass" />
     <Content Include="bower_components\chart.js\.bower.json" />
     <Content Include="bower_components\chart.js\.editorconfig" />
     <Content Include="bower_components\chart.js\.eslintignore" />
@@ -1680,7 +1756,17 @@
     <Content Include="bower_components\chart.js\test\fixtures\plugin.filler\fill-line-dataset.json" />
     <Content Include="bower_components\chart.js\test\fixtures\plugin.filler\fill-radar-boundary-origin-spline.json" />
     <Content Include="bower_components\chart.js\test\fixtures\plugin.filler\fill-radar-boundary-origin.json" />
-    <Content Include="bower.json" />
+    <Content Include="bower_components\angular-chart.js\.bower.json" />
+    <Content Include="bower_components\angular-chart.js\bower.json" />
+    <Content Include="bower_components\angular-chart.js\CONTRIBUTING.md" />
+    <Content Include="bower_components\angular-chart.js\dist\angular-chart.js.tar.gz" />
+    <Content Include="bower_components\angular-chart.js\dist\angular-chart.min.js.map" />
+    <Content Include="bower_components\angular-chart.js\Dockerfile" />
+    <Content Include="bower_components\angular-chart.js\ISSUE_TEMPLATE.md" />
+    <Content Include="bower_components\angular-chart.js\LICENSE" />
+    <Content Include="bower_components\angular-chart.js\package.json" />
+    <Content Include="bower_components\angular-chart.js\PULL_REQUEST_TEMPLATE.md" />
+    <Content Include="bower_components\angular-chart.js\README.md" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -1703,7 +1789,6 @@
     <Compile Include="Controllers\AnsweredQuestionController.cs" />
     <Compile Include="Controllers\AnsweredSurveyController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\ChartController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\EmailController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -1746,6 +1831,7 @@
     <Content Include="Views\AnsweredQuestion\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Admin\Index2.cshtml" />
     <Content Include="Views\Admin\MainPage.cshtml" />
     <Content Include="Views\Admin\Report.cshtml" />
     <Content Include="Views\Admin\Create.cshtml" />
@@ -1753,11 +1839,13 @@
     <Content Include="Views\Email\Index2.cshtml" />
     <Content Include="Views\Comment\Index.cshtml" />
     <Content Include="Views\Rate\Index.cshtml" />
-    <Content Include="Views\Chart\Index.cshtml" />
-    <Content Include="Views\Chart\Static.cshtml" />
-    <Content Include="Views\Chart\StaticStructured.cshtml" />
-    <Content Include="Views\Chart\DynamicStructured.cshtml" />
-    <Content Include="Views\Shared\ChartLayout.cshtml" />
+    <Content Include="Views\AnsweredQuestion\Index2.cshtml" />
+    <Content Include="Views\Home\Static.cshtml" />
+    <Content Include="Views\Home\StaticStructured.cshtml" />
+    <Content Include="Views\Home\DynamicStructured.cshtml" />
+    <Content Include="Views\AnsweredSurvey\DynamicStructured.cshtml" />
+    <Content Include="Views\AnsweredSurvey\StaticStructuredView.cshtml" />
+    <Content Include="Views\AnsweredSurvey\Pie.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1772,8 +1860,8 @@
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AndersonSurveyContext\AndersonSurveySystemContext.csproj">
-      <Project>{831b606d-5ec8-4b81-9704-a13a42e5ddd1}</Project>
+    <ProjectReference Include="..\AndersonSurveySystemContext\AndersonSurveySystemContext.csproj">
+      <Project>{0e1f3deb-b710-4659-878a-e7b6003ec729}</Project>
       <Name>AndersonSurveySystemContext</Name>
     </ProjectReference>
     <ProjectReference Include="..\AndersonSurveySystemEntity\AndersonSurveySystemEntity.csproj">
@@ -1812,7 +1900,6 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties bower_1json__JSONSchema="http://json.schemastore.org/bowerrc" />
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

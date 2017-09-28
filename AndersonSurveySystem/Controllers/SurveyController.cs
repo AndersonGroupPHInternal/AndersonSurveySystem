@@ -1,4 +1,5 @@
-﻿using AndersonSurveySystemFunction;
+﻿using AndersonSurveySystemContext;
+using AndersonSurveySystemFunction;
 using AndersonSurveySystemModel;
 using System;
 using System.Collections.Generic;
@@ -35,6 +36,7 @@ public SurveyController()
         {
             return View(new Survey());
         }
+
 
         [HttpPost]
         public JsonResult Create(Survey survey)

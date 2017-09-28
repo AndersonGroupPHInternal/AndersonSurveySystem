@@ -17,6 +17,9 @@ namespace AndersonSurveySystemEntity
 
         public int Rate { get; set; }
 
+        public int SurveyId { get; set; }
+
+        //public ICollection<EAnsweredQuestion> AnsweredQuestion { get; set; }
         //[ForeignKey("TypeOfQuestion")]
         //public int TypeOfQuestionId { get; set; }
 

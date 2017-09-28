@@ -64,41 +64,45 @@
     <Compile Include="Migrations\201709080807268_initialss.Designer.cs">
       <DependentUpon>201709080807268_initialss.cs</DependentUpon>
     </Compile>
-<<<<<<< .mine
-    <Compile Include="Migrations\201709040305117_pql.cs" />
-    <Compile Include="Migrations\201709040305117_pql.Designer.cs">
-      <DependentUpon>201709040305117_pql.cs</DependentUpon>
+    <Compile Include="Migrations\201709120257225_initials11.cs" />
+    <Compile Include="Migrations\201709120257225_initials11.Designer.cs">
+      <DependentUpon>201709120257225_initials11.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201709040305412_edit.cs" />
-    <Compile Include="Migrations\201709040305412_edit.Designer.cs">
-      <DependentUpon>201709040305412_edit.cs</DependentUpon>
+    <Compile Include="Migrations\201709130115422_intials22.cs" />
+    <Compile Include="Migrations\201709130115422_intials22.Designer.cs">
+      <DependentUpon>201709130115422_intials22.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201709040328041_dsad.cs" />
-    <Compile Include="Migrations\201709040328041_dsad.Designer.cs">
-      <DependentUpon>201709040328041_dsad.cs</DependentUpon>
+    <Compile Include="Migrations\201709140803402_initials33.cs" />
+    <Compile Include="Migrations\201709140803402_initials33.Designer.cs">
+      <DependentUpon>201709140803402_initials33.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201709040336136_asasasa.cs" />
-    <Compile Include="Migrations\201709040336136_asasasa.Designer.cs">
-      <DependentUpon>201709040336136_asasasa.cs</DependentUpon>
+    <Compile Include="Migrations\201709180934421_initials44.cs" />
+    <Compile Include="Migrations\201709180934421_initials44.Designer.cs">
+      <DependentUpon>201709180934421_initials44.cs</DependentUpon>
     </Compile>
-||||||| .r1028
-    <Compile Include="Migrations\201709040305412_edit.cs" />
-    <Compile Include="Migrations\201709040305412_edit.Designer.cs">
-      <DependentUpon>201709040305412_edit.cs</DependentUpon>
+    <Compile Include="Migrations\201709200230537_rate.cs" />
+    <Compile Include="Migrations\201709200230537_rate.Designer.cs">
+      <DependentUpon>201709200230537_rate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201709040328041_dsad.cs" />
-    <Compile Include="Migrations\201709040328041_dsad.Designer.cs">
-      <DependentUpon>201709040328041_dsad.cs</DependentUpon>
+    <Compile Include="Migrations\201709200258315_ratess.cs" />
+    <Compile Include="Migrations\201709200258315_ratess.Designer.cs">
+      <DependentUpon>201709200258315_ratess.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201709040336136_asasasa.cs" />
-    <Compile Include="Migrations\201709040336136_asasasa.Designer.cs">
-      <DependentUpon>201709040336136_asasasa.cs</DependentUpon>
+    <Compile Include="Migrations\201709200315054_ratess1.cs" />
+    <Compile Include="Migrations\201709200315054_ratess1.Designer.cs">
+      <DependentUpon>201709200315054_ratess1.cs</DependentUpon>
     </Compile>
-=======
->>>>>>> .r1031
-    <Compile Include="Migrations\201709040939229_poli.cs" />
-    <Compile Include="Migrations\201709040939229_poli.Designer.cs">
-      <DependentUpon>201709040939229_poli.cs</DependentUpon>
+    <Compile Include="Migrations\201709210121232_dhgf.cs" />
+    <Compile Include="Migrations\201709210121232_dhgf.Designer.cs">
+      <DependentUpon>201709210121232_dhgf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709210334593_dvsaaa.cs" />
+    <Compile Include="Migrations\201709210334593_dvsaaa.Designer.cs">
+      <DependentUpon>201709210334593_dvsaaa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709250213195_dvcfsdadasd.cs" />
+    <Compile Include="Migrations\201709250213195_dvcfsdadasd.Designer.cs">
+      <DependentUpon>201709250213195_dvcfsdadasd.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -120,33 +124,35 @@
     <EmbeddedResource Include="Migrations\201709080807268_initialss.resx">
       <DependentUpon>201709080807268_initialss.cs</DependentUpon>
     </EmbeddedResource>
-<<<<<<< .mine
-    <EmbeddedResource Include="Migrations\201709040305117_pql.resx">
-      <DependentUpon>201709040305117_pql.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201709120257225_initials11.resx">
+      <DependentUpon>201709120257225_initials11.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709040305412_edit.resx">
-      <DependentUpon>201709040305412_edit.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201709130115422_intials22.resx">
+      <DependentUpon>201709130115422_intials22.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709040328041_dsad.resx">
-      <DependentUpon>201709040328041_dsad.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201709140803402_initials33.resx">
+      <DependentUpon>201709140803402_initials33.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709040336136_asasasa.resx">
-      <DependentUpon>201709040336136_asasasa.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201709180934421_initials44.resx">
+      <DependentUpon>201709180934421_initials44.cs</DependentUpon>
     </EmbeddedResource>
-||||||| .r1028
-    <EmbeddedResource Include="Migrations\201709040305412_edit.resx">
-      <DependentUpon>201709040305412_edit.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201709200230537_rate.resx">
+      <DependentUpon>201709200230537_rate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709040328041_dsad.resx">
-      <DependentUpon>201709040328041_dsad.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201709200258315_ratess.resx">
+      <DependentUpon>201709200258315_ratess.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709040336136_asasasa.resx">
-      <DependentUpon>201709040336136_asasasa.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201709200315054_ratess1.resx">
+      <DependentUpon>201709200315054_ratess1.cs</DependentUpon>
     </EmbeddedResource>
-=======
->>>>>>> .r1031
-    <EmbeddedResource Include="Migrations\201709040939229_poli.resx">
-      <DependentUpon>201709040939229_poli.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201709210121232_dhgf.resx">
+      <DependentUpon>201709210121232_dhgf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709210334593_dvsaaa.resx">
+      <DependentUpon>201709210334593_dvsaaa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709250213195_dvcfsdadasd.resx">
+      <DependentUpon>201709250213195_dvcfsdadasd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

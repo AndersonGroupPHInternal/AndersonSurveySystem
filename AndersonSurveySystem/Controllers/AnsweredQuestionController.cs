@@ -23,16 +23,17 @@ namespace AndersonSurveySystem.Controllers
         [HttpGet]
         public ActionResult Index(string Name)
         {
-            var answeredsurveyss = new AnsweredSurvey
-            {
-                
-                Name = "" + Name
-            };
+            //return View();
+
+            var answeredsurveyss = new AnsweredSurvey { Name = " " + Name };
 
             return View(answeredsurveyss);
+        }
 
-
-            
+        [HttpGet]
+        public ActionResult Index2()
+        {
+            return View();
         }
 
         [HttpGet]
@@ -113,5 +114,7 @@ namespace AndersonSurveySystem.Controllers
                 return Json(ex);
             }
         }
+
+        
     }
 }

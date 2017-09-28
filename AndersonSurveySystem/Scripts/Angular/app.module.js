@@ -3,11 +3,11 @@
 
     angular
         .module('App', [
-            // Angular modules
+        // Angular modules
 
-            // Custom modules
+        // Custom modules
 
-            // 3rd Party Modules
-            "chart.js"
+        // 3rd Party Modules
+        "chart.js"
         ]);
 })();

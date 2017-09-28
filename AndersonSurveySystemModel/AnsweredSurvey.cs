@@ -25,6 +25,5 @@ namespace AndersonSurveySystemModel
         public string Name { get; set; }
         public string ticketnumber { get; set; }
         public string description { get; set; }
-
     }
 }

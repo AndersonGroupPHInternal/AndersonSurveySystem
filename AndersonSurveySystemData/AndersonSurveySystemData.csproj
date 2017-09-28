@@ -58,37 +58,31 @@
     <Compile Include="DAdmin.cs" />
     <Compile Include="DAnsweredQuestion.cs" />
     <Compile Include="DAnsweredSurvey.cs" />
-    <Compile Include="DChart.cs" />
     <Compile Include="DComment.cs" />
     <Compile Include="DEmail.cs" />
     <Compile Include="DQuestion.cs" />
-    <Compile Include="DRate.cs" />
+    <Compile Include="DAnsweredSurveyResult.cs" />
     <Compile Include="DSurvey.cs" />
     <Compile Include="DTypeOfQuestion.cs" />
     <Compile Include="IDAdmin.cs" />
     <Compile Include="IDAnsweredQuestion.cs" />
     <Compile Include="IDAnsweredSurvey.cs" />
-    <Compile Include="IDChart.cs" />
     <Compile Include="IDComment.cs" />
     <Compile Include="IDEmail.cs" />
     <Compile Include="IDQuestion.cs" />
-    <Compile Include="IDRate.cs" />
+    <Compile Include="IDAnsweredSurveyResult.cs" />
     <Compile Include="IDSurvey.cs" />
     <Compile Include="IDTypeOfQuestion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AndersonSurveyContext\AndersonSurveySystemContext.csproj">
-      <Project>{831b606d-5ec8-4b81-9704-a13a42e5ddd1}</Project>
+    <ProjectReference Include="..\AndersonSurveySystemContext\AndersonSurveySystemContext.csproj">
+      <Project>{0e1f3deb-b710-4659-878a-e7b6003ec729}</Project>
       <Name>AndersonSurveySystemContext</Name>
     </ProjectReference>
     <ProjectReference Include="..\AndersonSurveySystemEntity\AndersonSurveySystemEntity.csproj">
       <Project>{88e3a1b5-dfb5-460b-b31f-78662d9bbd2a}</Project>
       <Name>AndersonSurveySystemEntity</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AndersonSurveySystemModel\AndersonSurveySystemModel.csproj">
-      <Project>{58a9f6e8-811e-453b-a33d-6a0c34e665c1}</Project>
-      <Name>AndersonSurveySystemModel</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

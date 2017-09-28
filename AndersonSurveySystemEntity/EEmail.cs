@@ -18,7 +18,10 @@ namespace AndersonSurveySystemEntity
         [StringLength(250)]
         public string EmailAd { get; set; }
 
-        [StringLength(50)]
-        public string ReferenceNumber { get; set; }
+        //[StringLength(50)]
+        //public string TicketNumber { get; set; }
+
+        //[StringLength(250)]
+        //public string Description { get; set; }
     }
 }

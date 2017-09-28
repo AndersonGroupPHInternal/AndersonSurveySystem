@@ -49,6 +49,33 @@
             });
         }
 
+
+        function Index() {
+            SurveyService.Create(vm.Survey)
+            .then(function (response) {
+                List();
+                angular.element('#SurveyRate').modal('hide');
+
+                new PNotify({
+                    title: 'Success',
+                    text: 'Survey Recorded',
+                    type: 'success',
+                    hide: true,
+                    addclass: "stack-bottomright"
+                });
+
+            })
+            .catch(function (data, status) {
+                new PNotify({
+                    title: 'Error',
+                    text: 'There was an error on loading the list',
+                    type: 'error',
+                    hide: true,
+                    addclass: "stack-bottomright"
+                });
+
+            });
+        }
         function CreateModal(survey) {
             vm.Survey = {
                 SurveyId: '',
@@ -108,6 +135,7 @@
                 });
         }
 
+  
 
     }
 })();

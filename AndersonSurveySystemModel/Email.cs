@@ -11,6 +11,7 @@ namespace AndersonSurveySystemModel
         public int UserId { get; set; }
         public string UserName { get; set; }
         public string EmailAd { get; set; }
-        public string ReferenceNumber { get; set; }
+        public string TicketNumber { get; set; }
+        public string Description { get; set; }
     }
 }

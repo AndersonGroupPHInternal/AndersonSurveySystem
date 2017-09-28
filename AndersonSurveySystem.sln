@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndersonSurveySystem", "AndersonSurveySystem\AndersonSurveySystem.csproj", "{F4270709-93B1-449A-BAA8-7CA5FF05E01C}"
 EndProject
@@ -9,13 +9,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndersonSurveySystemEntity"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndersonSurveySystemModel", "AndersonSurveySystemModel\AndersonSurveySystemModel.csproj", "{58A9F6E8-811E-453B-A33D-6A0C34E665C1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndersonSurveySystemContext", "AndersonSurveySystemContext\AndersonSurveySystemContext.csproj", "{0E1F3DEB-B710-4659-878A-E7B6003EC729}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndersonSurveySystemData", "AndersonSurveySystemData\AndersonSurveySystemData.csproj", "{24771F0D-B714-4C62-87E6-C26744990BE4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndersonSurveySystemFunction", "AndersonSurveySystemFunction\AndersonSurveySystemFunction.csproj", "{2CBDE33C-4EDA-4A37-A311-33A321283AC6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndersonSurveySystemWebAuthentication", "AndersonSurveySystemWebAuthentication\AndersonSurveySystemWebAuthentication.csproj", "{6F716384-BF67-4A60-9D19-8C46CBE1B260}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndersonSurveySystemContext", "AndersonSurveyContext\AndersonSurveySystemContext.csproj", "{831B606D-5EC8-4B81-9704-A13A42E5DDD1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +35,10 @@ Global
 		{58A9F6E8-811E-453B-A33D-6A0C34E665C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58A9F6E8-811E-453B-A33D-6A0C34E665C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58A9F6E8-811E-453B-A33D-6A0C34E665C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E1F3DEB-B710-4659-878A-E7B6003EC729}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E1F3DEB-B710-4659-878A-E7B6003EC729}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E1F3DEB-B710-4659-878A-E7B6003EC729}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E1F3DEB-B710-4659-878A-E7B6003EC729}.Release|Any CPU.Build.0 = Release|Any CPU
 		{24771F0D-B714-4C62-87E6-C26744990BE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{24771F0D-B714-4C62-87E6-C26744990BE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24771F0D-B714-4C62-87E6-C26744990BE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -47,10 +51,6 @@ Global
 		{6F716384-BF67-4A60-9D19-8C46CBE1B260}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F716384-BF67-4A60-9D19-8C46CBE1B260}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F716384-BF67-4A60-9D19-8C46CBE1B260}.Release|Any CPU.Build.0 = Release|Any CPU
-		{831B606D-5EC8-4B81-9704-A13A42E5DDD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{831B606D-5EC8-4B81-9704-A13A42E5DDD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{831B606D-5EC8-4B81-9704-A13A42E5DDD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{831B606D-5EC8-4B81-9704-A13A42E5DDD1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
