@@ -7,8 +7,6 @@ namespace AndersonSurveySystemData
     {
         public DAnsweredQuestion() : base (new Context())
         {
-
         }
-     
     }
 }

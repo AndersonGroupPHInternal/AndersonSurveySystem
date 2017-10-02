@@ -55,24 +55,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAdmin.cs" />
     <Compile Include="DAnsweredQuestion.cs" />
     <Compile Include="DAnsweredSurvey.cs" />
-    <Compile Include="DComment.cs" />
-    <Compile Include="DEmail.cs" />
     <Compile Include="DQuestion.cs" />
-    <Compile Include="DAnsweredSurveyResult.cs" />
     <Compile Include="DSurvey.cs" />
-    <Compile Include="DTypeOfQuestion.cs" />
-    <Compile Include="IDAdmin.cs" />
     <Compile Include="IDAnsweredQuestion.cs" />
     <Compile Include="IDAnsweredSurvey.cs" />
-    <Compile Include="IDComment.cs" />
-    <Compile Include="IDEmail.cs" />
     <Compile Include="IDQuestion.cs" />
-    <Compile Include="IDAnsweredSurveyResult.cs" />
     <Compile Include="IDSurvey.cs" />
-    <Compile Include="IDTypeOfQuestion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

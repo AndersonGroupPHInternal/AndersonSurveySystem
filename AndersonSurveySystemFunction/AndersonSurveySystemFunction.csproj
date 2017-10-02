@@ -55,7 +55,6 @@
     <Compile Include="FComment.cs" />
     <Compile Include="FEmail.cs" />
     <Compile Include="FQuestion.cs" />
-    <Compile Include="FAnsweredSurveyResult.cs" />
     <Compile Include="FSurvey.cs" />
     <Compile Include="FTypeOfQuestion.cs" />
     <Compile Include="IFAdmin.cs" />
@@ -64,7 +63,6 @@
     <Compile Include="IFComment.cs" />
     <Compile Include="IFEmail.cs" />
     <Compile Include="IFQuestion.cs" />
-    <Compile Include="IFAnsweredSurveyResult.cs" />
     <Compile Include="IFSurvey.cs" />
     <Compile Include="IFTypeOfQuestion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
