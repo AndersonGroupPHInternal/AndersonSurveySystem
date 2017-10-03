@@ -12,7 +12,7 @@ namespace AndersonSurveySystemEntity
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int AnsweredQuestionId { get; set; }
         [ForeignKey("AnsweredSurvey")]
-        public int AnsweredSurveyid { get; set; }
+        public int AnsweredSurveyId { get; set; }
         [ForeignKey("Question")]
         public int QuestionId { get; set; }
         

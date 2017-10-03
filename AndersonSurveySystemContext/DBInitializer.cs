@@ -23,7 +23,7 @@ namespace AndersonSurveySystemContext
                 SurveyName = "Default Survey"
             };
             eSurvey = context.Survey.Add(eSurvey);
-
+            context.SaveChanges();
             if (eSurvey.SurveyId != 0)
             {
                 List<EQuestion> eQuestions = new List<EQuestion>()
@@ -74,6 +74,8 @@ namespace AndersonSurveySystemContext
                         Description = "How would you rate your overall level of satisfaction with other service desk team ?",
                     },
                 };
+                context.Question.AddRange(eQuestions);
+                context.SaveChanges();
             }
         }
     }

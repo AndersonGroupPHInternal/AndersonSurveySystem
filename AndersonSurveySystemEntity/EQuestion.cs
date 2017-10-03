@@ -1,4 +1,5 @@
 ﻿using BaseEntity;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -13,9 +14,11 @@ namespace AndersonSurveySystemEntity
         [ForeignKey("Survey")]
         public int SurveyId { get; set; }
 
-        [StringLength(50)]
+        [StringLength(250)]
         public string Description { get; set; }
 
         public ESurvey Survey { get; set; }
+        
+        public ICollection<EAnsweredQuestion> AnsweredQuestions { get; set; }
     }
 }

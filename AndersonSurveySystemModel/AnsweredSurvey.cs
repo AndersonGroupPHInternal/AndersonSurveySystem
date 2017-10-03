@@ -1,29 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace AndersonSurveySystemModel
 {
     public class AnsweredSurvey
     {
-        //public static int AnsweredSurveyId { get; set; }
-        //public static int Contractor { get; set; }
         public int AnsweredSurveyId { get; set; }
-        //public string ReferenceNumber { get; set; }
-        //public int SurveyId { get; set; }
-        //public int Userid { get; set; }
+        public int SurveyId { get; set; }
 
-        //additional field
-        //public int Rate { get; set; }      
+        public string Description { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string MiddleName { get; set; }
+        public string TicketNumber { get; set; }
 
-        public List<AnsweredQuestion> AnsweredQuestions { get; set; }
+        public Survey Survey { get; set; }
 
-        public List<Question> Questions { get; set; }
-
-        public string Name { get; set; }
-        public string ticketnumber { get; set; }
-        public string description { get; set; }
+        public IEnumerable<AnsweredQuestion> AnsweredQuestions { get; set; }
     }
 }

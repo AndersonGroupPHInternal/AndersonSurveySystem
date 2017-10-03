@@ -17,18 +17,19 @@ namespace AndersonSurveySystemFunction
         }
 
         #region CREATE
-        public AnsweredSurvey Create(AnsweredSurvey answeredsurvey)
+        public AnsweredSurvey Create(AnsweredSurvey answeredSurvey)
         {
-            EAnsweredSurvey eAnsweredSurvey = EAnsweredSurvey(answeredsurvey);
+            EAnsweredSurvey eAnsweredSurvey = EAnsweredSurvey(answeredSurvey);
+            eAnsweredSurvey.CreatedDate = DateTime.Now;
             eAnsweredSurvey = _iDAnsweredSurvey.Create(eAnsweredSurvey);
             return (AnsweredSurvey(eAnsweredSurvey));
         }
         #endregion
 
         #region READ
-        public AnsweredSurvey Read(int answeredsurveyId)
+        public AnsweredSurvey Read(int answeredSurveyId)
         {
-            EAnsweredSurvey eAnsweredSurvey = _iDAnsweredSurvey.Read<EAnsweredSurvey>(a => a.AnsweredSurveyid == answeredsurveyId);
+            EAnsweredSurvey eAnsweredSurvey = _iDAnsweredSurvey.Read<EAnsweredSurvey>(a => a.AnsweredSurveyId == answeredSurveyId);
             return AnsweredSurvey(eAnsweredSurvey);
         }
 
@@ -41,74 +42,59 @@ namespace AndersonSurveySystemFunction
         #endregion
 
         #region UPDATE
-        public AnsweredSurvey Update(AnsweredSurvey answeredsurvey)
-        {
-            var eAnsweredSurvey = _iDAnsweredSurvey.Update(EAnsweredSurvey(answeredsurvey));
-            return (AnsweredSurvey(eAnsweredSurvey));
-        }
         #endregion
 
         #region DELETE
-        public void Delete(AnsweredSurvey answeredsurvey)
+        public void Delete(AnsweredSurvey answeredSurvey)
         {
-            _iDAnsweredSurvey.Delete(EAnsweredSurvey(answeredsurvey));
+            _iDAnsweredSurvey.Delete(EAnsweredSurvey(answeredSurvey));
         }
         #endregion
-        #region OTHER FUNCTION
-        private List<AnsweredSurvey> AnsweredSurveys(List<EAnsweredSurvey> eAnsweredSurveys)
-        {
-            var returnAnsweredSurveys = eAnsweredSurveys.Select(a => new AnsweredSurvey
-            {
-                AnsweredSurveyId = a.AnsweredSurveyid,
-                Name = a.Name,
-                ticketnumber = a.ticketnumber,
-                description = a.description
-            });
 
-            return returnAnsweredSurveys.ToList();
+        #region OTHER
+        private AnsweredSurvey AnsweredSurvey(EAnsweredSurvey eAnsweredSurvey)
+        {
+            return new AnsweredSurvey
+            {
+                AnsweredSurveyId = eAnsweredSurvey.AnsweredSurveyId,
+                SurveyId = eAnsweredSurvey.SurveyId,
+
+                Description = eAnsweredSurvey.Description,
+                FirstName = eAnsweredSurvey.FirstName,
+                LastName = eAnsweredSurvey.LastName,
+                MiddleName = eAnsweredSurvey.MiddleName,
+                TicketNumber = eAnsweredSurvey.TicketNumber
+            };
         }
 
         private EAnsweredSurvey EAnsweredSurvey(AnsweredSurvey answeredSurvey)
         {
-            EAnsweredSurvey returnEAnsweredSurvey = new EAnsweredSurvey
+            return new EAnsweredSurvey
             {
-                AnsweredSurveyid = answeredSurvey.AnsweredSurveyId,
-                Name = answeredSurvey.Name,
-                ticketnumber = answeredSurvey.ticketnumber,
-                description = answeredSurvey.description,
-                AnsweredQuestions = answeredSurvey.AnsweredQuestions.Select(a => new EAnsweredQuestion
-                {
-                    Answer = a.Answer,
-                    QuestionId = a.QuestionId
+                AnsweredSurveyId = answeredSurvey.AnsweredSurveyId,
+                SurveyId = answeredSurvey.SurveyId,
 
-
-                }).ToList(),
-
-                Questions = answeredSurvey.Questions.Select(a => new EQuestion
-                {
-                    QuestionId = a.QuestionId
-
-
-                }).ToList()
+                Description = answeredSurvey.Description,
+                FirstName = answeredSurvey.FirstName,
+                LastName = answeredSurvey.LastName,
+                MiddleName = answeredSurvey.MiddleName,
+                TicketNumber = answeredSurvey.TicketNumber
             };
-            return returnEAnsweredSurvey;
         }
 
-        private AnsweredSurvey AnsweredSurvey(EAnsweredSurvey eAnsweredSurvey)
+        private List<AnsweredSurvey> AnsweredSurveys(List<EAnsweredSurvey> eAnsweredSurveys)
         {
-            AnsweredSurvey returnAnsweredSurvey = new AnsweredSurvey
+            return eAnsweredSurveys.Select(a => new AnsweredSurvey
             {
-                AnsweredSurveyId = eAnsweredSurvey.AnsweredSurveyid,
-                Name = eAnsweredSurvey.Name,
-                ticketnumber = eAnsweredSurvey.ticketnumber,
-                description = eAnsweredSurvey.description
-            };
-            return returnAnsweredSurvey;
-        }
+                AnsweredSurveyId = a.AnsweredSurveyId,
+                SurveyId = a.SurveyId,
 
-        public AnsweredSurvey CreateList(AnsweredSurvey answeredsurvey)
-        {
-            throw new NotImplementedException();
+                Description = a.Description,
+                FirstName = a.FirstName,
+                LastName = a.LastName,
+                MiddleName = a.MiddleName,
+                TicketNumber = a.TicketNumber
+            }).ToList();
         }
         #endregion
     }

@@ -3,6 +3,7 @@ using AndersonSurveySystemData;
 using AndersonSurveySystemEntity;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace AndersonSurveySystemFunction
 {
@@ -16,78 +17,69 @@ namespace AndersonSurveySystemFunction
         }
 
         #region CREATE
-        public AnsweredQuestion Create(AnsweredQuestion answeredquestion)
+        public AnsweredQuestion Create(AnsweredQuestion answeredQuestion)
         {
-            EAnsweredQuestion eAnsweredQuestion = EAnsweredQuestion(answeredquestion);
+            EAnsweredQuestion eAnsweredQuestion = EAnsweredQuestion(answeredQuestion);
+            eAnsweredQuestion.CreatedDate = DateTime.Now;
             eAnsweredQuestion = _iDAnsweredQuestion.Create(eAnsweredQuestion);
             return (AnsweredQuestion(eAnsweredQuestion));
         }
         #endregion
 
         #region READ
-        public AnsweredQuestion Read(int answeredquestionId)
+        public List<AnsweredQuestion> Read(int answeredSurveyId)
         {
-            EAnsweredQuestion eAnsweredQuestion = _iDAnsweredQuestion.Read<EAnsweredQuestion>(a => a.AnsweredQuestionId == answeredquestionId);
-            return AnsweredQuestion(eAnsweredQuestion);
-        }
-
-        public List<AnsweredQuestion> List()
-        {
-            List<EAnsweredQuestion> eAnsweredQuestions = _iDAnsweredQuestion.List<EAnsweredQuestion>(a => true);
+            List<EAnsweredQuestion> eAnsweredQuestions = _iDAnsweredQuestion.Read(answeredSurveyId);
             return AnsweredQuestions(eAnsweredQuestions);
         }
-
         #endregion
 
         #region UPDATE
-        public AnsweredQuestion Update(AnsweredQuestion answeredquestion)
-        {
-            var eAnsweredQuestion = _iDAnsweredQuestion.Update(EAnsweredQuestion(answeredquestion));
-            return (AnsweredQuestion(eAnsweredQuestion));
-        }
         #endregion
 
         #region DELETE
-        public void Delete(AnsweredQuestion answeredquestion)
-        {
-            _iDAnsweredQuestion.Delete(EAnsweredQuestion(answeredquestion));
-        }
         #endregion
-        #region OTHER FUNCTION
-        private List<AnsweredQuestion> AnsweredQuestions(List<EAnsweredQuestion> eAnsweredQuestions)
-        {
-            var returnAnsweredQuestions = eAnsweredQuestions.Select(a => new AnsweredQuestion
-            {
-                AnsweredQuestionId = a.AnsweredQuestionId,
-                Answer = a.Answer,
-                QuestionId = a.QuestionId
-            });
 
-            return returnAnsweredQuestions.ToList();
-        }
-
-        private EAnsweredQuestion EAnsweredQuestion(AnsweredQuestion answeredquestion)
-        {
-            EAnsweredQuestion returnEAnsweredQuestion = new EAnsweredQuestion
-            {
-                AnsweredQuestionId = answeredquestion.AnsweredQuestionId,
-                Answer = answeredquestion.Answer,
-                QuestionId = answeredquestion.QuestionId
-                
-        };
-
-            return returnEAnsweredQuestion;
-        }
-
+        #region OTHER
         private AnsweredQuestion AnsweredQuestion(EAnsweredQuestion eAnsweredQuestion)
         {
-            AnsweredQuestion returnAnsweredQuestion = new AnsweredQuestion
+            return new AnsweredQuestion
             {
-                AnsweredQuestionId = eAnsweredQuestion.AnsweredQuestionId,
                 Answer = eAnsweredQuestion.Answer,
+                AnsweredQuestionId = eAnsweredQuestion.AnsweredQuestionId,
+                AnsweredSurveyId = eAnsweredQuestion.AnsweredSurveyId,
                 QuestionId = eAnsweredQuestion.QuestionId
             };
-            return returnAnsweredQuestion;
+        }
+
+        private EAnsweredQuestion EAnsweredQuestion(AnsweredQuestion answeredQuestion)
+        {
+            return new EAnsweredQuestion
+            {
+                Answer = answeredQuestion.Answer,
+                AnsweredQuestionId = answeredQuestion.AnsweredQuestionId,
+                AnsweredSurveyId = answeredQuestion.AnsweredSurveyId,
+                QuestionId = answeredQuestion.QuestionId
+            };
+        }
+
+        private List<AnsweredQuestion> AnsweredQuestions(List<EAnsweredQuestion> eAnsweredQuestions)
+        {
+            return eAnsweredQuestions.Select(a => new AnsweredQuestion
+            {
+                Answer = a.Answer,
+                AnsweredQuestionId = a.AnsweredQuestionId,
+                AnsweredSurveyId = a.AnsweredSurveyId,
+                QuestionId = a.QuestionId,
+
+                Question = new Question
+                {
+                    QuestionId = a.Question.QuestionId,
+                    SurveyId = a.Question.SurveyId,
+
+                    Description = a.Question.Description
+                }
+            }).ToList();            
         }
         #endregion
     }

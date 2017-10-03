@@ -6,21 +6,19 @@ namespace AndersonSurveySystemFunction
     public interface IFAnsweredSurvey
     {
         #region CREATE
-        AnsweredSurvey Create(AnsweredSurvey answeredsurvey);
-        #endregion
-        #region RETRIEVE
-        AnsweredSurvey Read(int answeredsurveyId);
-        List<AnsweredSurvey> List();
-        #endregion
-        #region UPDATE
-        AnsweredSurvey Update(AnsweredSurvey answeredsurvey);
-        #endregion
-        #region DELETE
-        void Delete(AnsweredSurvey answeredsurvey);
+        AnsweredSurvey Create(AnsweredSurvey answeredSurvey);
         #endregion
 
-        #region CreateList
-        AnsweredSurvey CreateList(AnsweredSurvey answeredsurvey);
+        #region RETRIEVE
+        AnsweredSurvey Read(int answeredSurveyId);
+        List<AnsweredSurvey> List();
+        #endregion
+
+        #region UPDATE
+        #endregion
+
+        #region DELETE
+        void Delete(AnsweredSurvey answeredsurvey);
         #endregion
     }
 }

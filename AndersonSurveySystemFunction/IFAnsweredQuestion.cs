@@ -8,15 +8,15 @@ namespace AndersonSurveySystemFunction
         #region CREATE
         AnsweredQuestion Create(AnsweredQuestion answeredquestion);
         #endregion
+
         #region RETRIEVE
-        AnsweredQuestion Read(int answeredquestionId);
-        List<AnsweredQuestion> List();
+        List<AnsweredQuestion> Read(int answeredSurveyId);
         #endregion
+
         #region UPDATE
-        AnsweredQuestion Update(AnsweredQuestion answeredquestion);
         #endregion
+
         #region DELETE
-        void Delete(AnsweredQuestion answeredquestion);
         #endregion
     }
 }

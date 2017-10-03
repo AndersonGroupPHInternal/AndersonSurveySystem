@@ -57,10 +57,12 @@
   <ItemGroup>
     <Compile Include="DAnsweredQuestion.cs" />
     <Compile Include="DAnsweredSurvey.cs" />
+    <Compile Include="DQuestionResult.cs" />
     <Compile Include="DQuestion.cs" />
     <Compile Include="DSurvey.cs" />
     <Compile Include="IDAnsweredQuestion.cs" />
     <Compile Include="IDAnsweredSurvey.cs" />
+    <Compile Include="IDQuestionResult.cs" />
     <Compile Include="IDQuestion.cs" />
     <Compile Include="IDSurvey.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

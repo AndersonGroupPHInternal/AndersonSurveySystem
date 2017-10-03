@@ -49,22 +49,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FAdmin.cs" />
     <Compile Include="FAnsweredQuestion.cs" />
     <Compile Include="FAnsweredSurvey.cs" />
-    <Compile Include="FComment.cs" />
-    <Compile Include="FEmail.cs" />
+    <Compile Include="FQuestionResult.cs" />
     <Compile Include="FQuestion.cs" />
     <Compile Include="FSurvey.cs" />
-    <Compile Include="FTypeOfQuestion.cs" />
-    <Compile Include="IFAdmin.cs" />
     <Compile Include="IFAnsweredQuestion.cs" />
     <Compile Include="IFAnsweredSurvey.cs" />
-    <Compile Include="IFComment.cs" />
-    <Compile Include="IFEmail.cs" />
+    <Compile Include="IFQuestionResult.cs" />
     <Compile Include="IFQuestion.cs" />
     <Compile Include="IFSurvey.cs" />
-    <Compile Include="IFTypeOfQuestion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

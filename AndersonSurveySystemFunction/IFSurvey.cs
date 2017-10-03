@@ -6,15 +6,18 @@ namespace AndersonSurveySystemFunction
     public interface IFSurvey
     {
         #region CREATE
-        Survey Create(Survey survey);
+        Survey Create(int createdBy, Survey survey);
         #endregion
+
         #region RETRIEVE
         Survey Read(int surveyId);
         List<Survey> List();
         #endregion
+
         #region UPDATE
-        Survey Update(Survey survey);
+        Survey Update(int updatedBy, Survey survey);
         #endregion
+
         #region DELETE
         void Delete(Survey survey);
         #endregion

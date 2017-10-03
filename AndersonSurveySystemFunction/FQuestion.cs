@@ -3,6 +3,7 @@ using AndersonSurveySystemData;
 using AndersonSurveySystemEntity;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace AndersonSurveySystemFunction
 {
@@ -16,9 +17,11 @@ namespace AndersonSurveySystemFunction
         }
 
         #region CREATE
-        public Question Create(Question question)
+        public Question Create(int createdBy, Question question)
         {
             EQuestion eQuestion = EQuestion(question);
+            eQuestion.CreatedDate = DateTime.Now;
+            eQuestion.CreatedBy = createdBy;
             eQuestion = _iDQuestion.Create(eQuestion);
             return (Question(eQuestion));
         }
@@ -31,6 +34,12 @@ namespace AndersonSurveySystemFunction
             return Question(eQuestion);
         }
 
+        public List<Question> Read(int surveyId, string sortBy)
+        {
+            List<EQuestion> eQuestions = _iDQuestion.Read<EQuestion>(a => a.SurveyId == surveyId, sortBy);
+            return Questions(eQuestions);
+        }
+
         public List<Question> List()
         {
             List<EQuestion> eQuestions = _iDQuestion.List<EQuestion>(a => true);
@@ -39,9 +48,11 @@ namespace AndersonSurveySystemFunction
         #endregion
 
         #region UPDATE
-        public Question Update(Question question)
+        public Question Update(int updatedBy, Question question)
         {
             var eQuestion = _iDQuestion.Update(EQuestion(question));
+            eQuestion.UpdatedDate = DateTime.Now;
+            eQuestion.UpdatedBy = updatedBy;
             return (Question(eQuestion));
         }
         #endregion
@@ -53,40 +64,39 @@ namespace AndersonSurveySystemFunction
         }
         #endregion
 
-
-        private List<Question> Questions(List<EQuestion> eQuestions)
-        {
-            var returnQuestions = eQuestions.Select(a => new Question
-            {
-                QuestionId = a.QuestionId,
-                Description = a.Description,
-                Rate = a.Rate,
-            });
-
-            return returnQuestions.ToList();
-        }
-
+        #region  OTHER
         private EQuestion EQuestion(Question question)
         {
-            EQuestion returnEQuestion = new EQuestion
+            return new EQuestion
             {
                 QuestionId = question.QuestionId,
-                Description = question.Description,
-                Rate = question.Rate,
+                SurveyId = question.SurveyId,
 
+                Description = question.Description
             };
-            return returnEQuestion;
         }
 
         private Question Question(EQuestion eQuestion)
         {
-            Question returnQuestion = new Question
+            return new Question
             {
                 QuestionId = eQuestion.QuestionId,
-                Description = eQuestion.Description,
-                Rate = eQuestion.Rate,
+                SurveyId = eQuestion.SurveyId,
+
+                Description = eQuestion.Description
             };
-            return returnQuestion;
         }
+
+        private List<Question> Questions(List<EQuestion> eQuestions)
+        {
+            return eQuestions.Select(a => new Question
+            {
+                QuestionId = a.QuestionId,
+                SurveyId = a.SurveyId,
+
+                Description = a.Description
+            }).ToList();
+        }
+        #endregion
     }
 }

@@ -9,10 +9,21 @@
     padding-right: 15px;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+/*Navbar*/
+.navbar {
+    border-bottom-color: #0026ff;
+    border-width: 0 1px 4px 1px;
+    background-color: white;
+    height:85px;
 }
 
+.andersonGroupLogo {
+    max-width: 150px;
+    margin-top: -7px;
+}
+
+.itslLogo {
+    max-width: 100px;
+    margin-top: -25px;
+}
+/*Navbar*/
