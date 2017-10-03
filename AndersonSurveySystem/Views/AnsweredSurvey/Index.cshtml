@@ -1,20 +1,11 @@
-﻿
-
-@{
+﻿@{
     ViewBag.Title = "Index";
+    int questionCounter = 0;
 }
 
-
-
-<html>
-<body>
-
-    @*<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular.min.js"></script>*@
-
     <br />
     <br />
-    <b>Dear @Model.Name , </b>
+    <b>Dear @Model.FirstName , </b>
 
     <p>
         <br>
@@ -31,130 +22,49 @@
 
     <br>
 
-    <b>Ticket Number: @Model.ticketnumber </b><br />
-    <b>Description: @Model.description </b>
+    <b>Ticket Number: @Model.TicketNumber </b><br />
+    <b>Description: @Model.Description </b>
 
     <br><br><br>
     <p><b>Please rate your expectations below where 1 is the lowest and 10 is the highest.</b></p><br />
 
 
-    <div ng-controller="SurveyController as model" ng-init="model.List()">
-        <form method="post" action="/AnsweredSurvey/Create">
-            <input type="hidden" name="answeredSurvey.Name" value=@Model.Name>
-            <input type="hidden" name="answeredSurvey.ticketnumber" value=@Model.ticketnumber>
-            <input type="hidden" name="answeredSurvey.description" value=@Model.description>
+<form method="post" action="~/AnsweredSurvey/Create">
+    <input type="hidden" name="answeredSurvey.SurveyId" value=@Model.SurveyId>
+    <input type="hidden" name="answeredSurvey.Description" value=@Model.Description>
+    <input type="hidden" name="answeredSurvey.FirstName" value=@Model.FirstName>
+    <input type="hidden" name="answeredSurvey.MiddleName" value=@Model.MiddleName>
+    <input type="hidden" name="answeredSurvey.LastName" value=@Model.LastName>
+    <input type="hidden" name="answeredSurvey.TicketNumber" value=@Model.TicketNumber>
 
-            @*<a href="/Survey/Survey" type="button" class="btn btn-success"><i class="glyphicon glyphicon-plus-sign"></i> Add</a><br /><br />*@
-            <table class="table table-hover table-sm table-bordered ">
-                <thead>
-                    <tr class="active">
-                        <th><div align="center">Question No.</div></th>
-                        <th><div align="center">Question</div></th>
-                        <th><div align="center">Rate 1-10</div></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="Survey in model.Surveys">
-                        <td>
-                            <div align="center"><span ng-bind="Survey.SurveyId"></span></div>
-                            <input type="hidden" name="answeredSurvey.Questions[{{$index}}].QuestionId" value="{{Survey.SurveyId}}" />
-                            @*<input type="hidden" name="answeredSurvey.Questions[{{$index}}].QuestionId" value="{{Question.QuestionId}}" />*@
-                            <input type="hidden" name="answeredSurvey.AnsweredQuestions[{{$index}}].Questionid" value="{{Survey.SurveyId}}" />
-                            
-                        </td>
-                        <td><span ng-bind="Survey.SurveyName" ng-model="model.Survey.SurveyName"></span></td>
-                        @*<td><span ng-bind="Survey.Rate"></span></td>*@
-                        <td>
-                            
-                            <input type="hidden" name="answeredSurvey.AnsweredQuestions[{{$index}}].Answer" value="{{Survey.Rate}}" />
-                            <input type="hidden" name="answeredSurvey.AnsweredQuestions[{{$index}}].QuestionId" value="{{Survey.SurveyId}}" />
-                            <select data-placeholder="-Select your rate-" class="select" name="" ng-model="Survey.Rate" required>
-                                <option name="Question[1].Rate" value="1">1</option>
-                                <option name="Question[2].Rate" value="2">2</option>
-                                <option name="Question[3].Rate" value="3">3</option>
-                                <option name="Question[4].Rate" value="4">4</option>
-                                <option name="Question[5].Rate" value="5">5</option>
-                                <option name="Question[6].Rate" value="6">6</option>
-                                <option name="Question[7].Rate" value="7">7</option>
-                                <option name="Question[8].Rate" value="8">8</option>
-                                <option name="Question[9].Rate" value="9">9</option>
-                                <option name="Question[10].Rate" value="10">10</option>
+        <table class="table table-hover table-sm table-bordered ">
+            <thead>
+                <tr class="active">
+                    <th><div align="center">Question No.</div></th>
+                    <th><div align="center">Question</div></th>
+                    <th><div align="center">Rate 1-10</div></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var question in Model.Survey.Questions)
+                {
+                <tr>
+                    <td>
+                        <input type="hidden" name="answeredSurvey.AnsweredQuestions[@questionCounter].QuestionId" value="@question.QuestionId" />
+                        <label> @question.QuestionId </label>
+                    </td>
+                    <td>
+                        <label> @question.Description </label>
+                    </td>
+                    <td>
+                        <input type="number" name="answeredSurvey.AnsweredQuestions[@questionCounter].Answer" value="1" min="1" max="10"/>
 
-                            </select>
+                    </td>
+                </tr>
+                @(questionCounter += 1)
+                }
+            </tbody>
+        </table>
 
-                        </td>
-                        @*<td>
-                                <input type="hidden" name="answeredSurvey.comments[{{$index}}].Comments" value="{{Comment.Comments}}" />
-                                <input type="hidden" name="answeredSurvey.comments[{{$index}}].CommentId" value="{{AnsweredQuestion.QuestionId}}" />
-                                <label for="Comment">Add Comment</label><br />
-                                <textarea rows="3" cols="5" ng-model="Comment.Comments"></textarea>
-                            </td>*@
-
-                    </tr>
-
-                </tbody>
-            </table>
-
-    </div>
-
-
-    <div ng-controller="CommentController as model" ng-init="model.List()">
-        <div class="form-group">
-            <br />
-
-            <input type="hidden" name="answeredSurvey.comments[{{$index}}].Comments" value="{{Comment.Comments}}" />
-            <input type="hidden" name="answeredSurvey.comments[{{$index}}].Comments" value="{{AnsweredSurvey.AnsweredSurveyid}}" />
-            <label for="Comments">Add Comments:</label> <br>
-            @*<input type="text" class="form-control" id="Comments" ng-model="model.Comment.Comments" />*@
-            <textarea rows="4" cols="50" id="Comments" ng-model="model.Comment.Comments"> </textarea> <br />
-
-        </div>
-
-        <div align="right">
-            <input type="submit" class="btn btn-primary" value="Submit" id="myButton" />
-        </div>
-        @*ng-click="model.Create() " style="margin-left: 50px;float: left"><i class="glyphicon glyphicon-plus-sign"></i>Submit</a>*@
-
-    </div>
-
-
-
-    @*<input type="submit" vaule="submit" />*@
-
-    <br /><br /><br />
-
-
-    </form>
-
-    @*</div>
-        <button type="button" class="btn btn-primary" ng-click="model.Create()" ng-show="model.Rate.Rates != 0">Add</button>*@
-
-
-    @*<input type="text" class="form-control" id="SurveyName" ng-init="model.Survey.SurveyName = {{model.Surveys[0].SurveyName }}" ng-model="model.Survey.SurveyName"> <br />
-        <span ng-model="model.Survey.SurveyName">{{model.Surveys[0].SurveyName}}</span> <br />
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group form-group-material">
-                    <label>Add Comments:</label>
-                    <textarea rows="5" cols="8" class="form-control" placeholder="Enter your comment here" ng-model="model.Survey.Comments" ng-required="true"></textarea>
-                </div>
-            </div>
-        </div>*@
-
-    @*<div class="row" align="right">
-                <a href="/AnsweredQuestion/Index" class="btn btn-success" ng-click="model.Create()" style="float: right; margin-right: 35px"><i class="glyphicon glyphicon-plus-sign"></i> Submit</a>
-            </div><br />
-
-        </div>
-
-        <br><br>*@
-
-</body>
-</html>
-
-<footer>
-    <div class="footer text-muted">
-        &copy; 2017. - All Rights Reserved.
-    </div>
-</footer>
+    <input type="submit" class="btn btn-success" />
+</form>

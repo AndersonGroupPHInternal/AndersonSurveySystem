@@ -38,11 +38,9 @@
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -56,54 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context.cs" />
-    <Compile Include="Migrations\201709070935071_initials.cs" />
-    <Compile Include="Migrations\201709070935071_initials.Designer.cs">
-      <DependentUpon>201709070935071_initials.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709080807268_initialss.cs" />
-    <Compile Include="Migrations\201709080807268_initialss.Designer.cs">
-      <DependentUpon>201709080807268_initialss.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709120257225_initials11.cs" />
-    <Compile Include="Migrations\201709120257225_initials11.Designer.cs">
-      <DependentUpon>201709120257225_initials11.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709130115422_intials22.cs" />
-    <Compile Include="Migrations\201709130115422_intials22.Designer.cs">
-      <DependentUpon>201709130115422_intials22.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709140803402_initials33.cs" />
-    <Compile Include="Migrations\201709140803402_initials33.Designer.cs">
-      <DependentUpon>201709140803402_initials33.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709180934421_initials44.cs" />
-    <Compile Include="Migrations\201709180934421_initials44.Designer.cs">
-      <DependentUpon>201709180934421_initials44.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709200230537_rate.cs" />
-    <Compile Include="Migrations\201709200230537_rate.Designer.cs">
-      <DependentUpon>201709200230537_rate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709200258315_ratess.cs" />
-    <Compile Include="Migrations\201709200258315_ratess.Designer.cs">
-      <DependentUpon>201709200258315_ratess.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709200315054_ratess1.cs" />
-    <Compile Include="Migrations\201709200315054_ratess1.Designer.cs">
-      <DependentUpon>201709200315054_ratess1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709210121232_dhgf.cs" />
-    <Compile Include="Migrations\201709210121232_dhgf.Designer.cs">
-      <DependentUpon>201709210121232_dhgf.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709210334593_dvsaaa.cs" />
-    <Compile Include="Migrations\201709210334593_dvsaaa.Designer.cs">
-      <DependentUpon>201709210334593_dvsaaa.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709250213195_dvcfsdadasd.cs" />
-    <Compile Include="Migrations\201709250213195_dvcfsdadasd.Designer.cs">
-      <DependentUpon>201709250213195_dvcfsdadasd.cs</DependentUpon>
-    </Compile>
+    <Compile Include="DBInitializer.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -116,44 +67,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201709070935071_initials.resx">
-      <DependentUpon>201709070935071_initials.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709080807268_initialss.resx">
-      <DependentUpon>201709080807268_initialss.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709120257225_initials11.resx">
-      <DependentUpon>201709120257225_initials11.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709130115422_intials22.resx">
-      <DependentUpon>201709130115422_intials22.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709140803402_initials33.resx">
-      <DependentUpon>201709140803402_initials33.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709180934421_initials44.resx">
-      <DependentUpon>201709180934421_initials44.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709200230537_rate.resx">
-      <DependentUpon>201709200230537_rate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709200258315_ratess.resx">
-      <DependentUpon>201709200258315_ratess.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709200315054_ratess1.resx">
-      <DependentUpon>201709200315054_ratess1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709210121232_dhgf.resx">
-      <DependentUpon>201709210121232_dhgf.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709210334593_dvsaaa.resx">
-      <DependentUpon>201709210334593_dvsaaa.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709250213195_dvcfsdadasd.resx">
-      <DependentUpon>201709250213195_dvcfsdadasd.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

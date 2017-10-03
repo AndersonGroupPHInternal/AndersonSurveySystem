@@ -7,16 +7,17 @@ namespace AndersonSurveySystemFunction
     public interface IFQuestion
     {
         #region CREATE
-        Question Create(Question question);
+        Question Create(int createdBy, Question question);
         #endregion
 
         #region READ
         Question Read(int questionId);
+        List<Question> Read(int surveyId, string sortBy);
         List<Question> List();
         #endregion
 
         #region UPDATE
-        Question Update(Question question);
+        Question Update(int updatedBy, Question question);
         #endregion
 
         #region DELETE

@@ -1,190 +1,76 @@
 ﻿using AndersonSurveySystemFunction;
 using AndersonSurveySystemModel;
 using System;
-using System.Collections.Generic;
-using AndersonSurveySystemContext;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using System.Net;
-using System.Collections.Specialized;
-using System.Web.Script.Serialization;
-using System.Net.Mail;
 
 
 namespace AndersonSurveySystem.Controllers
 {
-    [RoutePrefix("AnsweredSurvey")]
     public class AnsweredSurveyController : Controller
     {
-      
+        private IFAnsweredQuestion _iFAnsweredQuestion;
         private IFAnsweredSurvey _iFAnsweredSurvey;
-        private IFAnsweredSurveyResult _iFAnsweredSurveyResult;
+        private IFSurvey _iFSurvey;
 
-        public AnsweredSurveyController()
+        public AnsweredSurveyController(IFAnsweredQuestion iFAnsweredQuestion, IFAnsweredSurvey iFAnsweredSurvey, IFSurvey iFSurvey)
         {
-           
-            _iFAnsweredSurvey = new FAnsweredSurvey();
-            _iFAnsweredSurveyResult = new FAnsweredSurveyResult();
+            _iFAnsweredQuestion = iFAnsweredQuestion;
+            _iFAnsweredSurvey = iFAnsweredSurvey;
+            _iFSurvey = iFSurvey;
         }
-
-
-        [Route("")]
+        
         [HttpGet]
-        public ActionResult Index(string ticketnumber, string description, string Name)
+        public ActionResult Index(int surveyId, string description, string firstName, string middleName, string lastName, string ticketNumber)
         {
+            var survey = _iFSurvey.Read(surveyId);
+            var answeredSurvey = new AnsweredSurvey
+            {
+                SurveyId = surveyId,
 
-            var answeredsurveyss = new AnsweredSurvey { ticketnumber = " " + ticketnumber, description = " " + description, Name = " " + Name };
+                Description = description,
+                FirstName = firstName,
+                MiddleName = middleName,
+                LastName = lastName,
+                TicketNumber = ticketNumber,
 
-            return View(answeredsurveyss);
+                Survey = survey
+            };
+            return View(answeredSurvey);
 
-        }
-
-
-        [Route("")]
-        [HttpGet]
-        public JsonResult Result(/*int answer, int questionId*/)
-        {
-            //return View();
-
-            //List<AnsweredQuestion> answeredquestion = new List<AnsweredQuestion>();
-            //try
-            //{
-            //    using (var ctx = new Context())
-            //    {
-            //        answeredquestion = ctx.AnsweredQuestion.Where(a => a.Answer == answer && a.QuestionId == questionId).Select(a =>
-            //            new AnsweredQuestion
-            //            {
-            //                AnsweredQuestionId = a.AnsweredQuestionId,
-            //                Answer = a.Answer,
-            //                QuestionId = a.QuestionId
-            //            }
-            //        ).ToList();
-
-            //    }
-            //}
-            //catch (Exception)
-            //{
-            //    throw;
-            //}
-            //return View();
-
-            return Json(_iFAnsweredSurveyResult.List(0));
-        }
-
-
-        [HttpGet]
-        public ActionResult Create()
-        {
-            return View(new AnsweredSurvey());
         }
 
         [HttpPost]
         public ActionResult Create(AnsweredSurvey answeredSurvey)
         {
-
             try
             {
-
-                //foreach (var answeredsurvey in answeredsurveys)
-                //{
-                _iFAnsweredSurvey.Create(answeredSurvey);
-                return RedirectToAction("Index", "AnsweredQuestion", new { Name = answeredSurvey.Name });
-                //}
-
-                //return View(/*new AnsweredQuestion()*/);
+                var result = _iFAnsweredSurvey.Create(answeredSurvey);
+                foreach(var answeredQuestion in answeredSurvey.AnsweredQuestions)
+                {
+                    answeredQuestion.AnsweredSurveyId = result.AnsweredSurveyId;
+                    _iFAnsweredQuestion.Create(answeredQuestion);
+                }
+                return RedirectToAction("Answered", "AnsweredSurvey", new { answeredSurvey = answeredSurvey });
             }
             catch (Exception ex)
             {
                 return Json(ex);
             }
         }
-
-        [Route("List")]
-        [HttpPost]
-        public ActionResult Survey(Survey model)
-        {
-
-            int SurveyId = model.SurveyId;
-            int Rate = model.Rate;
-
-            return View(model);
-        }
-        //List<Survey> Survey = new List<Survey>();
-
-
-
 
         [HttpGet]
-        public ActionResult Update(int id)
+        public ActionResult Answered(AnsweredSurvey answeredSurvey)
         {
+
             try
             {
-                List<Survey> Survey = new List<Survey>();
-
-                AnsweredSurvey answeredsurvey = _iFAnsweredSurvey.Read(id);
-                return View(answeredsurvey);
-            }
-            catch (Exception ex)
-            {
-                return View(new AnsweredSurvey());
-            }
-        }
-
-        [HttpPost]
-        public ActionResult Update(AnsweredSurvey answeredsurvey)
-        {
-            try
-            {
-                answeredsurvey = _iFAnsweredSurvey.Update(answeredsurvey);
-                return Json("");
-            }
-            catch (Exception ex)
-            {
-                return View(ex);
-            }
-        }
-
-        [HttpPost]
-        public ActionResult Delete(AnsweredSurvey answeredsurvey)
-        {
-            try
-            {
-                _iFAnsweredSurvey.Delete(answeredsurvey);
-                return Json("");
+                return View(answeredSurvey);
             }
             catch (Exception ex)
             {
                 return Json(ex);
             }
         }
-
-        //public JsonResult Static()
-        //{
-        //    return Json(_iFAnsweredSurveyResult.List(0));
-        //}
-
-        public ActionResult StaticStructured()
-        {
-            return View();
-        }
-
-        public ActionResult DynamicStructured()
-        {
-            return View();
-        }
-
-        public JsonResult DynamicStructuredData()
-        {
-
-            return Json(_iFAnsweredSurveyResult.List(0));
-        }
-        public JsonResult Static()
-        {
-
-            return Json(_iFAnsweredSurveyResult.List(0));
-        }
-
 
     }
 

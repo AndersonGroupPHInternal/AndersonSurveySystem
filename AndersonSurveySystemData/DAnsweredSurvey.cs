@@ -5,8 +5,8 @@ namespace AndersonSurveySystemData
 {
     public class DAnsweredSurvey : DBase, IDAnsweredSurvey
     {
-        public DAnsweredSurvey() : base (new Context()){
-
+        public DAnsweredSurvey() : base (new Context())
+        {
         }
     }
 }

@@ -6,26 +6,19 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace AndersonSurveySystemEntity
 {
     [Table("Question")]
-    public class EQuestion
+    public class EQuestion: EBase
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int QuestionId { get; set; }
-
-        [StringLength(50)]
-        public string Description { get; set; }
-
-        public int Rate { get; set; }
-
+        [ForeignKey("Survey")]
         public int SurveyId { get; set; }
 
-        //public ICollection<EAnsweredQuestion> AnsweredQuestion { get; set; }
-        //[ForeignKey("TypeOfQuestion")]
-        //public int TypeOfQuestionId { get; set; }
+        [StringLength(250)]
+        public string Description { get; set; }
 
-        //public ICollection<EAnsweredQuestion> AnsweredQuestion { get; set; }
-        //public ICollection<ETypeOfQuestion> TypeOfQuestion { get; set; }
-
-        //public ETypeOfQuestion TypeOfQuestions { get; set; }
+        public ESurvey Survey { get; set; }
+        
+        public ICollection<EAnsweredQuestion> AnsweredQuestions { get; set; }
     }
 }
