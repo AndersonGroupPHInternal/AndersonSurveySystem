@@ -5,8 +5,7 @@
 
 
 <div ng-controller="QuestionResultController as model" ng-init="model.Initialise()">
-    <canvas id="bar" class="chart chart-bar"
-            chart-data="model.Rate" chart-labels="model.Description">
-        chart-series="model.Surveys"
+    <canvas id="bar" class="chart chart-bar" chart-data="model.Rate" chart-labels="model.Description" chart-series="model.Surveys"
+            chart-options="model.Options">
     </canvas>
 </div>

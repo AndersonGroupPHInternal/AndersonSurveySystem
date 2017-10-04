@@ -50,7 +50,7 @@ namespace AndersonSurveySystem.Controllers
                     answeredQuestion.AnsweredSurveyId = result.AnsweredSurveyId;
                     _iFAnsweredQuestion.Create(answeredQuestion);
                 }
-                return RedirectToAction("Answered", "AnsweredSurvey", new { answeredSurvey = answeredSurvey });
+                return RedirectToAction("Answered", "AnsweredSurvey", new { answeredSurveyId = result.AnsweredSurveyId });
             }
             catch (Exception ex)
             {
@@ -59,11 +59,12 @@ namespace AndersonSurveySystem.Controllers
         }
 
         [HttpGet]
-        public ActionResult Answered(AnsweredSurvey answeredSurvey)
+        public ActionResult Answered(int answeredSurveyId)
         {
 
             try
             {
+                var answeredSurvey = _iFAnsweredSurvey.Read(answeredSurveyId);
                 return View(answeredSurvey);
             }
             catch (Exception ex)
