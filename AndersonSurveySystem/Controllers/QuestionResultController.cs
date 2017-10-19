@@ -20,12 +20,11 @@ namespace AndersonSurveySystem.Controllers
         }
 
         [HttpPost]
-        public JsonResult Result(int id)
+        public JsonResult Result(QuestionResultFilter questionResultFilter)
         {
             try
             {
-                Question question = new Question();
-                return Json(_iFQuestionResult.Read(id));
+                return Json(_iFQuestionResult.Read(questionResultFilter));
             }
             catch (Exception exception)
             {
