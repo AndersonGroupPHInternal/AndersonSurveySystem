@@ -1,4 +1,5 @@
 ﻿using AndersonSurveySystemModel;
+using System;
 using System.Collections.Generic;
 
 
@@ -11,6 +12,7 @@ namespace AndersonSurveySystemFunction
 
         #region READ
         List<QuestionResult> Read(int surveyId);
+        List<QuestionResult> Read(QuestionResultFilter questionResultFilter);
         #endregion
 
         #region UPDATE

@@ -8,8 +8,6 @@ namespace AndersonSurveySystemContext
     {
         public Context() : base("AndersonSurveySystem")
         {
-            Database.SetInitializer(new DBInitializer());
-
             if (Database.Exists())
             {
                 Database.SetInitializer(new MigrateDatabaseToLatestVersion<Context, Migrations.Configuration>());

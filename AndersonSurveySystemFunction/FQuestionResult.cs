@@ -3,6 +3,7 @@ using AndersonSurveySystemData;
 using AndersonSurveySystemEntity;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace AndersonSurveySystemFunction
 {
@@ -30,6 +31,31 @@ namespace AndersonSurveySystemFunction
 
                 questionResults.Add(new QuestionResult
                 {
+                    Description = question.Description,
+                    Rate = rate
+                });
+            }
+            return questionResults;
+        }
+
+        public List<QuestionResult> Read(QuestionResultFilter questionResultFilter)
+        {
+            List<QuestionResult> questionResults = new List<QuestionResult>();
+            var questions = _iDQuestionResult.Read<EQuestion>(a => a.SurveyId == questionResultFilter.SurveyId, "QuestionId");
+            var questionNumber = 0;
+            foreach (var question in questions)
+            {
+                questionNumber++;
+
+                var answeredQuestions = _iDQuestionResult.Read<EAnsweredQuestion>(a => a.QuestionId == question.QuestionId && a.CreatedDate >= questionResultFilter.From && a.CreatedDate <= questionResultFilter.To, "QuestionId");
+                double rate = 0;
+
+                if (answeredQuestions.Any())
+                    rate = answeredQuestions.Average(a => a.Answer);
+
+                questionResults.Add(new QuestionResult
+                {
+                    Number = questionNumber,
                     Description = question.Description,
                     Rate = rate
                 });

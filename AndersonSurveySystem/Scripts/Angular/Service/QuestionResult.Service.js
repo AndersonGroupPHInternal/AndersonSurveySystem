@@ -12,10 +12,11 @@
             Read: Read
         }
 
-        function Read(surveyId) {
+        function Read(QuestionResultFilter) {
             return $http({
                 method: 'POST',
-                url: '../QuestionResult/Result/' + surveyId,
+                url: '../QuestionResult/Result',
+                data: $.param(QuestionResultFilter),
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
             });
         }

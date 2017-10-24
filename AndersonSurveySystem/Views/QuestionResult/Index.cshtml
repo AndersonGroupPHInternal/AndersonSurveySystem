@@ -5,7 +5,18 @@
 
 
 <div ng-controller="QuestionResultController as model" ng-init="model.Initialise()">
-    <canvas id="bar" class="chart chart-bar" chart-data="model.Rate" chart-labels="model.Description" chart-series="model.Surveys"
-            chart-options="model.Options">
-    </canvas>
+    <div class="row">
+        <div class="col-xs-12">
+            <input type="date" ng-model="model.QuestionResultFilter.From" ng-change="model.Read()" class="form-control" />
+        </div>
+        <div class="col-xs-12">
+            <input type="date" ng-model="model.QuestionResultFilter.To" ng-change="model.Read()" class="form-control" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <canvas id="bar" class="chart chart-bar" chart-data="model.Rate" chart-labels="model.Number" chart-series="model.Surveys" chart-options="model.Options"
+                    chart-colors="model.Colors"></canvas>
+        </div>
+    </div>
 </div>
