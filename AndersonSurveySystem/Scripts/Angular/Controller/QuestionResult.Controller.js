@@ -12,8 +12,8 @@
         //object
         vm.Options;
         vm.QuestionResultFilter = {
-            From: new Date(),
-            To: new Date(),
+            From: new Date(moment().add(-1, 'months')),
+            To:new Date(moment()),
             SurveyId: 1
         };
         //object array
@@ -44,7 +44,10 @@
         }
 
         function Read() {
-            QuestionResultService.Read(vm.QuestionResultFilter)
+            var questionResultFilter = angular.copy(vm.QuestionResultFilter);
+            questionResultFilter.From = moment(questionResultFilter.From).format('YYYY-MM-DD');
+            questionResultFilter.To = moment(questionResultFilter.To).format('YYYY-MM-DD');
+            QuestionResultService.Read(questionResultFilter)
                 .then(function (response) {
                     vm.QuestionResults = response.data;
 

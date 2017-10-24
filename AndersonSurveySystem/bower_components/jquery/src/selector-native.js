@@ -235,3 +235,12 @@ jQuery.extend( jQuery.find, {
 } );
 
 } );
+#13807)
+			value = fn && hasOwn.call( jQuery.expr.attrHandle, name.toLowerCase() ) ?
+				fn( elem, name, jQuery.isXMLDoc( elem ) ) :
+				undefined;
+		return value !== undefined ? value : elem.getAttribute( name );
+	}
+} );
+
+} );

@@ -5,6 +5,7 @@
     "angular-chart.js": "1.1.1",
     "chart.js": "Chart.js#v2.7.0",
     "jQuery": "3.2.0",
-    "bootstrap": "v3.3.7"
+    "bootstrap": "v3.3.7",
+    "moment": "2.19.1"
   }
 }
