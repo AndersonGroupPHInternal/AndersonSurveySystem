@@ -35,7 +35,7 @@ namespace AndersonSurveySystemContext
                         CreatedBy = 0,
                         SurveyId = eSurvey.SurveyId,
 
-                        Description = "Was the SD analyst helpful in diagnosing the cause of your problem/issue ?",
+                        Description = "Was the Service Desk analyst helpful in diagnosing the cause of your problem/issue ?",
                     },
                     new EQuestion
                     {
@@ -44,7 +44,7 @@ namespace AndersonSurveySystemContext
                         CreatedBy = 0,
                         SurveyId = eSurvey.SurveyId,
 
-                        Description = "Was the SD analyst able to resolve your problem/issue (N/A if call was transferred, escalated to T2) ?",
+                        Description = "Was the Service Desk analyst able to resolve your problem/issue (N/A if call was transferred, escalated to Tier 2) ?",
                     },
                     new EQuestion
                     {
@@ -62,7 +62,7 @@ namespace AndersonSurveySystemContext
                         CreatedBy = 0,
                         SurveyId = eSurvey.SurveyId,
 
-                        Description = "Was the SD analyst courteous, friendly and accommodating ?",
+                        Description = "Was the Service Desk analyst courteous, friendly and accommodating ?",
                     },
                     new EQuestion
                     {
@@ -71,7 +71,7 @@ namespace AndersonSurveySystemContext
                         CreatedBy = 0,
                         SurveyId = eSurvey.SurveyId,
 
-                        Description = "How would you rate your overall level of satisfaction with other service desk team ?",
+                        Description = "How would you rate your overall level of satisfaction with the Service Desk team ?",
                     },
                 };
                 context.Question.AddRange(eQuestions);
