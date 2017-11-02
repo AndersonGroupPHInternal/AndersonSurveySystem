@@ -26,7 +26,7 @@
     <b>Description: @Model.Description </b>
 
     <br><br><br>
-    <p><b>Please rate your expectations below where 1 is the lowest and 10 is the highest.</b></p><br />
+    <p><b>Please rate your expectations below where 1 is the lowest and 10 is the highest.</b></p><br>
 
 
 <form method="post" action="~/AnsweredSurvey/Create">
@@ -46,22 +46,23 @@
                 </tr>
             </thead>
             <tbody>
+
                 @foreach (var question in Model.Survey.Questions)
                 {
-                <tr>
-                    <td>
-                        <input type="hidden" name="answeredSurvey.AnsweredQuestions[@questionCounter].QuestionId" value="@question.QuestionId" />
-                        <label> @question.QuestionId </label>
-                    </td>
-                    <td>
-                        <label> @question.Description </label>
-                    </td>
-                    <td>
-                        <input type="number" name="answeredSurvey.AnsweredQuestions[@questionCounter].Answer" value="1" min="1" max="10"/>
+                    <tr>
+                        <td>
+                            <input type="hidden" name="answeredSurvey.AnsweredQuestions[@questionCounter].QuestionId" value="@question.QuestionId" />
+                            <label> @question.QuestionId </label>
+                        </td>
+                        <td>
+                            <label> @question.Description </label>
+                        </td>
+                        <td>
+                            <input type="number" name="answeredSurvey.AnsweredQuestions[@questionCounter].Answer" value="1" min="1" max="10" />
 
-                    </td>
-                </tr>
-                @(questionCounter += 1)
+                        </td>
+                    </tr>
+                    questionCounter += 1;
                 }
             </tbody>
         </table>

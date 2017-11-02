@@ -16,9 +16,10 @@ namespace AndersonSurveySystemEntity
 
         [StringLength(250)]
         public string Description { get; set; }
+        public string Name { get; set; }
 
         public ESurvey Survey { get; set; }
-        
+
         public ICollection<EAnsweredQuestion> AnsweredQuestions { get; set; }
     }
 }

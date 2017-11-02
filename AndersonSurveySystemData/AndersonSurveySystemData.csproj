@@ -31,19 +31,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Base">
-      <HintPath>..\..\..\..\..\Desktop\SourceCode\DLL\Base.dll</HintPath>
+      <HintPath>..\..\DLL\Release\Base\Base.dll</HintPath>
     </Reference>
     <Reference Include="BaseData">
-      <HintPath>..\..\..\..\..\Desktop\SourceCode\DLL\BaseData.dll</HintPath>
+      <HintPath>..\..\DLL\Release\Base\BaseData.dll</HintPath>
     </Reference>
     <Reference Include="BaseEntity">
-      <HintPath>..\..\..\..\..\Desktop\SourceCode\DLL\BaseEntity.dll</HintPath>
+      <HintPath>..\..\DLL\Release\Base\BaseEntity.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework">
-      <HintPath>..\..\..\..\..\Desktop\SourceCode\DLL\EntityFramework.dll</HintPath>
+      <HintPath>..\..\DLL\Release\Base\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\..\..\..\..\Desktop\SourceCode\DLL\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\..\DLL\Release\Base\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
