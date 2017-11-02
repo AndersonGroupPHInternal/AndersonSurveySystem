@@ -13,10 +13,11 @@
             <input type="date" ng-model="model.QuestionResultFilter.To" ng-change="" class="form-control" />
         </div>
         <button ng-click="model.Read()" class="btn btn-primary btn-sm">OK</button>
-    </div>
+    </div><br />
+    <p><font size="6" font style:"Arial"/><center>IT Service Desk Customer Satisfaction Survey Result</center></p>
     <div class="row">
         <div class="col-xs-12">
-            <canvas id="bar" class="chart chart-bar" chart-data="model.Rate" chart-labels="model.Number" chart-series="model.Surveys" chart-options="model.Options"
+            <canvas id="bar" class="chart chart-bar" chart-data="model.Rate" chart-labels="model.Name" chart-series="model.Surveys" chart-options="model.Options"
                     chart-colors="model.Colors"></canvas>
         </div>
     </div>

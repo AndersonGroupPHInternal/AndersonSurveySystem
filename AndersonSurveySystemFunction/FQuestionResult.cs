@@ -57,6 +57,7 @@ namespace AndersonSurveySystemFunction
                 {
                     Number = questionNumber,
                     Description = question.Description,
+                    Name = question.Name,
                     Rate = rate
                 });
             }

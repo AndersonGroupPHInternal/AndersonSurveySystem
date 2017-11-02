@@ -227,16 +227,3 @@ jQuery.each( [ "top", "left" ], function( i, prop ) {
 
 return jQuery;
 } );
-S( elem, prop );
-
-				// If curCSS returns percentage, fallback to offset
-				return rnumnonpx.test( computed ) ?
-					jQuery( elem ).position()[ prop ] + "px" :
-					computed;
-			}
-		}
-	);
-} );
-
-return jQuery;
-} );
