@@ -52,6 +52,9 @@
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="BaseData, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="BaseEntity">
+      <HintPath>..\..\DLL\Release\Base\BaseEntity.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -92,12 +95,6 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Web.Http">
-      <HintPath>..\..\..\..\..\Desktop\SourceCode\DLL\System.Web.Http.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Http.WebHost">
-      <HintPath>..\..\..\..\..\Desktop\SourceCode\DLL\System.Web.Http.WebHost.dll</HintPath>
-    </Reference>
     <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
     </Reference>
@@ -1382,7 +1379,6 @@
     <Folder Include="bower_components\bootstrap\scss\utilities\" />
     <Folder Include="Helper\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Question\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AndersonSurveySystemData\AndersonSurveySystemData.csproj">
@@ -1416,7 +1412,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>49380</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
