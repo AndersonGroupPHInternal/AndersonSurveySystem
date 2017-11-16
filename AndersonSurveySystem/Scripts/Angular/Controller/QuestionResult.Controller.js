@@ -31,12 +31,16 @@
             vm.Surveys = ['Survey'];
             vm.Colors = ['#B8D0DE', '#9FC2D6', '#86B4CF', '#73A2BD', '#6792AB'];
             vm.Options = {
+                size: {
+                    height: 504,
+                    width: 896
+                },
                 scales: {
                     xAxes: [{
                         gridLines: {
                             display: false
                         },
-                            }],
+                    }],
                     yAxes: [{
                         gridlines: {
                             display: false
@@ -57,7 +61,7 @@
         }
 
         function Read() {
-            var questionResultFilter = angular.copy(vm.QuestionResultFilter);
+            var questionResultFilter = angular.copy(vm.QuestionResultFilter)
             questionResultFilter.From = moment(questionResultFilter.From).format('YYYY-MM-DD');
             questionResultFilter.To = moment(questionResultFilter.To).format('YYYY-MM-DD');
             QuestionResultService.Read(questionResultFilter)
