@@ -32,6 +32,14 @@ namespace AndersonSurveySystemFunction
             List<EAnsweredQuestion> eAnsweredQuestions = _iDAnsweredQuestion.Read(answeredSurveyId);
             return AnsweredQuestions(eAnsweredQuestions);
         }
+
+        public List<AnsweredQuestion> Read(QuestionResultFilter questionResultFilter)
+        {
+            List<EAnsweredQuestion> eAnsweredQuestions =
+                _iDAnsweredQuestion.Read(a => a.AnsweredSurvey.SurveyId == questionResultFilter.SurveyId &&
+                a.CreatedDate >= questionResultFilter.From && a.CreatedDate <= questionResultFilter.To);
+            return AnsweredQuestions(eAnsweredQuestions);
+        }
         #endregion
 
         #region UPDATE
@@ -72,12 +80,30 @@ namespace AndersonSurveySystemFunction
                 AnsweredSurveyId = a.AnsweredSurveyId,
                 QuestionId = a.QuestionId,
 
+                AnsweredSurvey = new AnsweredSurvey
+                {
+                    AnsweredSurveyId = a.AnsweredSurvey.AnsweredSurveyId,
+                    SurveyId = a.AnsweredSurvey.SurveyId,
+
+                    Description = a.AnsweredSurvey.Description,
+                    FirstName = a.AnsweredSurvey.FirstName,
+                    LastName = a.AnsweredSurvey.LastName,
+                    MiddleName = a.AnsweredSurvey.MiddleName,
+                    TicketNumber = a.AnsweredSurvey.TicketNumber,
+                    Survey = new Survey
+                    {
+                        SurveyId = a.Question.Survey.SurveyId,
+
+                        SurveyName = a.Question.Survey.SurveyName
+                    }
+                },
                 Question = new Question
                 {
                     QuestionId = a.Question.QuestionId,
                     SurveyId = a.Question.SurveyId,
 
-                    Description = a.Question.Description
+                    Description = a.Question.Description,
+                    Name = a.Question.Name
                 }
             }).ToList();            
         }

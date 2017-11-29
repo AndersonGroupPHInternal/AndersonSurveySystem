@@ -40,7 +40,7 @@ namespace AndersonSurveySystemFunction
             return Questions(eQuestions);
         }
 
-        public List<Question> List()
+        public List<Question> Read()
         {
             List<EQuestion> eQuestions = _iDQuestion.List<EQuestion>(a => true);
             return Questions(eQuestions);
@@ -53,14 +53,15 @@ namespace AndersonSurveySystemFunction
             var eQuestion = _iDQuestion.Update(EQuestion(question));
             eQuestion.UpdatedDate = DateTime.Now;
             eQuestion.UpdatedBy = updatedBy;
+            eQuestion = _iDQuestion.Update(eQuestion);
             return (Question(eQuestion));
         }
         #endregion
 
         #region DELETE
-        public void Delete(Question question)
+        public void Delete(int questionId)
         {
-            _iDQuestion.Delete(EQuestion(question));
+            _iDQuestion.Delete<EQuestion>(a => a.QuestionId == questionId);
         }
         #endregion
 

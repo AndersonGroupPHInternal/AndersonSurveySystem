@@ -76,6 +76,10 @@
       <Project>{88e3a1b5-dfb5-460b-b31f-78662d9bbd2a}</Project>
       <Name>AndersonSurveySystemEntity</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AndersonSurveySystemModel\AndersonSurveySystemModel.csproj">
+      <Project>{58A9F6E8-811E-453B-A33D-6A0C34E665C1}</Project>
+      <Name>AndersonSurveySystemModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

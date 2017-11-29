@@ -3,12 +3,12 @@
 
     angular
         .module('App')
-        .factory('QuestionResultService', QuestionResultService);
+        .factory('AnsweredQuestionService', AnsweredQuestionService);
         
 
-    QuestionResultService.$inject = ['$http'];
+    AnsweredQuestionService.$inject = ['$http'];
 
-    function QuestionResultService($http) {
+    function AnsweredQuestionService($http) {
         return {
             Read: Read
         }
@@ -16,7 +16,7 @@
         function Read(questionResultFilter) {
             return $http({
                 method: 'POST',
-                url: '../QuestionResult/Result',
+                url: '../AnsweredQuestion/Read',
                 data: $.param(questionResultFilter),
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
             });
