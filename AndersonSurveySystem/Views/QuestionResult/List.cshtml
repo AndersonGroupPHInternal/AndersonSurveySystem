@@ -1,0 +1,58 @@
+﻿@using AndersonSurveySystemModel;
+@using System.Collections.Generic;
+@using System.Data;
+@using System.Data.SqlClient;
+
+
+<div class="col-xs-4">
+    <input type="date" ng-model="model.QuestionResultFilter.From" ng-change="" class="form-control" />
+</div>
+<div class="col-xs-4">
+    <input type="date" ng-model="model.QuestionResultFilter.To" ng-change="" class="form-control" />
+</div>
+<button ng-click="model.Read()" class="btn btn-primary btn-sm">OK</button>
+<br />
+<br />
+<p><center>List of Survey</center></p>
+<br />
+<div ng-app="myapp">
+    <div ng-controller="AnsweredSurveyController as model" ng-init="model.Initialise()">
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="table table-striped table-hover table-sm table-bordered ">
+                    <thead>
+                        <tr class="thread-inverse">
+                            <th><div align="center">SurveyId</div></th>
+                            <th><div align="center">Description</div></th>
+                            <th><div align="center">FirstName</div></th>
+                            <th><div align="center">MiddleName</div></th>
+                            <th><div align="center">LastName</div></th>
+                            <th><div align="center">TicketNumber</div></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="clickableRow" ng-repeat="answeredsurvey in model.AnsweredSurvey" ng-click="$event.originalEvent.dropdown || model.AndersonSurvey(survey.SurveyId)">
+                            <td><span ng-bind="answeredsurvey.SurveyID"></span></td>
+                            <td><span ng-bind="answeredsurvey.Description"></span></td>
+                            <td><span ng-bind="answeredsurvey.FirstName"></span></td>
+                            <td><span ng-bind="answeredsurvey.MiddleName"></span></td>
+                            <td><span ng-bind="answeredsurvey.LastName"></span></td>
+                            <td><span ng-bind="answeredsurvey.TicketNumber"></span></td>
+                            <td ng-init="model.Percentage(answeredsurvey)"><span ng-bind="survey.Percentage"></span>%</td>
+                            <td ng-click="$event.originalEvent.dropdown = true">
+                                <div class="dropdown">
+                                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#" ng-click="model.AnsweredSurvey(survey.SurveyId)">Edit</a></li>
+                                        <li><a href="#" ng-click="model.Delete(survey.SurveyId)">Delete</a></li>
+                                    </ul>
+                                </div>
+                          </tr>
+                     </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

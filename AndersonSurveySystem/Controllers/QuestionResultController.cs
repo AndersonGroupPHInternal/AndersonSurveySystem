@@ -18,6 +18,10 @@ namespace AndersonSurveySystem.Controllers
         {
             return View();
         }
+        public ActionResult List()
+        {
+            return View();
+        }
 
         [HttpPost]
         public JsonResult Result(QuestionResultFilter questionResultFilter)

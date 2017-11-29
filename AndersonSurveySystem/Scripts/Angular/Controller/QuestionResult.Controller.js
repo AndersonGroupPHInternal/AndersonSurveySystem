@@ -5,8 +5,8 @@
         .module('App')
         .controller('QuestionResultController', QuestionResultController);
 
-    QuestionResultController.$inject = ['QuestionResultService'];
-    function QuestionResultController(QuestionResultService) {
+    QuestionResultController.$inject = ['AnsweredQuestionService', 'QuestionResultService'];
+    function QuestionResultController(AnsweredQuestionService, QuestionResultService) {
         var vm = this;
         //object
         vm.Options;
@@ -21,10 +21,12 @@
         vm.QuestionResults = [];
         vm.Rate = [];
         vm.Surveys = [];
+        vm.AnsweredQuestions = [];
 
         //declared functions
         vm.Initialise = Initialise;
         vm.Read = Read;
+        vm.ReadAnsweredQuestion = ReadAnsweredQuestion;
 
         //public read
         function Initialise() {
@@ -76,5 +78,16 @@
                 });
         }
 
+        function ReadAnsweredQuestion() {
+            var questionResultFilter = angular.copy(vm.QuestionResultFilter)
+            questionResultFilter.From = moment(questionResultFilter.From).format('YYYY-MM-DD');
+            questionResultFilter.To = moment(questionResultFilter.To).format('YYYY-MM-DD');
+            AnsweredQuestionService.Read(questionResultFilter)
+                .then(function (response) {
+                    vm.AnsweredQuestions = response.data;
+                })
+                .catch(function (data, status) {
+                });
+        }
     }
 })();

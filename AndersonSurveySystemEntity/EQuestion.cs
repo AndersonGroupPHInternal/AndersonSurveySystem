@@ -8,6 +8,9 @@ namespace AndersonSurveySystemEntity
     [Table("Question")]
     public class EQuestion: EBase
     {
+     
+        public int Question { get; set; }
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int QuestionId { get; set; }
