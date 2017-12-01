@@ -3,38 +3,40 @@
 
     angular
         .module('App')
-        .controller('QuestionController', QuestionController);
+        .controller('SurveyController', SurveyController);
 
-    QuestionController.$inject = ['$filter', '$window', 'QuestionService'];
+    SurveyController.$inject = ['$filter', '$window', 'SurveyService'];
 
-    function QuestionController($filter, $window, QuestionService) {
+    function SurveyController($filter, $window, SurveyService) {
         var vm = this;
 
-        vm.Question = [];
-        vm.Name = [];
+        vm.Survey = [];
 
         vm.GoToUpdatePage = GoToUpdatePage;
-        vm.UpdateQuestion = UpdateQuestion;
+        vm.Initialise = Initialise;
+
+        vm.UpdateSurvey = UpdateSurvey;
+
         vm.Delete = Delete;
 
-        vm.Initialise = Initialise;
-        
-        function GoToUpdatePage(questionId) {
-            $window.location.href = '../Question/Update/' + questionId;
-        }
-        function UpdateQuestion(question) {
-            question.Question = $filter('filter')(vm.Question, { QuestionId: question.QuestionId })[0];
+        function GoToUpdatePage(surveyId) {
+            $window.location.href = '../Survey/Update/' + surveyId;
         }
 
         function Initialise() {
             Read();
-            ReadQuestion();
+            ReadSurvey();
         }
 
-        function ReadQuestion() {
-            QuestionService.Read()
+        function InitialiseDropdown(surveyId) {
+            vm.SurveyId = surveyId
+            Read();
+
+        }
+        function ReadSurvey() {
+            SurveyService.Read()
                 .then(function (response) {
-                    vm.Question = response.data;
+                    vm.Survey = response.data;
                 })
                 .catch(function (data, status) {
                     new PNotify({
@@ -49,9 +51,9 @@
         }
 
         function Read() {
-            QuestionService.Read()
+            SurveyService.Read()
                 .then(function (response) {
-                    vm.Question = response.data;
+                    vm.Survey = response.data;
                 
                 })
                 .catch(function (data, status) {
@@ -66,8 +68,12 @@
                 });
         }
 
-        function Delete(QuestionId) {
-            QuestionService.Delete(questionId)
+        function UpdateSurvey(survey) {
+            survey.Survey = $filter('filter')(vm.Survey, { SurveyId: survey.SurveyId })[0];
+        }
+
+        function Delete(SurveyId) {
+            SurveyService.Delete(surveyId)
                 .then(function (response) {
                     Read();
                 })

@@ -3,28 +3,28 @@
 
     angular
         .module('App')
-        .factory('QuestionService', QuestionService);
+        .factory('SurveyService', SurveyService);
 
-    QuestionService.$inject = ['$http'];
+    SurveyService.$inject = ['$http'];
 
-    function QuestionService($http) {
+    function SurveyService($http) {
         return {
             Read: Read,
             Delete: Delete
         }
-    
+
         function Read() {
             return $http({
                 method: 'POST',
-                url: '/Question/Read',
+                url: '/Survey/Read',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
             });
         }
 
-        function Delete(QuestionId) {
+        function Delete(SurveyId) {
             return $http({
                 method: 'DELETE',
-                url: '/Question/Delete/' + QuestionId,
+                url: '/Survey/Delete/' + SurveyId,
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
             });
         }

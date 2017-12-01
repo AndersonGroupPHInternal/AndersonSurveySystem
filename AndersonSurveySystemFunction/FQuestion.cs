@@ -19,11 +19,11 @@ namespace AndersonSurveySystemFunction
         #region CREATE
         public Question Create(int createdBy, Question question)
         {
-            EQuestion eQuestion = EQuestion(question);
+            var eQuestion = EQuestion(question);
             eQuestion.CreatedDate = DateTime.Now;
             eQuestion.CreatedBy = createdBy;
             eQuestion = _iDQuestion.Create(eQuestion);
-            return (Question(eQuestion));
+            return Question(eQuestion);
         }
         #endregion
 
@@ -54,7 +54,7 @@ namespace AndersonSurveySystemFunction
             eQuestion.UpdatedDate = DateTime.Now;
             eQuestion.UpdatedBy = updatedBy;
             eQuestion = _iDQuestion.Update(eQuestion);
-            return (Question(eQuestion));
+            return Question(eQuestion);
         }
         #endregion
 

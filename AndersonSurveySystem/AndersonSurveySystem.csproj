@@ -1329,10 +1329,12 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\Angular\app.module.js" />
     <Content Include="Scripts\Angular\Controller\AnsweredSurvey.Controller.js" />
+    <Content Include="Scripts\Angular\Controller\SurveyController.js" />
     <Content Include="Scripts\Angular\Controller\Question.Controller.js" />
     <Content Include="Scripts\Angular\Controller\QuestionResult.Controller.js" />
     <Content Include="Scripts\Angular\Service\AnswreredSurvey.Service.js" />
     <Content Include="Scripts\Angular\Service\AnsweredQuestion.Service.js" />
+    <Content Include="Scripts\Angular\Service\Survey.Service.js" />
     <Content Include="Scripts\Angular\Service\Question.Service.js" />
     <Content Include="Scripts\Angular\Service\QuestionResult.Service.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -1357,6 +1359,7 @@
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="Controllers\AnsweredQuestionController.cs" />
     <Compile Include="Controllers\AnsweredSurveyController.cs" />
+    <Compile Include="Controllers\SurveyController.cs" />
     <Compile Include="Controllers\QuestionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\QuestionResultController.cs" />
@@ -1376,11 +1379,14 @@
     <Content Include="Views\AnsweredSurvey\Answered.cshtml" />
     <Content Include="Views\QuestionResult\Index.cshtml" />
     <Content Include="Views\QuestionResult\List.cshtml" />
-    <Content Include="Views\Question\Index.cshtml" />
     <Content Include="Views\Question\Create.cshtml" />
     <Content Include="Views\Question\_Question.cshtml" />
     <Content Include="Views\Question\Update.cshtml" />
-    <Content Include="Views\Shared\_AuditColumns.cshtml" />
+    <Content Include="Views\Survey\Index.cshtml" />
+    <Content Include="Views\Survey\Update.cshtml" />
+    <Content Include="Views\Survey\Create.cshtml" />
+    <Content Include="Views\Survey\_Survey.cshtml" />
+    <Content Include="Views\Question\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

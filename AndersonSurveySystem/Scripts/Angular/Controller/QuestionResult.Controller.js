@@ -31,12 +31,12 @@
         //public read
         function Initialise() {
             vm.Surveys = ['Survey'];
-            vm.Colors = ['#B8D0DE', '#9FC2D6', '#86B4CF', '#73A2BD', '#6792AB'];
+            vm.Colors = ['#4CAF50', '#F44336', '#9E9E9E', '#9C27B0', '#795548'];
             vm.Options = {
                 size: {
                     height: 504,
                     width: 896
-                },
+            },
                 scales: {
                     xAxes: [{
                         gridLines: {
@@ -55,7 +55,7 @@
                     }],
                     legend: {
                         display: true,
-                        position: 'bottom'
+                        position: 'Right'
                     }
                 }
             }
