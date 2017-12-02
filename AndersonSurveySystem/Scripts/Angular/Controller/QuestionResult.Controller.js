@@ -29,7 +29,7 @@
         //public read
         function Initialise() {
             vm.Surveys = ['Survey'];
-            vm.Colors = ['#B8D0DE', '#9FC2D6', '#86B4CF', '#73A2BD', '#6792AB'];
+            vm.Colors = ['#84BA5B', '#D35E60', '#808585', '#9067A7', '#AB6857'];
             vm.Options = {
                 size: {
                     height: 504,
@@ -76,5 +76,6 @@
                 });
         }
 
+        
     }
 })();
