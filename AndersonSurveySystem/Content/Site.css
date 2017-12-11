@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 25px;
+    padding-top: 20px;
     padding-bottom: 20px;
 }
 
@@ -14,7 +14,8 @@
     border-bottom-color: #0026ff;
     border-width: 0 1px 4px 1px;
     background-color: white;
-    height:85px;
+    height: 85px;
+    position: relative;
 }
 
 .andersonGroupLogo {
