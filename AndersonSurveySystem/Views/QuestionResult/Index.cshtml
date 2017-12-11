@@ -3,82 +3,100 @@
     ViewBag.Title = "Index";
 }
 
-
-<div ng-controller="QuestionResultController as model" ng-init="model.Initialise()">
-    <div class="row">
-        <div class="col-xs-4">
-            <input type="date" ng-model="model.QuestionResultFilter.From" ng-change="" class="form-control" />
-        </div>
-        <div class="col-xs-4">
-            <input type="date" ng-model="model.QuestionResultFilter.To" ng-change="" class="form-control" />
-        </div>
-        <button ng-click="model.Read()" class="btn btn-primary btn-sm">OK</button>
-    </div><br />
-    <p><center>IT Service Desk Customer Satisfaction Survey Result</center></p>
-    <div class="row">
-        <div class="col-xs-8">
-            <canvas id="bar" class="chart chart-bar" chart-data="model.Rate" chart-labels="model.Name" chart-series="model.Surveys" chart-options="model.Options"
-                    chart-colors="model.Colors"></canvas>
-
-            <div class='my-legend'>
-                <div class='legend-title'>Legend:</div>
-                <div class='legend-scale'>
-                    <ul class='legend-labels'>
-                        <li><span style='background:#84BA5B;'></span>Diagnostic</li>
-                        <li><span style='background:#D35E60;'></span>Resolution</li>
-                        <li><span style='background:#808585;'></span>Satisfaction</li>
-                        <li><span style='background:#9067A7;'></span>Courtiousness</li>
-                        <li><span style='background:#AB6857;'></span>Overall Satisfaction</li>
-                    </ul>
+<div class="row flex">
+    <div class="col-xs-8">
+        <div ng-controller="QuestionResultController as model" ng-init="model.Initialise()">
+            <div class="row">
+                <div class="col-xs-4">
+                    <input type="date" ng-model="model.QuestionResultFilter.From" ng-change="" class="form-control" />
                 </div>
-                
+                <div class="col-xs-4">
+                    <input type="date" ng-model="model.QuestionResultFilter.To" ng-change="" class="form-control" />
+                </div>
+                <button ng-click="model.Read()" class="btn btn-primary btn-sm">OK</button>
+            </div><br />
+            <p><center>IT Service Desk Customer Satisfaction Survey Result</center></p>
+
+
+
+
+            <div class="row">
+                <div class="col-xs-12">
+
+
+
+                    <canvas id="bar" class="chart chart-bar" chart-data="model.Rate" chart-labels="model.Name" chart-series="model.Surveys" chart-options="model.Options"
+                            chart-colors="model.Colors"></canvas>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-4 mt-auto">
+        <div class='my-legend'>
+
+            <div class='legend-scale'>
+                <ul class='legend-labels'>
+
+                    <h5><b>Legend:</b></h5>
+                    <li><span style='background:#84BA5B;'></span>Diagnostic</li>
+                    <li><span style='background:#D35E60;'></span>Resolution</li>
+                    <li><span style='background:#808585;'></span>Satisfaction</li>
+                    <li><span style='background:#9067A7;'></span>Courtiousness</li>
+                    <li><span style='background:#AB6857;'></span>Overall Satisfaction</li>
+
+
+                </ul>
             </div>
 
-            <style type='text/css'>
-                .my-legend .legend-title {
-                    text-align: left;
-                    margin-bottom: 5px;
-                    font-weight: bold;
-                    font-size: 90%;
-                }
-
-                .my-legend .legend-scale ul {
-                    margin: 0;
-                    margin-bottom: 5px;
-                    padding: 0;
-                    float: left;
-                    list-style: none;
-                }
-
-                    .my-legend .legend-scale ul li {
-                        font-size: 80%;
-                        list-style: none;
-                        margin-left: 0;
-                        line-height: 18px;
-                        margin-bottom: 2px;
-                    }
-
-                .my-legend ul.legend-labels li span {
-                    display: block;
-                    float: left;
-                    height: 16px;
-                    width: 30px;
-                    margin-right: 5px;
-                    margin-left: 0;
-                    border: 1px solid #999;
-                }
-
-                .my-legend .legend-source {
-                    font-size: 70%;
-                    color: #999;
-                    clear: both;
-                }
-
-                .my-legend a {
-                    color: #777;
-                }
-            </style>
-
-            </div>
+        </div>
     </div>
 </div>
+
+<style type='text/css'>
+    .my-legend .legend-scale ul {
+        margin: 0;
+        margin-bottom: 5px;
+        padding: 0;
+        /*float: right;*/
+        list-style: none;
+    }
+
+        .my-legend .legend-scale ul li {
+            font-size: 80%;
+            list-style: none;
+            margin-left: 0;
+            line-height: 18px;
+            margin-bottom: 2px;
+        }
+
+    .my-legend ul.legend-labels li span {
+        display: inline-block;
+        float: left;
+        height: 16px;
+        width: 100px;
+        margin-right: 5px;
+        margin-left: 0;
+        border: 1px solid #999;
+    }
+
+    .my-legend .legend-source {
+        font-size: 70%;
+        color: #999;
+        clear: both;
+    }
+
+    .my-legend a {
+        color: #777;
+    }
+
+    .flex {
+        display: flex;
+    }
+
+    .mt-auto {
+        margin-top: auto;
+    }
+</style>
+
