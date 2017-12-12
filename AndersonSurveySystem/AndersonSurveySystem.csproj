@@ -51,6 +51,10 @@
     <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="Base, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\DLL\Release\Base\Base.dll</HintPath>
+    </Reference>
     <Reference Include="BaseData, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
     <Reference Include="BaseEntity">
       <HintPath>..\..\DLL\Release\Base\BaseEntity.dll</HintPath>
@@ -1324,7 +1328,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\Angular\app.module.js" />
+    <Content Include="Scripts\Angular\Controller\AnsweredSurvey.Controller.js" />
+    <Content Include="Scripts\Angular\Controller\SurveyController.js" />
+    <Content Include="Scripts\Angular\Controller\Question.Controller.js" />
     <Content Include="Scripts\Angular\Controller\QuestionResult.Controller.js" />
+    <Content Include="Scripts\Angular\Service\AnswreredSurvey.Service.js" />
+    <Content Include="Scripts\Angular\Service\AnsweredQuestion.Service.js" />
+    <Content Include="Scripts\Angular\Service\Survey.Service.js" />
+    <Content Include="Scripts\Angular\Service\Question.Service.js" />
     <Content Include="Scripts\Angular\Service\QuestionResult.Service.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -1346,7 +1357,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
+    <Compile Include="Controllers\AnsweredQuestionController.cs" />
     <Compile Include="Controllers\AnsweredSurveyController.cs" />
+    <Compile Include="Controllers\SurveyController.cs" />
+    <Compile Include="Controllers\QuestionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\QuestionResultController.cs" />
     <Compile Include="Global.asax.cs">
@@ -1364,6 +1378,15 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\AnsweredSurvey\Answered.cshtml" />
     <Content Include="Views\QuestionResult\Index.cshtml" />
+    <Content Include="Views\QuestionResult\List.cshtml" />
+    <Content Include="Views\Question\Create.cshtml" />
+    <Content Include="Views\Question\_Question.cshtml" />
+    <Content Include="Views\Question\Update.cshtml" />
+    <Content Include="Views\Survey\Index.cshtml" />
+    <Content Include="Views\Survey\Update.cshtml" />
+    <Content Include="Views\Survey\Create.cshtml" />
+    <Content Include="Views\Survey\_Survey.cshtml" />
+    <Content Include="Views\Question\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

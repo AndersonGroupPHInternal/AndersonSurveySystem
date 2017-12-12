@@ -8,6 +8,9 @@ namespace AndersonSurveySystemEntity
     [Table("Question")]
     public class EQuestion: EBase
     {
+     
+        public int Question { get; set; }
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int QuestionId { get; set; }
@@ -17,7 +20,6 @@ namespace AndersonSurveySystemEntity
         [StringLength(250)]
         public string Description { get; set; }
         public string Name { get; set; }
-
         public ESurvey Survey { get; set; }
 
         public ICollection<EAnsweredQuestion> AnsweredQuestions { get; set; }
