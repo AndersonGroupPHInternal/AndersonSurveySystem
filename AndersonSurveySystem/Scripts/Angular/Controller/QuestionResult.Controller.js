@@ -5,8 +5,8 @@
         .module('App')
         .controller('QuestionResultController', QuestionResultController);
 
-    QuestionResultController.$inject = ['QuestionResultService'];
-    function QuestionResultController(QuestionResultService) {
+    QuestionResultController.$inject = ['AnsweredQuestionService', 'QuestionResultService'];
+    function QuestionResultController(AnsweredQuestionService, QuestionResultService) {
         var vm = this;
         //object
         vm.Options;
@@ -21,20 +21,22 @@
         vm.QuestionResults = [];
         vm.Rate = [];
         vm.Surveys = [];
+        vm.AnsweredQuestions = [];
 
         //declared functions
         vm.Initialise = Initialise;
         vm.Read = Read;
+        vm.ReadAnsweredQuestion = ReadAnsweredQuestion;
 
         //public read
         function Initialise() {
             vm.Surveys = ['Survey'];
-            vm.Colors = ['#84BA5B', '#D35E60', '#808585', '#9067A7', '#AB6857'];
+            vm.Colors = ['#B8D0DE', '#9FC2D6', '#86B4CF', '#73A2BD', '#6792AB'];
             vm.Options = {
                 size: {
                     height: 504,
                     width: 896
-                },
+            },
                 scales: {
                     xAxes: [{
                         gridLines: {
@@ -53,7 +55,7 @@
                     }],
                     legend: {
                         display: true,
-                        position: 'bottom'
+                        position: 'Right'
                     }
                 }
             }
@@ -76,6 +78,5 @@
                 });
         }
 
-        
     }
 })();
