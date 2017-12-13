@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<div ng-controller="SurveyController as model" ng-init="model.Initialise()">
+    <div class="row">
+        <div class="col-sm-4">
+            <a href="../Survey/Create" class="btn btn-default">Create</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table table-hover table-sm table-bordered ">
+                <thead>
+                    <tr class="thead-inverse">
+                        <th>SurveyId</th>
+                        <th>SurveyName</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="clickableRow" ng-repeat="survey in model.Survey">
+                        <td><span ng-bind="survey.SurveyId"></span></td>
+                        <td><span ng-bind="survey.SurveyName"></span></td>
+                                
+                        <td ng-click="$event.originalEvent.dropdown = true">
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#" ng-click="model.GoToUpdatePage(survey.SurveyId)">Edit</a></li>
+                                    <li><a href="#" ng-click="model.Delete(survey.SurveyId)">Delete</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

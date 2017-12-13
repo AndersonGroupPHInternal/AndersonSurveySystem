@@ -11,6 +11,7 @@ namespace AndersonSurveySystemFunction
 
         #region RETRIEVE
         List<AnsweredQuestion> Read(int answeredSurveyId);
+        List<AnsweredQuestion> Read(QuestionResultFilter questionResultFilter);
         #endregion
 
         #region UPDATE

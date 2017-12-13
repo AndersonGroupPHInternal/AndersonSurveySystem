@@ -3,7 +3,6 @@
     int questionCounter = 0;
     
 }
-
     <br />
     <br />
     <b><center>Dear @Model.FirstName ,</center></b>
@@ -13,21 +12,21 @@
         Thank you for giving us the opportunity to provide assistance.
     </p>
 
-    <p>
-        Please help us by taking a few minutes let us know the service experience that you have received so far.
-    </p>
+<p>
+    <center>Please help us by taking a few minutes let us know the service experience that you have received so far.</center>
+</p>
 
-    <p>
-        Your feedback is highly appreciated and will definitely help the ITSL Service Desk meet your expectations.
-    </center></p>
+<p>
+    <center> Your feedback is highly appreciated and will definitely help the ITSL Service Desk meet your expectations.</center>
+</p>
 
-    <br>
+<br>
 
-    <b>Ticket Number: @Model.TicketNumber </b><br />
-    <b>Description: @Model.Description </b>
+<b>Ticket Number: @Model.TicketNumber </b><br />
+<b>Description: @Model.Description </b>
 
-    <br><br><br>
-    <p><b>Please rate your expectations below where 1 is the lowest and 10 is the highest.</b></p><br>
+<br><br><br>
+<p><b>Please rate your expectations below where 1 is the lowest and 10 is the highest.</b></p><br>
 
 
 <form method="post" action="~/AnsweredSurvey/Create">
@@ -38,35 +37,35 @@
     <input type="hidden" name="answeredSurvey.LastName" value=@Model.LastName>
     <input type="hidden" name="answeredSurvey.TicketNumber" value=@Model.TicketNumber>
 
-        <table class="table table-hover table-sm table-bordered ">
-            <thead>
-                <tr class="active">
-                    <th><div align="center">Question No.</div></th>
-                    <th><div align="center">Question</div></th>
-                    <th><div align="center">Rate 1-10</div></th>
+    <table class="table table-hover table-sm table-bordered ">
+        <thead>
+            <tr class="active">
+                <th><div align="center">Question No.</div></th>
+                <th><div align="center">Question</div></th>
+                <th><div align="center">Rate 1-10</div></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var question in Model.Survey.Questions)
+            {
+                <tr>
+                    <td>
+                        <input type="hidden" name="answeredSurvey.AnsweredQuestions[@questionCounter].QuestionId" value="@question.QuestionId" />
+                        <label> @question.QuestionId </label>
+                    </td>
+                    <td>
+                        <label> @question.Description </label>
+                    </td>
+                    <td>
+                        <input type="number" name="answeredSurvey.AnsweredQuestions[@questionCounter].Answer" value="1" min="1" max="10" />
+
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
-
-                @foreach (var question in Model.Survey.Questions)
-                {
-                    <tr>
-                        <td>
-                            <input type="hidden" name="answeredSurvey.AnsweredQuestions[@questionCounter].QuestionId" value="@question.QuestionId" />
-                            <label> @question.QuestionId </label>
-                        </td>
-                        <td>
-                            <label> @question.Description </label>
-                        </td>
-                        <td>
-                            <input type="number" name="answeredSurvey.AnsweredQuestions[@questionCounter].Answer" value="1" min="1" max="10" />
-
-                        </td>
-                    </tr>
-                    questionCounter += 1;
-                }
-            </tbody>
-        </table>
+                questionCounter += 1;
+            }
+        </tbody>
+    </table>
 
     <input type="submit" class="btn btn-success" />
 </form>

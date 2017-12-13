@@ -4,6 +4,7 @@ namespace AndersonSurveySystemModel
 {
     public class Question : Base.Base
     {
+        
         public int QuestionId { get; set; }
         public int SurveyId { get; set; }
 
