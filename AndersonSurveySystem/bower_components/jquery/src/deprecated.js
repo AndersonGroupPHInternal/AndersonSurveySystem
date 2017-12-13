@@ -1,7 +1,8 @@
 define( [
 	"./core",
-	"./core/nodeName"
-], function( jQuery, nodeName ) {
+	"./core/nodeName",
+	"./var/isWindow"
+], function( jQuery, nodeName, isWindow ) {
 
 "use strict";
 
@@ -23,18 +24,19 @@ jQuery.fn.extend( {
 		return arguments.length === 1 ?
 			this.off( selector, "**" ) :
 			this.off( types, selector || "**", fn );
-	},
-	holdReady: function( hold ) {
-		if ( hold ) {
-			jQuery.readyWait++;
-		} else {
-			jQuery.ready( true );
-		}
 	}
 } );
 
+jQuery.holdReady = function( hold ) {
+	if ( hold ) {
+		jQuery.readyWait++;
+	} else {
+		jQuery.ready( true );
+	}
+};
 jQuery.isArray = Array.isArray;
 jQuery.parseJSON = JSON.parse;
 jQuery.nodeName = nodeName;
+jQuery.isWindow = isWindow;
 
 } );

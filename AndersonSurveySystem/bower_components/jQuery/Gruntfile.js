@@ -36,7 +36,8 @@ module.exports = function( grunt ) {
 		babel: {
 			options: {
 				sourceMap: "inline",
-				retainLines: true
+				retainLines: true,
+				plugins: [ "transform-es2015-for-of" ]
 			},
 			nodeSmokeTests: {
 				files: {
@@ -159,11 +160,10 @@ module.exports = function( grunt ) {
 				options: {
 					preserveComments: false,
 					sourceMap: true,
-					ASCIIOnly: true,
 					sourceMapName:
 						"dist/<%= grunt.option('filename').replace('.js', '.min.map') %>",
 					report: "min",
-					beautify: {
+					output: {
 						"ascii_only": true
 					},
 					banner: "/*! jQuery v<%= pkg.version %> | " +
@@ -171,7 +171,12 @@ module.exports = function( grunt ) {
 					compress: {
 						"hoist_funs": false,
 						loops: false,
-						unused: false
+						unused: false,
+
+						// Support: IE <11
+						// typeofs transformation is unsafe for IE9-10
+						// See https://github.com/mishoo/UglifyJS2/issues/2198
+						typeofs: false
 					}
 				}
 			}
