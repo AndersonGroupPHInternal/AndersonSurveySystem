@@ -626,10 +626,8 @@
     <Content Include="bower_components\jquery\dist\.eslintrc.json" />
     <Content Include="bower_components\jquery\dist\jquery.js" />
     <Content Include="bower_components\jquery\dist\jquery.min.js" />
-    <Content Include="bower_components\jquery\dist\jquery.min.map" />
     <Content Include="bower_components\jquery\dist\jquery.slim.js" />
     <Content Include="bower_components\jquery\dist\jquery.slim.min.js" />
-    <Content Include="bower_components\jquery\dist\jquery.slim.min.map" />
     <Content Include="bower_components\jquery\external\npo\npo.js" />
     <Content Include="bower_components\jquery\external\qunit-assert-step\MIT-LICENSE.txt" />
     <Content Include="bower_components\jquery\external\qunit-assert-step\qunit-assert-step.js" />
@@ -1347,6 +1345,8 @@
     <Content Include="bower_components\moment\CHANGELOG.md" />
     <Content Include="bower_components\moment\LICENSE" />
     <Content Include="bower_components\moment\README.md" />
+    <Content Include="bower_components\jquery\dist\jquery.min.map" />
+    <Content Include="bower_components\jquery\dist\jquery.slim.min.map" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <Content Include="Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />

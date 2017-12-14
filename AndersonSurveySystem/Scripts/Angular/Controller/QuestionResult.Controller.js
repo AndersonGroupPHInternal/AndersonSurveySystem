@@ -16,6 +16,7 @@
             SurveyId: 1
         };
         //object array
+
         vm.Colors = [];
         vm.Name = [];
         vm.QuestionResults = [];
@@ -26,7 +27,7 @@
         //declared functions
         vm.Initialise = Initialise;
         vm.Read = Read;
-        vm.ReadAnsweredQuestion = ReadAnsweredQuestion;
+        //vm.ReadAnsweredQuestion = ReadAnsweredQuestion;
 
         //public read
         function Initialise() {
