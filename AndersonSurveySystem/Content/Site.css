@@ -1,6 +1,7 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 50px;
+
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -14,7 +15,8 @@
     border-bottom-color: #0026ff;
     border-width: 0 1px 4px 1px;
     background-color: white;
-    height:85px;
+    height: 85px;
+    position: relative;
 }
 
 .andersonGroupLogo {

@@ -28,7 +28,7 @@
     </NuGetPackageImportStamp>
     <Use64BitIISExpress />
     <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
-    <TypeScriptToolsVersion>2.3</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>2.6</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -626,10 +626,8 @@
     <Content Include="bower_components\jquery\dist\.eslintrc.json" />
     <Content Include="bower_components\jquery\dist\jquery.js" />
     <Content Include="bower_components\jquery\dist\jquery.min.js" />
-    <Content Include="bower_components\jquery\dist\jquery.min.map" />
     <Content Include="bower_components\jquery\dist\jquery.slim.js" />
     <Content Include="bower_components\jquery\dist\jquery.slim.min.js" />
-    <Content Include="bower_components\jquery\dist\jquery.slim.min.map" />
     <Content Include="bower_components\jquery\external\npo\npo.js" />
     <Content Include="bower_components\jquery\external\qunit-assert-step\MIT-LICENSE.txt" />
     <Content Include="bower_components\jquery\external\qunit-assert-step\qunit-assert-step.js" />
@@ -1329,10 +1327,12 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\Angular\app.module.js" />
     <Content Include="Scripts\Angular\Controller\AnsweredSurvey.Controller.js" />
+    <Content Include="Scripts\Angular\Controller\SurveyController.js" />
     <Content Include="Scripts\Angular\Controller\Question.Controller.js" />
     <Content Include="Scripts\Angular\Controller\QuestionResult.Controller.js" />
     <Content Include="Scripts\Angular\Service\AnswreredSurvey.Service.js" />
     <Content Include="Scripts\Angular\Service\AnsweredQuestion.Service.js" />
+    <Content Include="Scripts\Angular\Service\Survey.Service.js" />
     <Content Include="Scripts\Angular\Service\Question.Service.js" />
     <Content Include="Scripts\Angular\Service\QuestionResult.Service.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -1345,6 +1345,8 @@
     <Content Include="bower_components\moment\CHANGELOG.md" />
     <Content Include="bower_components\moment\LICENSE" />
     <Content Include="bower_components\moment\README.md" />
+    <Content Include="bower_components\jquery\dist\jquery.min.map" />
+    <Content Include="bower_components\jquery\dist\jquery.slim.min.map" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <Content Include="Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
@@ -1357,6 +1359,7 @@
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="Controllers\AnsweredQuestionController.cs" />
     <Compile Include="Controllers\AnsweredSurveyController.cs" />
+    <Compile Include="Controllers\SurveyController.cs" />
     <Compile Include="Controllers\QuestionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\QuestionResultController.cs" />
@@ -1376,11 +1379,14 @@
     <Content Include="Views\AnsweredSurvey\Answered.cshtml" />
     <Content Include="Views\QuestionResult\Index.cshtml" />
     <Content Include="Views\QuestionResult\List.cshtml" />
-    <Content Include="Views\Question\Index.cshtml" />
     <Content Include="Views\Question\Create.cshtml" />
     <Content Include="Views\Question\_Question.cshtml" />
     <Content Include="Views\Question\Update.cshtml" />
-    <Content Include="Views\Shared\_AuditColumns.cshtml" />
+    <Content Include="Views\Survey\Index.cshtml" />
+    <Content Include="Views\Survey\Update.cshtml" />
+    <Content Include="Views\Survey\Create.cshtml" />
+    <Content Include="Views\Survey\_Survey.cshtml" />
+    <Content Include="Views\Question\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

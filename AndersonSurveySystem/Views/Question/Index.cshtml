@@ -15,16 +15,14 @@
                         <th>QuestionId</th>
                         <th>SurveyId</th>
                         <th>Description</th>
-                        <th>Name</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="clickableRow" ng-repeat="question in model.Question" ng-click="$event.originalEvent.dropdown || model.GoToUpdatePage(question.QuestionId)" ng-init="model.UpdateQuestionId(questionId)">
+                    <tr class="clickableRow" ng-repeat="question in model.Question">
                         <td><span ng-bind="question.QuestionId"></span></td>
                         <td><span ng-bind="question.SurveyId"></span></td>
                         <td><span ng-bind="question.Description"></span></td>
-                        <td><span ng-bind="question.Name"></span></td>
                                 
                         <td ng-click="$event.originalEvent.dropdown = true">
                             <div class="dropdown">
@@ -32,7 +30,7 @@
                                     <span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#" ng-click="model.GoToUpdatePage(question.QuestionId)">Edit</a></li>
+                                    <li><a href="#" ng-click ="model.GoToUpdatePage(question.QuestionId)">Edit</a></li>
                                     <li><a href="#" ng-click="model.Delete(question.QuestionId)">Delete</a></li>
                                 </ul>
                             </div>

@@ -14,14 +14,16 @@
         vm.Name = [];
 
         vm.GoToUpdatePage = GoToUpdatePage;
-        vm.Initialise = Initialise;
-
         vm.UpdateQuestion = UpdateQuestion;
-
         vm.Delete = Delete;
 
+        vm.Initialise = Initialise;
+        
         function GoToUpdatePage(questionId) {
             $window.location.href = '../Question/Update/' + questionId;
+        }
+        function UpdateQuestion(question) {
+            question.Question = $filter('filter')(vm.Question, { QuestionId: question.QuestionId })[0];
         }
 
         function Initialise() {
@@ -29,11 +31,6 @@
             ReadQuestion();
         }
 
-        function InitialiseDropdown(questionId) {
-            vm.QuestionId = questionId
-            Read();
-
-        }
         function ReadQuestion() {
             QuestionService.Read()
                 .then(function (response) {
@@ -67,10 +64,6 @@
                     });
 
                 });
-        }
-
-        function UpdateQuestion(question) {
-            question.Question = $filter('filter')(vm.Question, { QuestionId: question.QuestionId })[0];
         }
 
         function Delete(QuestionId) {

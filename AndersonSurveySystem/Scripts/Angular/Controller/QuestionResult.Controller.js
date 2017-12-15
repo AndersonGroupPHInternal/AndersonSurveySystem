@@ -16,6 +16,7 @@
             SurveyId: 1
         };
         //object array
+
         vm.Colors = [];
         vm.Name = [];
         vm.QuestionResults = [];
@@ -26,17 +27,17 @@
         //declared functions
         vm.Initialise = Initialise;
         vm.Read = Read;
-        vm.ReadAnsweredQuestion = ReadAnsweredQuestion;
+        //vm.ReadAnsweredQuestion = ReadAnsweredQuestion;
 
         //public read
         function Initialise() {
             vm.Surveys = ['Survey'];
-            vm.Colors = ['#B8D0DE', '#9FC2D6', '#86B4CF', '#73A2BD', '#6792AB'];
+            vm.Colors = ['#84BA5B', '#D35E60', '#808585', '#9067A7', '#AB6857'];
             vm.Options = {
                 size: {
                     height: 504,
                     width: 896
-                },
+            },
                 scales: {
                     xAxes: [{
                         gridLines: {
@@ -55,7 +56,7 @@
                     }],
                     legend: {
                         display: true,
-                        position: 'bottom'
+                        position: 'Right'
                     }
                 }
             }
@@ -78,16 +79,5 @@
                 });
         }
 
-        function ReadAnsweredQuestion() {
-            var questionResultFilter = angular.copy(vm.QuestionResultFilter)
-            questionResultFilter.From = moment(questionResultFilter.From).format('YYYY-MM-DD');
-            questionResultFilter.To = moment(questionResultFilter.To).format('YYYY-MM-DD');
-            AnsweredQuestionService.Read(questionResultFilter)
-                .then(function (response) {
-                    vm.AnsweredQuestions = response.data;
-                })
-                .catch(function (data, status) {
-                });
-        }
     }
 })();

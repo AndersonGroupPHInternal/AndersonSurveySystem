@@ -2,85 +2,95 @@
 @{
     ViewBag.Title = "Index";
 }
-<div class="navbar-header navbar-right">
-    <a class="navbar-brand" href="#">
-        <img class="itslLogo" src="~/Content/Images/ITSL logo-v2.jpg">
-    </a>
-</div>
-<div class="collapse navbar-collapse">
-    <ul class="nav navbar-nav">
-        <li>
-            <a class="navbar-brand" href="~/Home/Index">
-                <i class="fa fa-home" aria-hidden="true"></i>
-                Home
-            </a>
-        </li>
-        <li>
-            <a class="navbar-brand" href="~/Home/About">
-                <i class="fa fa-info" aria-hidden="true"></i>
-                About
-            </a>
-        </li>
-    </ul>
-</div><br />
-<br />
-<div ng-controller="QuestionResultController as model" ng-init="model.Initialise()">
-    <div class="row">
-        <div class="col-xs-4">
-            <input type="date" ng-model="model.QuestionResultFilter.From" ng-change="" class="form-control" />
-        </div>
-        <div class="col-xs-4">
-            <input type="date" ng-model="model.QuestionResultFilter.To" ng-change="" class="form-control" />
-        </div>
-        <button ng-click="model.Read()" class="btn btn-primary btn-sm">OK</button>
-        <button ng-click="model.ReadAnsweredQuestion()" class="btn btn-primary btn-sm">Show Answers</button>
-    </div><br />
-    <p><center>IT Service Desk Customer Satisfaction Survey Result</center></p>
-    <div class="row">
-        <div class="col-xs-8">
-            <canvas id="bar" class="chart chart-bar" chart-data="model.Rate" chart-labels="model.Name" chart-series="model.Surveys" chart-options="model.Options"
-                    chart-colors="model.Colors"></canvas>
+
+<div class="row flex">
+    <div class="col-xs-8">
+        <div ng-controller="QuestionResultController as model" ng-init="model.Initialise()">
+            <div class="row">
+                <div class="col-xs-4">
+                    <input type="date" ng-model="model.QuestionResultFilter.From" ng-change="" class="form-control" />
+                </div>
+                <div class="col-xs-4">
+                    <input type="date" ng-model="model.QuestionResultFilter.To" ng-change="" class="form-control" />
+                </div>
+                <button ng-click="model.Read()" class="btn btn-primary btn-sm">OK</button>
+            </div><br />
+            <p><center>IT Service Desk Customer Satisfaction Survey Result</center></p>
+
+            <div class="row">
+                <div class="col-xs-12">
+
+                    <canvas id="bar" class="chart chart-bar" chart-data="model.Rate" chart-labels="model.Name" chart-series="model.Surveys" chart-options="model.Options"
+                            chart-colors="model.Colors"></canvas>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-xs-12">
-            <table class="table table-responsive">
-                <thead>
-                    <tr>
-                        <th>
-                            Answer
-                        </th>
-                        <th>
-                            AnsweredSurveyId
-                        </th>
-                        <th>
-                            QuestionId
-                        </th>
-                        <th>
-                            Description
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="answeredQuestion in model.AnsweredQuestions">
-                        <td>
-                            <span ng-bind="answeredQuestion.Answer"></span>
-                        </td>
-                        <td>
-                            <span ng-bind="answeredQuestion.AnsweredSurveyId"></span>
-                        </td>
-                        <td>
-                            <span ng-bind="answeredQuestion.QuestionId"></span>
-                        </td>
-                        <td>
-                            <span ng-bind="answeredQuestion.Description"></span>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+    <div class="col-xs-4 mt-auto">
+        <div class='my-legend'>
+
+            <div class='legend-scale'>
+
+                <h5><b>Legend:</b></h5>
+                <ul class='legend-labels'>
+
+                    <li><span style='background:#84BA5B;'></span>Diagnostic</li>
+                    <li><span style='background:#D35E60;'></span>Resolution</li>
+                    <li><span style='background:#808585;'></span>Satisfaction</li>
+                    <li><span style='background:#9067A7;'></span>Courtiousness</li>
+                    <li><span style='background:#AB6857;'></span>Overall Satisfaction</li>
+
+
+                </ul>
+            </div>
+
         </div>
     </div>
-
-    {{model.AnsweredSurvey}}
-
 </div>
+
+<style type='text/css'>
+    .my-legend .legend-scale ul {
+        margin: 0;
+        margin-bottom: 5px;
+        padding: 0;
+        /*float: right;*/
+        list-style: none;
+    }
+
+        .my-legend .legend-scale ul li {
+            font-size: 80%;
+            list-style: none;
+            margin-left: 0;
+            line-height: 18px;
+            margin-bottom: 2px;
+        }
+
+    .my-legend ul.legend-labels li span {
+        display: inline-block;
+        float: left;
+        height: 16px;
+        width: 100px;
+        margin-right: 5px;
+        margin-left: 0;
+        border: 1px solid #999;
+    }
+
+    .my-legend .legend-source {
+        font-size: 70%;
+        color: #999;
+        clear: both;
+    }
+
+    .my-legend a {
+        color: #777;
+    }
+
+    .flex {
+        display: flex;
+    }
+
+    .mt-auto {
+        margin-top: auto;
+    }
+</style>
+

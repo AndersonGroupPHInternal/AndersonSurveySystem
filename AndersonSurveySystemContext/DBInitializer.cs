@@ -35,7 +35,7 @@ namespace AndersonSurveySystemContext
                         CreatedBy = 0,
                         SurveyId = eSurvey.SurveyId,
 
-                        Description = "Was the Service Desk analyst helpful in diagnosing the cause of your problem/issue ?",
+                        Description = "Was the Service Desk analyst helpful in diagnosing the cause of your problem/issue?",
                         Name = "Diagnostic"
                     },
                     new EQuestion
@@ -45,7 +45,7 @@ namespace AndersonSurveySystemContext
                         CreatedBy = 0,
                         SurveyId = eSurvey.SurveyId,
 
-                        Description = "Was the Service Desk analyst able to resolve your problem/issue (N/A if call was transferred, escalated to Tier 2) ?",
+                        Description = "Was the Service Desk analyst able to resolve your problem/issue (N/A if call was transferred, escalated to Tier 2)?",
                         Name= "Resolution"
                     },
                     new EQuestion
@@ -55,7 +55,7 @@ namespace AndersonSurveySystemContext
                         CreatedBy = 0,
                         SurveyId = eSurvey.SurveyId,
 
-                        Description = "How satisfied were you with the delivery of the resolution of your problem/issue ?",
+                        Description = "How satisfied were you with the delivery of the resolution of your problem/issue?",
                         Name="Satisfaction"
                     },
                     new EQuestion
@@ -65,7 +65,7 @@ namespace AndersonSurveySystemContext
                         CreatedBy = 0,
                         SurveyId = eSurvey.SurveyId,
 
-                        Description = "Was the Service Desk analyst courteous, friendly and accommodating ?",
+                        Description = "Was the Service Desk analyst courteous, friendly and accommodating?",
                         Name="Courtiousness"
                     },
                     new EQuestion
@@ -75,8 +75,8 @@ namespace AndersonSurveySystemContext
                         CreatedBy = 0,
                         SurveyId = eSurvey.SurveyId,
 
-                        Description = "How would you rate your overall level of satisfaction with the Service Desk team ?",
-                        Name="Overall"
+                        Description = "How would you rate your overall level of satisfaction with the Service Desk team?",
+                        Name="Overall Satisfaction"
                     },
                 };
                 context.Question.AddRange(eQuestions);

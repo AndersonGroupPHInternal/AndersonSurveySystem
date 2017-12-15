@@ -12,7 +12,7 @@
             Read: Read,
             Delete: Delete
         }
-
+    
         function Read() {
             return $http({
                 method: 'POST',

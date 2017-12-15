@@ -10,5 +10,6 @@ namespace AndersonSurveySystemModel
 
         public IEnumerable<AnsweredSurvey> AnsweredSurveys { get; set; }
         public IEnumerable<Question> Questions { get; set; }
+       
     }
 }
