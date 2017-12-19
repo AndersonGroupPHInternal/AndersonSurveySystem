@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AccountExternalModel">
+      <HintPath>..\..\DLL\Debug\AccountExternal\AccountExternalModel.dll</HintPath>
+    </Reference>
     <Reference Include="Base">
       <HintPath>..\..\DLL\Release\Base\Base.dll</HintPath>
     </Reference>
