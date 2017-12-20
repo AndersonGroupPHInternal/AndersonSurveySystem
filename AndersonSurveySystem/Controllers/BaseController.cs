@@ -3,7 +3,7 @@ using ExternalAccountWebAuthentication.Controller;
 
 namespace AndersonSurveySystem.Controllers
 {
-    [MvcAuthorizationFilterAttribute(false, "Credential", "Login", new string[] { "ExternalAccountAdministrator" })]
+    [MvcAuthorizationFilterAttribute(false, "Credential", "Login", new string[] { "SurveyAdministrator" })]
     public class BaseController : ExternalAccountBaseController
     {
     }

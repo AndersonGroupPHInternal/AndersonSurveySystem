@@ -4,7 +4,7 @@ using System.Web.Mvc;
 
 namespace AndersonSurveySystem.Controllers
 {
-    public class QuestionController : Controller
+    public class QuestionController : BaseController
     {
         private IFQuestion _iFQuestion;
 

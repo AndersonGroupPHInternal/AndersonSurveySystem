@@ -11,6 +11,7 @@ using System.Web.Security;
 
 namespace AndersonSurveySystem.Controllers
 {
+    [MvcAuthorizationFilter(true)]
     public class CredentialController : BaseController
     {
         private IFCredential _iFCredential;
@@ -22,7 +23,6 @@ namespace AndersonSurveySystem.Controllers
 
         #region Read
         [Route("Login")]
-        [MvcAuthorizationFilter(true)]
         [HttpGet]
         public ActionResult Login()
         {
@@ -37,7 +37,6 @@ namespace AndersonSurveySystem.Controllers
         }
 
         [Route("Login")]
-        [MvcAuthorizationFilter(true)]
         [HttpPost]
         public ActionResult Login(Credential credential)
         {
@@ -56,9 +55,12 @@ namespace AndersonSurveySystem.Controllers
                     Response.Cookies.Add(credentialCookies);
                     return Redirect("~/Home");
                 }
+                else{
+                    return Redirect("~/Credential/Login");
+                }
                 return View();
             }
-            catch (Exception exception)
+            catch (Exception exception) 
             {
                 return Json("Error on logging in");
             }

@@ -3,9 +3,13 @@ using AndersonSurveySystemFunction;
 using System;
 using System.Web.Mvc;
 
+using AccountExternalFunction;
+using AccountExternalModel;
+using ExternalAccountWebAuthentication.Authentication;
+
 namespace AndersonSurveySystem.Controllers
 {
-    public class QuestionResultController : Controller
+    public class QuestionResultController : BaseController
     {
         private IFQuestionResult _iFQuestionResult;
 
