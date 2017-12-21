@@ -37,6 +37,7 @@ namespace AndersonSurveySystem.Controllers
         }
 
         [Route("Login")]
+        [MvcAuthorizationFilter(true)]
         [HttpPost]
         public ActionResult Login(Credential credential)
         {
@@ -55,12 +56,9 @@ namespace AndersonSurveySystem.Controllers
                     Response.Cookies.Add(credentialCookies);
                     return Redirect("~/Home");
                 }
-                else{
-                    return Redirect("~/Credential/Login");
-                }
                 return View();
             }
-            catch (Exception exception) 
+            catch (Exception exception)
             {
                 return Json("Error on logging in");
             }
