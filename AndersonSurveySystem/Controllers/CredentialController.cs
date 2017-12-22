@@ -37,7 +37,6 @@ namespace AndersonSurveySystem.Controllers
         }
 
         [Route("Login")]
-        [MvcAuthorizationFilter(true)]
         [HttpPost]
         public ActionResult Login(Credential credential)
         {
