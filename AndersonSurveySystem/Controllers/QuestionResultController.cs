@@ -5,7 +5,7 @@ using System.Web.Mvc;
 
 namespace AndersonSurveySystem.Controllers
 {
-    public class QuestionResultController : Controller
+    public class QuestionResultController : BaseController
     {
         private IFQuestionResult _iFQuestionResult;
 

@@ -62,7 +62,7 @@
             }
             Read();
         }
-
+            
         function Read() {
             var questionResultFilter = angular.copy(vm.QuestionResultFilter)
             questionResultFilter.From = moment(questionResultFilter.From).format('YYYY-MM-DD');
