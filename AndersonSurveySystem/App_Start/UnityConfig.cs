@@ -2,6 +2,8 @@ using System;
 using Microsoft.Practices.Unity;
 using AndersonSurveySystemData;
 using AndersonSurveySystemFunction;
+using AccountExternalData;
+using AccountExternalFunction;
 
 namespace AndersonSurveySystem.App_Start
 {
@@ -35,7 +37,6 @@ namespace AndersonSurveySystem.App_Start
         {
             // NOTE: To load from web.config uncomment the line below. Make sure to add a Microsoft.Practices.Unity.Configuration to the using statements.
             // container.LoadConfiguration();
-
             // TODO: Register your types here
             // container.RegisterType<IProductRepository, ProductRepository>();
 
@@ -47,12 +48,20 @@ namespace AndersonSurveySystem.App_Start
             container.RegisterType<IDSurvey, DSurvey>(new PerRequestLifetimeManager());
             #endregion
 
+            #region Data Reference
+            container.RegisterType<IDCredential, DCredential>(new PerRequestLifetimeManager());
+            #endregion
+
             #region Function
             container.RegisterType<IFAnsweredQuestion, FAnsweredQuestion>(new PerRequestLifetimeManager());
             container.RegisterType<IFAnsweredSurvey, FAnsweredSurvey>(new PerRequestLifetimeManager());
             container.RegisterType<IFQuestion, FQuestion>(new PerRequestLifetimeManager());
             container.RegisterType<IFQuestionResult, FQuestionResult>(new PerRequestLifetimeManager());
             container.RegisterType<IFSurvey, FSurvey>(new PerRequestLifetimeManager());
+            #endregion
+
+            #region Function Reference
+            container.RegisterType<IFCredential, FCredential>(new PerRequestLifetimeManager());
             #endregion
         }
     }

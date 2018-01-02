@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace AndersonSurveySystem.Controllers
 {
-    public class AnsweredQuestionController : Controller
+    public class AnsweredQuestionController : BaseController
     {
         private IFAnsweredQuestion _iFAnsweredQuestion;
 
