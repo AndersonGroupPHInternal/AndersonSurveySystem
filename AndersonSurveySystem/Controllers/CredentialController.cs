@@ -62,7 +62,7 @@ namespace AndersonSurveySystem.Controllers
                 return Json("Error on logging in");
             }
         }
-            [HttpGet]
+        [HttpGet]
         public ActionResult Signout()
         {
             HttpCookie credentialCookies = new HttpCookie("Credential");
