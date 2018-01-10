@@ -62,8 +62,16 @@ namespace AndersonSurveySystem.Controllers
                 return Json("Error on logging in");
             }
         }
+        [HttpGet]
+        public ActionResult Signout()
+        {
+            HttpCookie credentialCookies = new HttpCookie("Credential");
+            credentialCookies.Expires = DateTime.Now.AddHours(-1);
+            Response.Cookies.Add(credentialCookies);
+            return Redirect("~/Credential/Login");
+        }
+    }
         #endregion
 
 
     }
-}

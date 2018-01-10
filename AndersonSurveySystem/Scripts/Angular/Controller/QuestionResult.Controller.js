@@ -71,7 +71,7 @@
                 .then(function (response) {
                     vm.QuestionResults = response.data;
 
-                    vm.Rate = vm.QuestionResults.map(function (a) { return a.Rate; });
+                    vm.Rate = vm.QuestionResults.map(function (a) { return (parseFloat(a.Rate).toFixed(2)); });
                     vm.Name = vm.QuestionResults.map(function (a) { return a.Name; });
 
                 })
