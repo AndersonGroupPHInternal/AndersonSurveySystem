@@ -1,13 +1,34 @@
 ﻿<input type="hidden" name="SurveyId" value="@Model.SurveyId" />
 
 <div class="form-group">
-    <div class="form-group">
-        <label>Survey</label>
+    <label>Survey</label>
 
-        <input type="text" class="form-control" id="Survey" name="Survey" placeholder="Survey">
-
-    </div>
+    <input type="text" class="form-control" name="SurveyName" placeholder="Survey" value="@Model.SurveyName" />
 </div>
 <div class="form-group">
     <input type="submit" class="btn btn-primary" value="Submit" />
+</div>
+
+<div ng-controller="QuestionController as model" ng-init="model.Initialise(@Model.SurveyId)">
+    <div class="form-group" ng-repeat="question in model.Questions track by $index">
+        <div class="row">
+            <div class="col-sm-offset-1 col-sm-7">
+                <input class="form-control" @*ng-readonly="model.IsExisting(question)"*@ name="Questions[{{$index}}].Description" placeholder="Question" ng-value="question.Description">
+            </div>
+            <div class="col-sm-4">
+                <button type="button" ng-click="model.Delete(question)" class="btn btn-primary">
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+        <input type="hidden" name="Questions[{{$index}}].QuestionId" ng-value="question.QuestionId" />
+    </div>
+
+    <div ng-repeat="question in model.DeletedQuestions track by $index" type="hidden" name="DeletedQuestions[{{$index}}].QuestionId" ng-value="question.QuestionId">
+        <input type="hidden" name="DeletedQuestions[{{$index}}].SurveyId" ng-value="question.SurveyId" />
+        <input type="hidden" name="DeletedQuestions[{{$index}}].QuestionId" ng-value="question.QuestionId" />
+        <input type="hidden" name="DeletedQuestions[{{$index}}].Description" ng-value="question.Description" />
+    </div>
+
+    <input type="button" ng-click="model.Create()" class="btn btn-primary" value="Add Question" />
 </div>

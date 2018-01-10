@@ -9,8 +9,9 @@ namespace AndersonSurveySystemFunction
         Survey Create(int createdBy, Survey survey);
         #endregion
 
-        #region RETRIEVE
+        #region READ
         Survey Read(int surveyId);
+        List<Survey> Read();
         List<Survey> List();
         #endregion
 
@@ -19,7 +20,7 @@ namespace AndersonSurveySystemFunction
         #endregion
 
         #region DELETE
-        void Delete(Survey survey);
+        void Delete(int SurveyId);
         #endregion
     }
 }

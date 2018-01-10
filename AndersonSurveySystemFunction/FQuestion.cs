@@ -17,55 +17,58 @@ namespace AndersonSurveySystemFunction
         }
 
         #region CREATE
-        public Question Create(int createdBy, Question question)
+        public void Create(int surveyId, int createdBy, List<Question> questions)
         {
-            var eQuestion = EQuestion(question);
-            eQuestion.CreatedDate = DateTime.Now;
-            eQuestion.CreatedBy = createdBy;
-            eQuestion = _iDQuestion.Create(eQuestion);
-            return Question(eQuestion);
+            if (!questions?.Any() ?? true)
+                return;
+
+            List<EQuestion> eQuestion = EQuestion(questions);
+            List<EQuestion> newEQuestion = eQuestion.Where(a => a.QuestionId == 0).ToList();
+            newEQuestion.ToList().ForEach(a =>
+            {
+                a.CreatedDate = DateTime.Now;
+
+                a.SurveyId = surveyId;
+                a.CreatedBy = createdBy;
+            });
+            _iDQuestion.Create(newEQuestion);
         }
         #endregion
 
         #region READ
-        public Question Read(int questionId)
+        public List<Question> Read(int surveyId)
         {
-            EQuestion eQuestion = _iDQuestion.Read<EQuestion>(a => a.QuestionId == questionId);
-            return Question(eQuestion);
-        }
-
-        public List<Question> Read(int surveyId, string sortBy)
-        {
-            List<EQuestion> eQuestions = _iDQuestion.Read<EQuestion>(a => a.SurveyId == surveyId, sortBy);
-            return Questions(eQuestions);
-        }
-
-        public List<Question> Read()
-        {
-            List<EQuestion> eQuestions = _iDQuestion.List<EQuestion>(a => true);
+            List<EQuestion> eQuestions = _iDQuestion.List<EQuestion>(a => a.SurveyId == surveyId);
             return Questions(eQuestions);
         }
         #endregion
 
         #region UPDATE
-        public Question Update(int updatedBy, Question question)
-        {
-            var eQuestion = _iDQuestion.Update(EQuestion(question));
-            eQuestion.UpdatedDate = DateTime.Now;
-            eQuestion.UpdatedBy = updatedBy;
-            eQuestion = _iDQuestion.Update(eQuestion);
-            return Question(eQuestion);
-        }
         #endregion
 
         #region DELETE
-        public void Delete(int questionId)
+        public void Delete(List<Question> questions)
         {
-            _iDQuestion.Delete<EQuestion>(a => a.QuestionId == questionId);
+            if (!questions?.Any() ?? true)
+                return;
+
+            List<EQuestion> eQuestions = EQuestion(questions);
+            List<int> oldEQuestionIds = eQuestions.Where(a => a.QuestionId != 0).Select(a => a.QuestionId).ToList();
+            _iDQuestion.Delete<EQuestion>(a => oldEQuestionIds.Contains(a.QuestionId));
         }
         #endregion
 
         #region  OTHER
+        private List<EQuestion> EQuestion(List<Question> question)
+        {
+            return question.Select(a => new EQuestion
+            {
+                QuestionId = a.QuestionId,
+                SurveyId = a.SurveyId,
+
+                Description = a.Description
+            }).ToList();
+        }
         private EQuestion EQuestion(Question question)
         {
             return new EQuestion

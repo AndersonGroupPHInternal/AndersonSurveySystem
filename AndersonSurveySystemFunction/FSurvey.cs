@@ -11,7 +11,6 @@ namespace AndersonSurveySystemFunction
     public class FSurvey : IFSurvey
     {
         private IDSurvey _iDSurvey;
-        
 
         public FSurvey()
         {
@@ -19,12 +18,12 @@ namespace AndersonSurveySystemFunction
         }
 
         #region CREATE
-        public Survey Create(int createdBy ,Survey survey)
+        public Survey Create(int createdBy, Survey survey)
         {
             ESurvey eSurvey = ESurvey(survey);
             eSurvey.CreatedDate = DateTime.Now;
             eSurvey.CreatedBy = createdBy;
-            eSurvey = _iDSurvey.Create(eSurvey);
+            eSurvey = _iDSurvey.Insert(eSurvey);
             return (Survey(eSurvey));
         }
         #endregion
@@ -32,8 +31,14 @@ namespace AndersonSurveySystemFunction
         #region READ
         public Survey Read(int surveyId)
         {
-            ESurvey eSurvey = _iDSurvey.Read(surveyId);
+            ESurvey eSurvey = _iDSurvey.Read<ESurvey>(a => a.SurveyId == surveyId);
             return Survey(eSurvey);
+        }
+
+        public List<Survey> Read()
+        {
+            List<ESurvey> eSurveys = _iDSurvey.List<ESurvey>(a => true);
+            return Surveys(eSurveys);
         }
 
         public List<Survey> List()
@@ -41,7 +46,6 @@ namespace AndersonSurveySystemFunction
             List<ESurvey> eSurveys = _iDSurvey.List<ESurvey>(a => true);
             return Surveys(eSurveys);
         }
-
         #endregion
 
         #region UPDATE
@@ -55,9 +59,10 @@ namespace AndersonSurveySystemFunction
         #endregion
 
         #region DELETE
-        public void Delete(Survey survey)
+        public void Delete(int surveyId)
         {
-            _iDSurvey.Delete(ESurvey(survey));
+            _iDSurvey.Delete<EQuestion>(a => a.SurveyId == surveyId);
+            _iDSurvey.Delete<ESurvey>(a => a.SurveyId == surveyId);
         }
         #endregion
 
@@ -66,9 +71,9 @@ namespace AndersonSurveySystemFunction
         {
             return new ESurvey
             {
-                CreatedBy = survey.CreatedBy,
+                //CreatedBy = survey.CreatedBy,
                 SurveyId = survey.SurveyId,
-                UpdatedBy = survey.UpdatedBy,
+                //UpdatedBy = survey.UpdatedBy,
 
                 SurveyName = survey.SurveyName
             };
@@ -78,10 +83,9 @@ namespace AndersonSurveySystemFunction
 
             return new Survey
             {
-
-                CreatedBy = eSurvey.CreatedBy,
+                //CreatedBy = eSurvey.CreatedBy,
                 SurveyId = eSurvey.SurveyId,
-                UpdatedBy = eSurvey.UpdatedBy,
+                //UpdatedBy = eSurvey.UpdatedBy,
 
                 SurveyName = eSurvey.SurveyName,
 

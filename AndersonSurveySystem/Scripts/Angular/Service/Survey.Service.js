@@ -16,15 +16,15 @@
         function Read() {
             return $http({
                 method: 'POST',
-                url: '/Survey/Read',
+                url: '/Survey/Read/',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
             });
         }
 
-        function Delete(SurveyId) {
+        function Delete(surveyId) {
             return $http({
                 method: 'DELETE',
-                url: '/Survey/Delete/' + SurveyId,
+                url: '/Survey/Delete/' + surveyId,
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
             });
         }

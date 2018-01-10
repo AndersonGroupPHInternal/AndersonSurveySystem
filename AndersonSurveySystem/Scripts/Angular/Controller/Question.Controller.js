@@ -10,77 +10,52 @@
     function QuestionController($filter, $window, QuestionService) {
         var vm = this;
 
-        vm.Question = [];
+        vm.SurveyId;
+
+        vm.Questions = [];
         vm.Name = [];
 
-        vm.GoToUpdatePage = GoToUpdatePage;
+        vm.Question = {
+            Description: '',
+        };
+
+        vm.Create = Create;
         vm.UpdateQuestion = UpdateQuestion;
         vm.Delete = Delete;
+        vm.DeletedQuestions = [];
+
+        vm.IsExisting = IsExisting;
 
         vm.Initialise = Initialise;
-        
-        function GoToUpdatePage(questionId) {
-            $window.location.href = '../Question/Update/' + questionId;
-        }
+
         function UpdateQuestion(question) {
             question.Question = $filter('filter')(vm.Question, { QuestionId: question.QuestionId })[0];
         }
-
-        function Initialise() {
-            Read();
-            ReadQuestion();
+        function Create() {
+            vm.Questions.push(vm.Question);
         }
 
-        function ReadQuestion() {
-            QuestionService.Read()
-                .then(function (response) {
-                    vm.Question = response.data;
-                })
-                .catch(function (data, status) {
-                    new PNotify({
-                        title: status,
-                        text: data,
-                        type: 'error',
-                        hide: true,
-                        addclass: "stack-bottomright"
-                    });
+        function IsExisting(question) {
+            return (question.QuestionId !== null);
+        }
 
-                });
+        function Initialise(surveyId) {
+            vm.SurveyId = surveyId
+            Read();
         }
 
         function Read() {
-            QuestionService.Read()
+            QuestionService.Read(vm.SurveyId)
                 .then(function (response) {
-                    vm.Question = response.data;
-                
+                    vm.Questions = response.data;
                 })
-                .catch(function (data, status) {
-                    new PNotify({
-                        title: status,
-                        text: data,
-                        type: 'error',
-                        hide: true,
-                        addclass: "stack-bottomright"
-                    });
-
-                });
         }
 
-        function Delete(QuestionId) {
-            QuestionService.Delete(questionId)
-                .then(function (response) {
-                    Read();
-                })
-                .catch(function (data, status) {
-                    new PNotify({
-                        title: status,
-                        text: data,
-                        type: 'error',
-                        hide: true,
-                        addclass: "stack-bottomright"
-                    });
-                });
+        function Delete(question) {
+            vm.DeletedQuestions.push(question);
+            var index = vm.Questions.indexOf(question);
+            if (index >= 0)
+                vm.Questions.splice(index, 1);
         }
-
     }
 })();
