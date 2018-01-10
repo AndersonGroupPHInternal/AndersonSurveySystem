@@ -4,7 +4,7 @@ using System.Web.Mvc;
 
 namespace AndersonSurveySystem.Controllers
 {
-    public class SurveyController : /*Base*/Controller
+    public class SurveyController : BaseController
     {
         private IFSurvey _iFSurvey;
         private IFQuestion _iFQuestion;
@@ -28,7 +28,7 @@ namespace AndersonSurveySystem.Controllers
         public ActionResult Create(Survey survey)
         {
             var createdUser = _iFSurvey.Create(SurveyId, survey);
-            _iFQuestion.Create(createdUser.SurveyId, /*CredentialId*/0, survey.Questions);
+            _iFQuestion.Create(createdUser.SurveyId, CredentialId, survey.Questions);
             return RedirectToAction("Index");
         }
         #endregion
@@ -59,7 +59,7 @@ namespace AndersonSurveySystem.Controllers
         {
             var createdUser = _iFSurvey.Update(SurveyId, survey);
             _iFQuestion.Delete(survey.DeletedQuestions);
-            _iFQuestion.Create(createdUser.SurveyId, /*CredentialId*/0, survey.Questions);
+            _iFQuestion.Create(createdUser.SurveyId, CredentialId, survey.Questions);
             return RedirectToAction("Index");
         }
         #endregion
