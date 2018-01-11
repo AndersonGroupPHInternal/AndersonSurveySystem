@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace AndersonSurveySystemEntity
 {
     [Table("Survey")]
-    public class ESurvey: EBase
+    public class ESurvey : EBase
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -16,6 +16,6 @@ namespace AndersonSurveySystemEntity
         public string SurveyName { get; set; }
 
         public ICollection<EAnsweredSurvey> AnsweredSurveys { get; set; }
-        public ICollection<EQuestion> Questions { get; set; }
+        public virtual ICollection<EQuestion> Questions { get; set; }
     }
 }

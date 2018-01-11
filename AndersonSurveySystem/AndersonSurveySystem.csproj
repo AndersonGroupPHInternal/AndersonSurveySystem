@@ -1404,14 +1404,10 @@
     <Content Include="Views\AnsweredSurvey\Answered.cshtml" />
     <Content Include="Views\QuestionResult\Index.cshtml" />
     <Content Include="Views\QuestionResult\List.cshtml" />
-    <Content Include="Views\Question\Create.cshtml" />
-    <Content Include="Views\Question\_Question.cshtml" />
-    <Content Include="Views\Question\Update.cshtml" />
     <Content Include="Views\Survey\Index.cshtml" />
     <Content Include="Views\Survey\Update.cshtml" />
     <Content Include="Views\Survey\Create.cshtml" />
     <Content Include="Views\Survey\_Survey.cshtml" />
-    <Content Include="Views\Question\Index.cshtml" />
     <Content Include="Views\Credential\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

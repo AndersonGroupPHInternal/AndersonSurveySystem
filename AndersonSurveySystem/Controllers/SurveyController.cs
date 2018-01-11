@@ -7,12 +7,14 @@ namespace AndersonSurveySystem.Controllers
     public class SurveyController : BaseController
     {
         private IFSurvey _iFSurvey;
+        private IFQuestion _iFQuestion;
 
         public int SurveyId { get; private set; }
 
-        public SurveyController(IFSurvey iFSurvey)
+        public SurveyController(IFSurvey iFSurvey, IFQuestion iFQuestion)
         {
             _iFSurvey = iFSurvey;
+            _iFQuestion = iFQuestion;
         }
 
         #region Create
@@ -26,6 +28,7 @@ namespace AndersonSurveySystem.Controllers
         public ActionResult Create(Survey survey)
         {
             var createdUser = _iFSurvey.Create(SurveyId, survey);
+            _iFQuestion.Create(createdUser.SurveyId, CredentialId, survey.Questions);
             return RedirectToAction("Index");
         }
         #endregion
@@ -38,9 +41,9 @@ namespace AndersonSurveySystem.Controllers
         }
 
         [HttpPost]
-        public JsonResult Read(int surveyId)
+        public JsonResult Read()
         {
-            return Json(_iFSurvey.Read(surveyId));
+            return Json(_iFSurvey.Read());
         }
         #endregion
 
@@ -55,15 +58,17 @@ namespace AndersonSurveySystem.Controllers
         public ActionResult Update(Survey survey)
         {
             var createdUser = _iFSurvey.Update(SurveyId, survey);
+            _iFQuestion.Delete(survey.DeletedQuestions);
+            _iFQuestion.Create(createdUser.SurveyId, CredentialId, survey.Questions);
             return RedirectToAction("Index");
         }
         #endregion
 
         #region Delete
         [HttpDelete]
-        public JsonResult Delete(Survey survey)
+        public JsonResult Delete(int id)
         {
-            _iFSurvey.Delete(survey);
+            _iFSurvey.Delete(id);
             return Json(string.Empty);
         }
         #endregion

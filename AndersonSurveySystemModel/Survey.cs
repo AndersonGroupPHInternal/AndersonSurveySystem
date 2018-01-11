@@ -9,7 +9,9 @@ namespace AndersonSurveySystemModel
         public string SurveyName { get; set; }
 
         public IEnumerable<AnsweredSurvey> AnsweredSurveys { get; set; }
-        public IEnumerable<Question> Questions { get; set; }
-       
+        //public IEnumerable<Question> Questions { get; set; }
+
+        public List<Question> Questions { get; set; }
+        public List<Question> DeletedQuestions { get; set; }
     }
 }

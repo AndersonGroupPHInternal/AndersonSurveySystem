@@ -10,7 +10,7 @@
     function SurveyController($filter, $window, SurveyService) {
         var vm = this;
 
-        vm.Survey = [];
+        vm.Surveys = [];
 
         vm.GoToUpdatePage = GoToUpdatePage;
         vm.Initialise = Initialise;
@@ -23,70 +23,34 @@
             $window.location.href = '../Survey/Update/' + surveyId;
         }
 
+        function UpdateSurvey(survey) {
+            survey.Survey = $filter('filter')(vm.Survey, { SurveyId: survey.SurveyId })[0];
+        }
+
         function Initialise() {
             Read();
-            ReadSurvey();
         }
 
-        function InitialiseDropdown(surveyId) {
-            vm.SurveyId = surveyId
-            Read();
-
-        }
+        //a
         function ReadSurvey() {
             SurveyService.Read()
                 .then(function (response) {
                     vm.Survey = response.data;
                 })
-                .catch(function (data, status) {
-                    new PNotify({
-                        title: status,
-                        text: data,
-                        type: 'error',
-                        hide: true,
-                        addclass: "stack-bottomright"
-                    });
-
-                });
         }
 
         function Read() {
             SurveyService.Read()
                 .then(function (response) {
                     vm.Survey = response.data;
-                
+
                 })
-                .catch(function (data, status) {
-                    new PNotify({
-                        title: status,
-                        text: data,
-                        type: 'error',
-                        hide: true,
-                        addclass: "stack-bottomright"
-                    });
-
-                });
         }
-
-        function UpdateSurvey(survey) {
-            survey.Survey = $filter('filter')(vm.Survey, { SurveyId: survey.SurveyId })[0];
-        }
-
-        function Delete(SurveyId) {
+        function Delete(surveyId) {
             SurveyService.Delete(surveyId)
                 .then(function (response) {
                     Read();
                 })
-                .catch(function (data, status) {
-                    new PNotify({
-                        title: status,
-                        text: data,
-                        type: 'error',
-                        hide: true,
-                        addclass: "stack-bottomright"
-                    });
-                });
         }
-
     }
 })();
