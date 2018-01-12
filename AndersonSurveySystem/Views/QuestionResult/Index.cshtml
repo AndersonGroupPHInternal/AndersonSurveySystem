@@ -3,6 +3,37 @@
     ViewBag.Title = "Index";
 }
 
+<div class="collapse navbar-collapse">
+    <ul class="nav navbar-nav">
+        <li>
+            <a class="navbar-brand" href="~/Home/Index">
+                <i class="fa fa-home" aria-hidden="true"></i>
+                Home
+            </a>
+        </li>
+        <li>
+            <a class="navbar-brand" href="~/Survey/Index#">
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                Survey
+            </a>
+        </li>
+        <li>
+            <a class="navbar-brand" href="~/Home/About">
+                <i class="fa fa-info " aria-hidden="true"></i>
+                About
+            </a>
+        </li>
+        <li>
+            <a class="navbar-brand" href="~/Credential/Signout">
+                <i class="fa fa-sign-out" aria-hidden="true"></i>
+                Log out
+            </a>
+        </li>
+    </ul>
+</div>
+<br />
+<br />
+
 <div class="row flex">
     <div class="col-xs-8">
         <div ng-controller="QuestionResultController as model" ng-init="model.Initialise()">
