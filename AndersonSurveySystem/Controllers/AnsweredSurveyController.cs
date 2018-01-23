@@ -26,17 +26,14 @@ namespace AndersonSurveySystem.Controllers
             var answeredSurvey = new AnsweredSurvey
             {
                 SurveyId = surveyId,
-
                 Description = description,
                 FirstName = firstName,
                 MiddleName = middleName,
                 LastName = lastName,
                 TicketNumber = ticketNumber,
-
                 Survey = survey
             };
             return View(answeredSurvey);
-
         }
 
         [HttpPost]
@@ -72,7 +69,5 @@ namespace AndersonSurveySystem.Controllers
                 return Json(ex);
             }
         }
-
     }
-
 }

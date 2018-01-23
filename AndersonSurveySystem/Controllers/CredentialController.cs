@@ -20,7 +20,6 @@ namespace AndersonSurveySystem.Controllers
             _iFCredential = iFCredential;
         }
 
-
         #region Read
         [Route("Login")]
         [HttpGet]
@@ -72,6 +71,4 @@ namespace AndersonSurveySystem.Controllers
         }
     }
         #endregion
-
-
     }

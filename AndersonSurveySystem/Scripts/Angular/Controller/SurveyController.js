@@ -11,12 +11,9 @@
         var vm = this;
 
         vm.Surveys = [];
-
         vm.GoToUpdatePage = GoToUpdatePage;
         vm.Initialise = Initialise;
-
         vm.UpdateSurvey = UpdateSurvey;
-
         vm.Delete = Delete;
 
         function GoToUpdatePage(surveyId) {
@@ -31,7 +28,6 @@
             Read();
         }
 
-        //a
         function ReadSurvey() {
             SurveyService.Read()
                 .then(function (response) {
@@ -43,7 +39,6 @@
             SurveyService.Read()
                 .then(function (response) {
                     vm.Survey = response.data;
-
                 })
         }
         function Delete(surveyId) {
