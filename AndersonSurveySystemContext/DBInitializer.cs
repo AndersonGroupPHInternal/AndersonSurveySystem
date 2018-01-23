@@ -66,7 +66,7 @@ namespace AndersonSurveySystemContext
                         SurveyId = eSurvey.SurveyId,
 
                         Description = "Was the Service Desk analyst courteous, friendly and accommodating?",
-                        Name="Courtiousness"
+                        Name="Courteousness"
                     },
                     new EQuestion
                     {
