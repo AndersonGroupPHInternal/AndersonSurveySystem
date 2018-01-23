@@ -10,9 +10,6 @@
                 Home
             </a>
         </li>
-
-      
-
         <li>
             <a class="navbar-brand" href="~/QuestionResult/Index">
                 <i class="fa fa-list" aria-hidden="true"></i>
@@ -54,7 +51,6 @@
                     <tr class="clickableRow" ng-repeat="survey in model.Survey" ng-click="$event.originalEvent.dropdown || model.GoToUpdatePage(survey.SurveyId)">
                         <td><span ng-bind="survey.SurveyId"></span></td>
                         <td><span ng-bind="survey.SurveyName"></span></td>
-
                         <td ng-click="$event.originalEvent.dropdown = true">
                             <div class="dropdown">
                                 <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
