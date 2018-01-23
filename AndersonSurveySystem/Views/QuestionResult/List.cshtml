@@ -15,6 +15,7 @@
 <br />
 <p><center>List of Survey</center></p>
 <br />
+
 <div ng-app="myapp">
     <div ng-controller="AnsweredSurveyController as model" ng-init="model.Initialise()">
         <div class="row">
@@ -31,6 +32,7 @@
                         </tr>
                     </thead>
                     <tbody>
+
                         <tr class="clickableRow" ng-repeat="answeredsurvey in model.AnsweredSurvey" ng-click="$event.originalEvent.dropdown || model.AndersonSurvey(survey.SurveyId)">
                             <td><span ng-bind="answeredsurvey.SurveyID"></span></td>
                             <td><span ng-bind="answeredsurvey.Description"></span></td>

@@ -2,9 +2,6 @@
 
 <div class="form-group">
     <label>Survey</label>
-
-
-
     <input type="text" class="form-control" name="SurveyName" placeholder="Survey" value="@Model.SurveyName" />
 </div>
 <div class="form-group">
@@ -23,8 +20,6 @@
                 </button>
             </div>
         </div>
-
-
         <input type="hidden" name="Questions[{{$index}}].QuestionId" ng-value="question.QuestionId" />
     </div>
 
@@ -33,6 +28,5 @@
         <input type="hidden" name="DeletedQuestions[{{$index}}].QuestionId" ng-value="question.QuestionId" />
         <input type="hidden" name="DeletedQuestions[{{$index}}].Description" ng-value="question.Description" />
     </div>
-
     <input type="button" ng-click="model.Create()" class="btn btn-primary" value="Add Question" />
 </div>
