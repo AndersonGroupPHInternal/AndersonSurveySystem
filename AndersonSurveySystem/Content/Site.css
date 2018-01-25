@@ -28,4 +28,8 @@
     max-width: 100px;
     margin-top: -25px;
 }
+
+.alert {
+    width:300px;
+}
 /*Navbar*/

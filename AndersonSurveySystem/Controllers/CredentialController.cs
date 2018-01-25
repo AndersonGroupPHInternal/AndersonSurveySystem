@@ -20,7 +20,6 @@ namespace AndersonSurveySystem.Controllers
             _iFCredential = iFCredential;
         }
 
-
         #region Read
         [Route("Login")]
         [HttpGet]
@@ -53,7 +52,10 @@ namespace AndersonSurveySystem.Controllers
                     credentialCookies["CredentialId"] = encryptedId;
                     credentialCookies.Expires = DateTime.Now.AddHours(24);
                     Response.Cookies.Add(credentialCookies);
-                    return Redirect("~/Home");
+                    return Redirect("~/Home"); 
+                }
+                else if (!isLogin){
+                    ModelState.AddModelError("", "Incorrect username or password.");
                 }
                 return View();
             }
@@ -72,6 +74,4 @@ namespace AndersonSurveySystem.Controllers
         }
     }
         #endregion
-
-
     }

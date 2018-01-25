@@ -6,6 +6,7 @@ namespace AndersonSurveySystem.Controllers
     {
         public HomeController()
         {
+
         }
 
         public ActionResult Index()

@@ -18,7 +18,6 @@ namespace AndersonSurveySystem.Controllers
         [HttpPost]
         public JsonResult Read(QuestionResultFilter questionResultFilter)
         {
-
             try
             {
                 var answeredQuestions = _iFAnsweredQuestion.Read(questionResultFilter);

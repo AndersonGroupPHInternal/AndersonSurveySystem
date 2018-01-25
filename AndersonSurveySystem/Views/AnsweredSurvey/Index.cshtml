@@ -3,45 +3,34 @@
     int questionCounter = 0;
 
 }
-
 <br />
 <br />
     <div class="col-sm-offset-3">
     <b>Dear @Model.FirstName ,</b>
     </div>
-
-
     <p>
         <br>
         <div class="col-sm-offset-3">
             Thank you for giving us the opportunity to provide assistance.
         </div>
 </p>
-
-
     <p>
         <div class="col-sm-offset-3">
             Please help us by taking a few minutes let us know the service experience that you have received so far.
         </div>
 </p>
-
     <p>
         <div class="col-sm-offset-3">
             Your feedback is highly appreciated and will definitely help the ITSL Service Desk meet your expectations.
         </div>
 </p>
-
     <br>
     <hr style="height:1px;border:none;color:#333;background-color:#333;" />
     <br>
-
     <b>Ticket Number: @Model.TicketNumber </b><br />
     <b>Description: @Model.Description </b>
-
     <br><br><br>
     <p><b>Please rate your expectations below where 1 is the lowest and 10 is the highest.</b></p><br>
-
-
     <form method="post" action="~/AnsweredSurvey/Create">
         <input type="hidden" name="answeredSurvey.SurveyId" value=@Model.SurveyId>
         <input type="hidden" name="answeredSurvey.Description" value=@Model.Description>
@@ -49,7 +38,6 @@
         <input type="hidden" name="answeredSurvey.MiddleName" value=@Model.MiddleName>
         <input type="hidden" name="answeredSurvey.LastName" value=@Model.LastName>
         <input type="hidden" name="answeredSurvey.TicketNumber" value=@Model.TicketNumber>
-
         <table class="table table-hover table-sm table-bordered ">
             <thead>
                 <tr class="active">
@@ -59,7 +47,6 @@
                 </tr>
             </thead>
             <tbody>
-
                 @foreach (var question in Model.Survey.Questions)
             {
                     <tr>
@@ -72,13 +59,11 @@
                         </td>
                         <td>
                             <input type="number" name="answeredSurvey.AnsweredQuestions[@questionCounter].Answer" value="1" min="1" max="10" />
-
                         </td>
                     </tr>
                     questionCounter += 1;
                 }
             </tbody>
         </table>
-
         <input type="submit" class="btn btn-success" />
     </form>
